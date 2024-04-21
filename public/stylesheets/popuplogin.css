@@ -1,0 +1,31 @@
+body {
+  margin: 0px;
+  min-height: 100vh;
+}
+
+.popup-containerr, .popup-containerl {
+  display: flex;
+  background: rgba(0, 0, 0, 0.3);
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  opacity: 0;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vh;
+}
+
+.show {
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.modal {
+  background: white;
+  width: 600px;
+  max-width: 100vh;
+  padding: 30px 50px;
+  border-radius: 5px;
+}/*# sourceMappingURL=popuplogin.css.map */

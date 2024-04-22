@@ -7,24 +7,15 @@
   <body>
     
     <button href="" id="openl">login</button>
-    <button href="" id="openr">register</button>
+    <button href="/a" id="openr">register</button>
+    
 
 
-    <div class="popup-containerl" id="popup_containerl">
-        <div class="modal">
-          <h1>LOGIN</h1>
-          <button id="close">Loguearse</button>
-        </div>
-    </div>
+    <%- include("popuplogin.ejs") %>
 
-  <div class="popup-containerr" id="popup_containerr">
-      <div class="modal">
-        <h1>REGISTER</h1>
-        <button id="closer">Registrarse</button>
-      </div>
-  </div>
+    <%- include("popupregister.ejs") %>
 
-    </div>
+  
 
     <script src="/javascripts/popup.js"></script>
   </body>

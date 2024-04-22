@@ -3,6 +3,13 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const {engine} = require("express-handlebars")
+const myconnection = require("express-myconnection")
+const bcryptjs = require("bcryptjs")
+const session = require("express-session")
+const bodyParser = require("cookie-parser")
+const connection = require("./db")
+
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
@@ -37,5 +44,14 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
+app.use(session({
+  secret:"secret",
+  resave: true,
+  saveUninitialized: true
+}))
+
+
 
 module.exports = app;

@@ -1,21 +1,27 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/popuplogin.css'/>
+    <link rel='stylesheet' href='/stylesheets/index.css'/>
   </head>
   <body>
+
+    <!-- <img src="/images/logo.png" alt="logo"> -->
+
+    <%- include("./popuplogin.ejs")  %>
+
+    <div class="container">
+      <div class="container-titulo">
+        <h1>Bienvenido a <h1 class="wedgo">Weedgo</h1></h1>
+      </div>
+      <div class="buttons">
+        <button id="openl">login</button>
+        <button><a href="/register">Register</a></button>
+      </div>
+    </div>
+
+
     
-    <button href="" id="openl">login</button>
-    <button href="/a" id="openr">register</button>
-    
-
-
-    <%- include("popuplogin.ejs") %>
-
-    <%- include("popupregister.ejs") %>
-
-  
 
     <script src="/javascripts/popup.js"></script>
   </body>

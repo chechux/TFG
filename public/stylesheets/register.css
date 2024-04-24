@@ -1,0 +1,17 @@
+.register-form {
+  width: 400px;
+  margin: 0 auto;
+  padding: 0px 20px 60px 20px;
+  margin-top: 35px;
+  font-family: roboto;
+  text-align: left !important;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ced4da;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}/*# sourceMappingURL=register.css.map */

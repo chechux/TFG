@@ -13,8 +13,8 @@ body {
   pointer-events: none;
   top: 0;
   left: 0;
-  height: 100vh;
-  width: 100vh;
+  height: 100%;
+  width: 100%;
 }
 
 .show {
@@ -24,8 +24,48 @@ body {
 
 .modal {
   background: white;
-  width: 600px;
-  max-width: 100vh;
+  width: 420px;
+  height: 50%;
   padding: 30px 50px;
   border-radius: 5px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ced4da;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+.btn-login {
+  width: 100%;
+  padding: 15px;
+  background: #6f42c1;
+  border: 0;
+  box-sizing: border-box;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: large;
+  color: white;
+}
+
+#close {
+  display: flex;
+  color: red;
+  width: 100%;
+  justify-content: flex-end;
+  font-size: 21px;
+  font-weight: bold;
+}
+#close:hover {
+  cursor: pointer;
 }/*# sourceMappingURL=popuplogin.css.map */

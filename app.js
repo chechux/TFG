@@ -5,10 +5,10 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const {engine} = require("express-handlebars")
 const myconnection = require("express-myconnection")
-const bcryptjs = require("bcryptjs")
 const session = require("express-session")
 const bodyParser = require("cookie-parser")
-const connection = require("./db")
+const connection = require("./database/db")
+
 
 
 const indexRouter = require('./routes/index');

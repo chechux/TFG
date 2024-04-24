@@ -26,13 +26,45 @@ router.post("/register",async (req,res,next)=>{
 
     let passHaash=await bcryptjs.hash(pass, 8)
     connection.query('INSERT INTO usuarios SET ?',{username:username, pass:passHaash, gmail:gmail, edad:edad},async(error,resutls)=>{
-      if(error){
-        console.log(error)
+      if(req.body.edad < 18){
+        res.render("index",{
+          alert: true,
+          alertTitle:"Menor de edad",
+          alertMessage:"¡Hay que ser mayor de edad para entrar aqui!",
+          alertIcon:"warning",
+          showConfirmButton:true,
+          timer:3000,
+          ruta:""
+        })
       }else{
         res.render("register",{
-          alert
+          alert: true,
+          alertTitle:"registrado",
+          alertMessage:"¡Registrado correctamente!",
+          alertIcon:"success",
+          showConfirmButton:false,
+          timer:2000,
+          ruta:""
         })
       }
     })
 })
+
+router.post("/",async(req,res)=>{
+  const user = req.body.user
+  const pass = req.body.pass
+  let passHaash = await bcryptjs.hash(pass, 8)
+  if(user && pass){
+    connection.query('SELECT * FROM usuarios WHERE username = ?',[user], async(error,resutls)=>{
+      if(resutls.length == 0 || !(await bcryptjs.compare(pass, resutls[0].pass))){
+        res.send("usuario o password incorrecta")
+      }else{
+        res.send("login correcto")
+      }
+    })
+  }
+})
+
+
+
 module.exports = router;

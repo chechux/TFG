@@ -44,7 +44,7 @@ router.post("/register",async (req,res,next)=>{
         alertIcon:"warning",
         showConfirmButton:true,
         timer:1500,
-        ruta:""
+        ruta:"/localhost:3000"
       })
 
     
@@ -55,8 +55,8 @@ router.post("/register",async (req,res,next)=>{
       alertMessage:"¡No puedes tener edad negativa!",
       alertIcon:"question",
       showConfirmButton:true,
-      timer:2000,
-      ruta:""
+      timer:3000,
+      ruta:"/localhost:3000/register"
     })
   }else if(req.body.edad == 0){
     res.render("register",{
@@ -65,8 +65,8 @@ router.post("/register",async (req,res,next)=>{
       alertMessage:"¡No puedes tener 0 años!",
       alertIcon:"question",
       showConfirmButton:true,
-      timer:2000,
-      ruta:""
+      timer:3000,
+      ruta:"/localhost:3000/register"
     })
   }else{
     connection.query('INSERT INTO usuarios SET ?',{username:username, pass:passHaash, gmail:gmail, edad:edad},async(error,resutls)=>{
@@ -77,7 +77,7 @@ router.post("/register",async (req,res,next)=>{
         alertMessage:"¡Registrado correctamente!",
         alertIcon:"success",
         showConfirmButton:false,
-        timer:2000,
+        timer:3000,
         ruta:""
       })
     }
@@ -109,7 +109,7 @@ router.post("/login",async(req,res)=>{
         alertMessage:"¡Logueado correctamente!",
         alertIcon:"success",
         showConfirmButton:false,
-        timer:1500,
+        timer:2500,
         ruta:"/localhost:3000/main"
       })
   }})}

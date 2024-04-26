@@ -6,7 +6,10 @@ const connection = require("../database/db")
 
 /* GET home page. */
 router.get('/', (req, res, next)=>{
-  res.render('index');
+  if(req.originalUrl === "/"){
+    return res.redirect("/login")
+  }
+  next()
 });
 
 
@@ -18,6 +21,14 @@ router.get("/popupLogin",(req,res,next)=>{
   res.render("popuplogin")
 })
 
+router.get("/main",(req,res,next)=>{
+  res.render("main")
+})
+
+router.get("/login",(req,res,next)=>{
+  res.render("login")
+})
+
 router.post("/register",async (req,res,next)=>{
     const username = req.body.username;
     const pass = req.body.pass;
@@ -25,44 +36,83 @@ router.post("/register",async (req,res,next)=>{
     const edad = req.body.edad;
 
     let passHaash=await bcryptjs.hash(pass, 8)
-    connection.query('INSERT INTO usuarios SET ?',{username:username, pass:passHaash, gmail:gmail, edad:edad},async(error,resutls)=>{
-      if(req.body.edad < 18){
-        res.render("index",{
-          alert: true,
-          alertTitle:"Menor de edad",
-          alertMessage:"¡Hay que ser mayor de edad para entrar aqui!",
-          alertIcon:"warning",
-          showConfirmButton:true,
-          timer:3000,
-          ruta:""
-        })
-      }else{
-        res.render("register",{
-          alert: true,
-          alertTitle:"registrado",
-          alertMessage:"¡Registrado correctamente!",
-          alertIcon:"success",
-          showConfirmButton:false,
-          timer:2000,
-          ruta:""
-        })
-      }
+    if(0 < req.body.edad && req.body.edad < 18){
+      res.render("register",{
+        alert: true,
+        alertTitle:"Menor de edad",
+        alertMessage:"¡Hay que ser mayor de edad para entrar aqui!",
+        alertIcon:"warning",
+        showConfirmButton:true,
+        timer:1500,
+        ruta:""
+      })
+
+    
+  }else if (req.body.edad <0){
+    res.render("register",{
+      alert: true,
+      alertTitle:"edad negativa",
+      alertMessage:"¡No puedes tener edad negativa!",
+      alertIcon:"question",
+      showConfirmButton:true,
+      timer:2000,
+      ruta:""
     })
+  }else if(req.body.edad == 0){
+    res.render("register",{
+      alert: true,
+      alertTitle:"0 años",
+      alertMessage:"¡No puedes tener 0 años!",
+      alertIcon:"question",
+      showConfirmButton:true,
+      timer:2000,
+      ruta:""
+    })
+  }else{
+    connection.query('INSERT INTO usuarios SET ?',{username:username, pass:passHaash, gmail:gmail, edad:edad},async(error,resutls)=>{
+        
+      res.render("register",{
+        alert: true,
+        alertTitle:"registrado",
+        alertMessage:"¡Registrado correctamente!",
+        alertIcon:"success",
+        showConfirmButton:false,
+        timer:2000,
+        ruta:""
+      })
+    }
+  )}
 })
 
-router.post("/",async(req,res)=>{
-  const user = req.body.user
+
+
+router.post("/login",async(req,res)=>{
+  const username = req.body.username
   const pass = req.body.pass
   let passHaash = await bcryptjs.hash(pass, 8)
-  if(user && pass){
-    connection.query('SELECT * FROM usuarios WHERE username = ?',[user], async(error,resutls)=>{
+  if(username && pass){
+    connection.query('SELECT * FROM usuarios WHERE username = ?',[username], async(error,resutls)=>{
       if(resutls.length == 0 || !(await bcryptjs.compare(pass, resutls[0].pass))){
-        res.send("usuario o password incorrecta")
-      }else{
-        res.send("login correcto")
-      }
-    })
-  }
+        res.render("login",{
+          alert: true,
+          alertTitle:"Error",
+          alertMessage:"¡usuario y/o contraseña incorrecta!",
+          alertIcon:"error",
+          showConfirmButton:false,
+          timer:7500,
+          ruta:""
+        })
+    }else{
+      res.render("popuplogin",{
+        alert: true,
+        alertTitle:"Logueado",
+        alertMessage:"¡Logueado correctamente!",
+        alertIcon:"success",
+        showConfirmButton:false,
+        timer:1500,
+        ruta:"/localhost:3000/main"
+      })
+  }})}
 })
 
 

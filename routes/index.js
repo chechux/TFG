@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const bcryptjs = require("bcryptjs");
 const connection = require("../database/db")
+const session = require("express-session")
 
 
 /* GET home page. */
@@ -17,17 +18,25 @@ router.get("/register",(req,res,next)=>{
   res.render("register")
 })
 
-router.get("/popupLogin",(req,res,next)=>{
-  res.render("popuplogin")
-})
+
 
 router.get("/main",(req,res,next)=>{
   res.render("main")
 })
 
+
 router.get("/login",(req,res,next)=>{
   res.render("login")
 })
+
+router.get("/logout",(req,res,next)=>{
+  req.session.destroy((err)=>{
+    res.redirect("/login")
+  })
+  
+})
+
+
 
 router.post("/register",async (req,res,next)=>{
     const username = req.body.username;
@@ -114,6 +123,7 @@ router.post("/login",async(req,res)=>{
       })
   }})}
 })
+
 
 
 

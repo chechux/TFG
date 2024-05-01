@@ -16,6 +16,5 @@ CREATE TABLE productos(
     nombre VARCHAR(30) NOT NULL,
     descrip TEXT NOT NULL,
     cantidad INT,
-    user_id INT,
-    CONSTRAINT fk_user FOREIGN KEY (user_id) REFERENCES usuarios(id)
+    imagen varchar(100)
 )

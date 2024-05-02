@@ -12,9 +12,20 @@ router.get('/', (req, res, next)=>{
   next()
 });
 
+router.get("/popuplogin",(req,res,next)=>{
+  console.log("entra")
+})
 
 router.get("/register",(req,res,next)=>{
   res.render("register")
+})
+
+router.get("/tablas",(req,res,next)=>{
+  res.render("tablas")
+})
+
+router.get("/crearTabla",(req,res,next)=>{
+  console.log("entra")
 })
 
 
@@ -22,6 +33,7 @@ router.get("/register",(req,res,next)=>{
 router.get("/main", async (req,res,next)=>{
   const [producto] = await connection.query('SELECT * FROM productos')
   res.render("main",{producto})
+  console.log(producto)
 })
 
 

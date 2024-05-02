@@ -3,11 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='/stylesheets/main.css'>
     <title>Document</title>
 </head>
 <body>
+    <a href="/tablas">Tablas</a>
+    <section class="productos">
     <% producto.forEach(item => { %>
-        <h1><%= item.nombre %></h1>
-        <% }); %>
+        <div class="container">
+            <div class="producto">
+                <img > 
+                <h1><%= item.nombre %></h1>
+                <h1><%= item.descrip %></h1>
+                <button>Comprar</button>
+            </div>
+        </div>
+    <% }); %>
+    </section>
 </body>
 </html>

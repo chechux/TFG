@@ -22,6 +22,18 @@ body {
   z-index: 100;
 }
 
+#popup2 {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #ccc;
+  z-index: 100;
+}
+
 .fondo-opaco {
   background-color: rgb(5, 46, 22);
 }
@@ -78,18 +90,6 @@ button:hover {
   color: white;
 }
 
-#popup {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: white;
-  padding: 20px;
-  border: 1px solid #ccc;
-  z-index: 100;
-}
-
 form {
   display: flex;
   flex-direction: column;
@@ -124,5 +124,17 @@ input {
   font-weight: bold;
 }
 #close:hover {
+  cursor: pointer;
+}
+
+#closeR {
+  display: flex;
+  color: red;
+  width: 100%;
+  justify-content: flex-end;
+  font-size: 21px;
+  font-weight: bold;
+}
+#closeR:hover {
   cursor: pointer;
 }/*# sourceMappingURL=login.css.map */

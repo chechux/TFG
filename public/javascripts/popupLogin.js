@@ -12,3 +12,21 @@ function cerrarPopup() {
         history.back();
         document.body.classList.remove('fondo-opaco')
 }
+
+
+
+function abrirPopupR() {
+    history.pushState(null, null, 'popupRegister');
+    window.location = 'popupRegister'
+    const popup = document.getElementById('popup2')
+    popup.style.display = 'block';
+    document.body.classList.add('fondo-opaco')
+}
+
+function cerrarPopupR() {
+
+        document.getElementById('popup2').style.display = 'none';
+        history.back();
+        document.body.classList.remove('fondo-opaco')
+}
+

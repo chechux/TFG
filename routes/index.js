@@ -16,6 +16,10 @@ router.get("/popuplogin",(req,res,next)=>{
   console.log("entra")
 })
 
+router.get("/popupRegister",(req,res,next)=>{
+  console.log("entra")
+})
+
 router.get("/register",(req,res,next)=>{
   res.render("register")
 })
@@ -50,13 +54,12 @@ router.post('/register', async (req, res) => {
   
 
   if(0 < req.body.edad && req.body.edad > 18){
-    res.redirect("/login");
-    console.log(req.body.edad)
+    res.redirect("/main");
     const [result] = await connection.execute('INSERT INTO usuarios (username, pass, gmail, edad) VALUES (?, ?, ?, ?)', [username, pass,gmail,edad]);
     
     
   }else{
-    res.render("register")
+    res.redirect("/")
   }
   
 });

@@ -15,7 +15,7 @@
       </div>
       <div class="buttons">
         <button onclick="abrirPopup()">login</button>
-        <button><a href="/register">Register</a></button>
+        <button onclick="abrirPopupR()">Registrarse</button>
       </div>
     </div>
 
@@ -32,6 +32,39 @@
     </form>
     <p>Sino tienes cuenta registrate <a href="register" class="btn-register">aqui</a></p>
   </div>
+
+
+
+
+
+
+
+
+
+
+
+  <div id="popup2">
+    <h1>Registrarse</h1>
+    <button onclick="cerrarPopupR()"><i id="close" class="fa-solid fa-xmark"></i></button>
+    <form action="register" method="POST">
+        <label for="username">User name</label>
+        <input type="text" name="username" id="" required>
+
+        <label for="pass">Contraseña</label>
+        <input type="password" name="pass" id="" required>
+
+        <label for="">Gmail</label>
+        <input type="email" name="gmail" id="" required>
+
+
+        <input placeholder="Edad..." type="number" name="edad" id="" required>
+
+
+        <div style="display: inline">
+            <input type="submit" class="btn-save" value="Save">
+        </div>
+    </form>
+</div>
 
     
 

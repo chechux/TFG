@@ -1,0 +1,18 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/editar/<%= tabla.id %>" method="POST">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="nombre" placeholder="nuevo nombre..." autofocus value="<%= tabla.nombre %>">
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-success btn-block">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -46,6 +46,21 @@ router.get("/login",(req,res,next)=>{
   res.render("login")
 })
 
+router.get("/editar/:id",async (req,res,next)=>{
+  const {id} = req.params
+  const [tabla] = await connection.query('SELECT * FROM listas WHERE id=?',[id])
+  res.render("edit",{tabla:tabla[0]})
+  console.log(tabla)
+
+})
+
+router.post("/editar/:id",async(req,res,next)=>{
+  const {id} = req.params
+  const {nombre} = req.body
+  const new_nombre ={nombre}
+  await connection.query('UPDATE listas SET ? WHERE id =?',[new_nombre,id])
+  res.redirect("/tablas")
+})
 
 
 router.post('/register', async (req, res) => {

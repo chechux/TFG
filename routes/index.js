@@ -63,6 +63,12 @@ router.post("/editar/:id",async(req,res,next)=>{
 })
 
 
+router.get('/delete/:id', async (req, res) => {
+  const {id} = req.params
+  await connection.query('DELETE FROM listas WHERE id = ?', [id])
+  res.redirect("/tablas")
+})
+
 router.post('/register', async (req, res) => {
 
   const { username, pass, gmail, edad } = req.body;

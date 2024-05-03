@@ -17,7 +17,7 @@
     <div>
         <h1><%= item.nombre %></h1>
         <a id="eliminar" href="/editar/<%=item.id%>">Editar</a>
-        <a id="eliminar">Eliminar</a>
+        <a id="eliminar" href="/delete/<%= item.id  %>">Eliminar</a>
     </div>
     <% }); %>
 

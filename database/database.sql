@@ -18,3 +18,4 @@ CREATE TABLE productos(
     cantidad INT,
     imagen varchar(100)
 )
+

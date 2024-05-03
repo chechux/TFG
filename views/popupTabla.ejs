@@ -9,8 +9,12 @@
 <body>
     <div id="popup">
         <h2>Contenido del Popup</h2>
-        <p>Este es el contenido del popup.</p>
-        <button onclick="cerrarPopup()">Cerrar Popup</button>
+        <form action="/crearTabla" method="post">
+            <input type="text" placeholder="Nombre de la lista..." name="nombre">
+            <button type="submit">Crear</button>
+            <button onclick="cerrarPopup()">Cerrar Popup</button>
+        </form>
+        
     </div>
 
 <script src="/javascripts/popupTabla.js"></script>

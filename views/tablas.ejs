@@ -9,7 +9,17 @@
 <body>
 
 <%- include("./popupTabla.ejs")  %>
-<h1>no tienes ninfyna tabla, crea una pulsando<button onclick="abrirPopup()">aqui</button></h1>
+<% if(fila.length <= 0) { %>
+    <h1>no tienes ninfyna tabla, crea una pulsando<button onclick="abrirPopup()">aqui</button></h1>
+<% } %>
+
+<% fila.forEach(item => { %>
+    <div>
+        <h1><%= item.nombre %></h1>
+    </div>
+    <% }); %>
+
+<h1> pulsa <button onclick="abrirPopup()">aqui</button> para crear otra</h1>
 
 
 

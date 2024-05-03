@@ -24,8 +24,9 @@ router.get("/register",(req,res,next)=>{
   res.render("register")
 })
 
-router.get("/tablas",(req,res,next)=>{
-  res.render("tablas")
+router.get("/tablas",async(req,res,next)=>{
+  const [fila] = await connection.query('SELECT * FROM listas')
+  res.render("tablas",{fila})
 })
 
 router.get("/crearTabla",(req,res,next)=>{
@@ -80,7 +81,13 @@ router.post('/login', async (req, res) => {
 });
   
 
+router.post("/crearTabla",async(req,res,next)=>{
+  const nombre = req.body.nombre
+  await connection.execute('INSERT INTO listas (nombre) VALUES (?)',[nombre])
 
+  res.redirect("/tablas")
+  console.log(nombre)
+})
 
 
 module.exports = router;

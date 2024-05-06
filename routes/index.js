@@ -4,6 +4,7 @@ const bcryptjs = require("bcryptjs");
 const connection = require("../database/db")
 
 
+
 /* GET home page. */
 router.get('/', (req, res, next)=>{
   if(req.originalUrl === "/"){
@@ -37,8 +38,8 @@ router.get("/crearTabla",(req,res,next)=>{
 
 router.get("/main", async (req,res,next)=>{
   const [producto] = await connection.query('SELECT * FROM productos')
+  const [listas] = await connection.query('SELECT * FROM listas')
   res.render("main",{producto})
-  console.log(producto)
 })
 
 
@@ -68,6 +69,50 @@ router.get('/delete/:id', async (req, res) => {
   await connection.query('DELETE FROM listas WHERE id = ?', [id])
   res.redirect("/tablas")
 })
+
+
+router.get("/add/:id",async(req,res)=>{
+  console.log(req.params)
+  const id_producto = req.params.id;
+  const [listas] = await connection.query('SELECT * FROM listas')
+  res.render("add",{listas,id_producto})
+
+})
+
+router.post("/add/:id",(req,res,next)=>{
+  const id_producto = req.params.id
+  const listasJson = req.body.listas
+  const listas = JSON.parse(listasJson)
+  console.log(id_producto, listas[0].id)
+  
+  res.redirect("/main")
+ 
+  
+})
+
+
+// listas.forEach(lista => {
+  //   console.log(lista.id);
+  // })
+ // await connection.query('INSERT INTO listas_productos')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 router.post('/register', async (req, res) => {
 

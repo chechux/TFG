@@ -15,7 +15,7 @@
                 <img src=<%= item.imagen%>> 
                 <h1><%= item.nombre %></h1>
                 <h1><%= item.descrip %></h1>
-                <button>Comprar</button>
+                <a href="/add/<%= item.id  %>">Comprar</a>
             </div>
         </div>
     <% }); %>

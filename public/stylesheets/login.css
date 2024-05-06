@@ -20,6 +20,44 @@ body {
   padding: 20px;
   border: 1px solid #ccc;
   z-index: 100;
+  transition: 2s ease all;
+}
+#popup button {
+  background: white;
+  width: 100%;
+  justify-content: flex-end;
+  display: flex;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+#popup .btn-login {
+  width: 100%;
+  padding: 15px;
+  background: #6f42c1;
+  border: 0;
+  box-sizing: border-box;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: large;
+  color: white;
+  transition: 0.3s ease all;
+}
+#popup .btn-login:hover {
+  background: rgba(86, 10, 226, 0.9176470588);
+}
+#popup h1 {
+  opacity: 0;
+  animation: entrada 0.8s ease 0.5s forwards;
+}
+#popup #username, #popup #pass {
+  opacity: 0;
+  animation: entradaInputs 1s ease 1s forwards;
+}
+#popup #boton {
+  opacity: 0;
+  animation: entradaBoton 1.4s ease 1s forwards;
 }
 
 #popup2 {
@@ -32,6 +70,34 @@ body {
   padding: 20px;
   border: 1px solid #ccc;
   z-index: 100;
+  width: 20%;
+}
+#popup2 button {
+  background: white;
+  width: 100%;
+  justify-content: flex-end;
+  display: flex;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+#popup2 #username, #popup2 #pass, #popup2 #edad, #popup2 #email, #popup2 label {
+  opacity: 0;
+  animation: entradaInputs 1s ease 1s forwards;
+}
+#popup2 h1 {
+  opacity: 0;
+  animation: entrada 0.8s ease 0.5s forwards;
+}
+#popup2 #boton2 {
+  cursor: pointer;
+  opacity: 0;
+  animation: entradaBoton 1.4s ease 1s forwards;
+}
+#popup2 #boton2:hover {
+  background: orange;
+  transition: 0.6s ease all;
 }
 
 .fondo-opaco {
@@ -49,35 +115,11 @@ h1 {
 
 .wedgo {
   margin-left: 11px;
-  animation-name: aparecer;
-  animation-duration: 2s;
 }
 
-@keyframes aparecer {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
 .buttons {
   display: flex;
   justify-content: center;
-}
-
-button {
-  padding: 10px 20px;
-  margin: 0 10px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: #ddd;
 }
 
 .login-btn {
@@ -103,38 +145,44 @@ input {
   box-sizing: border-box;
 }
 
-.btn-login {
-  width: 100%;
-  padding: 15px;
-  background: #6f42c1;
-  border: 0;
-  box-sizing: border-box;
-  cursor: pointer;
-  font-weight: bold;
-  font-size: large;
-  color: white;
-}
-
 #close {
   display: flex;
-  color: red;
-  width: 100%;
+  color: #bbbbbb;
   justify-content: flex-end;
   font-size: 21px;
   font-weight: bold;
+  transition: 0.3s ease all;
 }
 #close:hover {
   cursor: pointer;
+  color: red;
 }
 
-#closeR {
-  display: flex;
-  color: red;
-  width: 100%;
-  justify-content: flex-end;
-  font-size: 21px;
-  font-weight: bold;
+@keyframes entrada {
+  0% {
+    transform: translateY(-25px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
-#closeR:hover {
-  cursor: pointer;
+@keyframes entradaInputs {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes entradaBoton {
+  0% {
+    transform: translateY(25px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }/*# sourceMappingURL=login.css.map */

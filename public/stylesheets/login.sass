@@ -20,6 +20,39 @@ body
     padding: 20px
     border: 1px solid #ccc
     z-index: 100
+    transition: 2s ease all
+    button
+      background: white
+      width: 100%
+      justify-content: flex-end
+      display: flex
+      border: none
+      border-radius: 5px
+      font-size: 1rem
+      transition: background-color 0.3s ease
+    .btn-login
+      width: 100%
+      padding: 15px
+      background: #6f42c1
+      border: 0
+      box-sizing: border-box
+      cursor: pointer
+      font-weight: bold
+      font-size: large
+      color: white
+      transition: .3s ease all
+      &:hover
+        background: #560ae2ea
+    h1
+      opacity: 0
+      animation: entrada .8s ease .5s forwards
+    #username, #pass
+      opacity: 0
+      animation: entradaInputs 1s ease 1s forwards
+    #boton
+      opacity: 0
+      animation: entradaBoton 1.4s ease 1s forwards
+
 
 
 
@@ -33,6 +66,32 @@ body
     padding: 20px
     border: 1px solid #ccc
     z-index: 100
+    width: 20%
+    button
+      background: white
+      width: 100%
+      justify-content: flex-end
+      display: flex
+      border: none
+      border-radius: 5px
+      font-size: 1rem
+      transition: background-color 0.3s ease
+    #username, #pass, #edad, #email, label
+      opacity: 0
+      animation: entradaInputs 1s ease 1s forwards
+    h1
+      opacity: 0
+      animation: entrada .8s ease .5s forwards
+    #boton2
+      cursor: pointer
+      opacity:0
+      animation: entradaBoton 1.4s ease 1s forwards
+      &:hover
+        background: orange
+        transition: .6s ease all
+
+
+      
 
 .fondo-opaco 
     background-color: rgb(5, 46, 22)
@@ -47,34 +106,11 @@ h1
 
 .wedgo
     margin-left: 11px
-    animation-name: aparecer
-    animation-duration: 2s
-
-
-@keyframes aparecer
-  0%
-    opacity: 0
-  100%
-    opacity: 1
 
 
 .buttons
   display: flex
   justify-content: center
-
-
-button
-  padding: 10px 20px
-  margin: 0 10px
-  border: none
-  border-radius: 5px
-  cursor: pointer
-  font-size: 1rem
-  transition: background-color 0.3s ease
-
-
-button:hover 
-  background-color: #ddd
 
 
 .login-btn 
@@ -98,34 +134,42 @@ input
     margin-bottom: 10px
     box-sizing: border-box
 
-.btn-login
-    width: 100%
-    padding: 15px
-    background: #6f42c1
-    border: 0
-    box-sizing: border-box
-    cursor: pointer
-    font-weight: bold
-    font-size: large
-    color: white
+
 
 #close
     display: flex
-    color: red
-    width: 100%
+    color: #bbbbbb
     justify-content: flex-end
     font-size: 21px
     font-weight: bold
+    transition: .3s ease all
     &:hover
         cursor: pointer
+        color: red
 
-#closeR
-    display: flex
-    color: red
-    width: 100%
-    justify-content: flex-end
-    font-size: 21px
-    font-weight: bold
-    &:hover
-        cursor: pointer
 
+
+
+
+@keyframes entrada
+  0%
+    transform: translateY(-25px)
+    opacity: 0
+  100%
+    transform: translateY(0)
+    opacity: 1
+    
+@keyframes entradaInputs
+  0%
+    opacity: 0
+  100%
+    opacity: 1
+
+@keyframes entradaBoton
+  0%
+    transform: translateY(25px)
+    opacity: 0
+  100%
+    transform: translateY(0)
+    opacity: 1
+    

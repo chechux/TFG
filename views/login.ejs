@@ -35,33 +35,27 @@
 
 
 
-
-
-
-
-
-
-
+  
 
   <div id="popup2">
-    <h1>Registrarse</h1>
     <button onclick="cerrarPopupR()"><i id="close" class="fa-solid fa-xmark"></i></button>
+    <h1 id ="titulo">Registrarse</h1>
     <form action="register" method="POST">
         <label for="username">User name</label>
-        <input type="text" name="username" id="" required>
+        <input type="text" name="username" id="username" required>
 
         <label for="pass">Contraseña</label>
-        <input type="password" name="pass" id="" required>
+        <input type="password" name="pass" id="pass" required>
 
         <label for="">Gmail</label>
-        <input type="email" name="gmail" id="" required>
+        <input type="email" name="gmail" id="email" required>
 
 
-        <input placeholder="Edad..." type="number" name="edad" id="" required>
+        <input placeholder="Edad..." type="number" name="edad" id="edad" required>
 
 
         <div style="display: inline">
-            <input type="submit" class="btn-save" value="Save">
+            <input id="boton2" type="submit" class="btn-save" value="Save">
         </div>
     </form>
 </div>

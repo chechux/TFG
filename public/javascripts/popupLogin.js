@@ -9,7 +9,7 @@ function abrirPopup() {
 function cerrarPopup() {
 
         document.getElementById('popup').style.display = 'none';
-        history.back();
+        window.location ='/'
         document.body.classList.remove('fondo-opaco')
 }
 
@@ -26,7 +26,9 @@ function abrirPopupR() {
 function cerrarPopupR() {
 
         document.getElementById('popup2').style.display = 'none';
-        history.back();
+        window.location ='/'
         document.body.classList.remove('fondo-opaco')
 }
+
+
 

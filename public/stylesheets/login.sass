@@ -99,6 +99,10 @@ body
 
 .container-titulo
     display: flex
+    h1
+      animation: tituloInicial 3s ease forwards
+      opacity: 0
+
 
 h1
   font-size: 2rem
@@ -110,7 +114,30 @@ h1
 
 .buttons
   display: flex
-  justify-content: center
+  justify-content: space-evenly
+  button
+    display: inline-block
+    padding: 10px 20px
+    border: 1px solid #333333
+    border-radius: 4px
+    background-color: #ffffff
+    color: #333333
+    text-decoration: none
+    cursor: pointer
+    transition: background-color 0.3s, color 0.3s
+    &:hover
+      background-color: #333333
+      color: #ffffff
+    &:active
+      background-color: #666666
+      color: #ffffff
+  #login
+    animation: botonesInicio2 2s ease 1s forwards
+    opacity: 0
+  #register
+    animation: botonesInicio 2s ease 1s forwards
+    opacity: 0
+
 
 
 .login-btn 
@@ -172,4 +199,28 @@ input
   100%
     transform: translateY(0)
     opacity: 1
+
+
+@keyframes botonesInicio
+  0%
+    transform: translateX(40px)
+    opacity: 0
+  100%
+    transform: translateX(0)
+    opacity: 1
+
+@keyframes botonesInicio2
+  0%
+    transform: translateX(-40px)
+    opacity: 0
+  100%
+    transform: translateX(0)
+    opacity: 1
     
+@keyframes tituloInicial
+  0%
+    opacity: 0
+    transform: translateY(-50px)
+  100%
+    transform: translateY(0)
+    opacity: 1

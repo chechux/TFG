@@ -145,11 +145,11 @@ h1 {
   color: #ffffff;
 }
 .buttons #login {
-  animation: botonesInicio2 2s ease 1s forwards;
+  animation: entradaInputs 2s ease 1.3s forwards;
   opacity: 0;
 }
 .buttons #register {
-  animation: botonesInicio 2s ease 1s forwards;
+  animation: entradaInputs 2s ease 1.3s forwards;
   opacity: 0;
 }
 
@@ -214,26 +214,6 @@ input {
   }
   100% {
     transform: translateY(0);
-    opacity: 1;
-  }
-}
-@keyframes botonesInicio {
-  0% {
-    transform: translateX(40px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-@keyframes botonesInicio2 {
-  0% {
-    transform: translateX(-40px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
     opacity: 1;
   }
 }

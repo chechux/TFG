@@ -3,10 +3,17 @@
     <form action="/editar/<%= tabla.id %>" method="POST">
         <div class="form-group">
             <input type="text" class="form-control" name="nombre" placeholder="nuevo nombre..." autofocus value="<%= tabla.nombre %>">
+            <div class="form-group">
+                <button class="btn btn-success btn-block">Save</button>
+            </div>
+            <% productos.forEach(item => { %>
+                <div>
+                    <h1><%= item.nombre %></h1>
+                    <a href="/eliminarProducto/<%= item.id  %>">Eliminar Producto</a>
+                </div>
+                <% }); %>
         </div>
-        <div class="form-group">
-            <button class="btn btn-success btn-block">Save</button>
-        </div>
+        
         
     </form>
 </div>

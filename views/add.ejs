@@ -11,10 +11,10 @@
     <% listas.forEach(item => { %>
         <div>
             
-            <form action ="/add/<%= id_producto %>" method="POST">    
+            <form action ="/add/<%= item.id %>" method="POST">    
                 <h1><%= item.nombre %></h1>
-                <input type="hidden" name="listas" value="<%= JSON.stringify(listas) %>">
-                <button> añadir</button>
+                <input type="hidden" name="listas" value="<%=id_producto %>">
+                <button>añadir</button>
             </form>
         </div>
         <% }); %>

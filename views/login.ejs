@@ -7,35 +7,38 @@
   </head>
   <body>
 
-    <!-- <img src="/images/logo.png" alt="logo"> -->
+    
 
-    <div class="container">
-      <div class="container-titulo">
-        <h1>Bienvenido a Weedgo</h1>
-      </div>
-      <div class="buttons">
-        <button id="login" onclick="abrirPopup()">login</button>
-        <button id="register" onclick="abrirPopupR()">Registrarse</button>
-      </div>
+<section class="contenedor">
+  <div class="container">
+    <img src="/images/logo5.png" alt="logo">
+    <div class="container-titulo">
+      <h1>Bienvenido a Weedgo</h1>
     </div>
+    <div class="buttons">
+      <button id="login" onclick="abrirPopup()">login</button>
+      <button id="register" onclick="abrirPopupR()">Registrarse</button>
+    </div>
+    
+  </div>
 
 
 
 
-    <div id="popup">
-      <button onclick="cerrarPopup()"><i id="close" class="fa-solid fa-xmark"></i></button>
-      <h1>LOGIN</h1>
-      <form action="/login" method="POST">
-          <input type="text" name="username" id="username" placeholder="Username..." required>
-          <input type="password" name="pass" id="pass" placeholder="Contraseña..." required>
-          <input href="/" id="boton" class ="btn-login" type="submit" value="loguearse"></input>
+  <div id="popup">
+    <button onclick="cerrarPopup()"><i id="close" class="fa-solid fa-xmark"></i></button>
+    <h1>LOGIN</h1>
+    <form action="/login" method="POST">
+        <input type="text" name="username" id="username" placeholder="Username..." required>
+        <input type="password" name="pass" id="pass" placeholder="Contraseña..." required>
+        <input href="/" id="boton" class ="btn-login" type="submit" value="loguearse"></input>
     </form>
     <p>Sino tienes cuenta registrate <a href="register" class="btn-register">aqui</a></p>
   </div>
 
 
 
-  
+
 
   <div id="popup2">
     <button onclick="cerrarPopupR()"><i id="close" class="fa-solid fa-xmark"></i></button>
@@ -58,7 +61,8 @@
             <input id="boton2" type="submit" class="btn-save" value="Save">
         </div>
     </form>
-</div>
+  </div>
+</section>
 
     
 

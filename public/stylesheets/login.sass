@@ -1,3 +1,7 @@
+$color-fondo: #f0f5f9 // Verde claro para el fondo
+$color-texto: #333 
+$color-boton: #2ecc71
+  
 body
   font-family: Arial, sans-serif
   margin: 0
@@ -10,6 +14,37 @@ body
   transition: background-color 0.3s ease
 
 
+
+.fondo-opaco 
+    background-color: rgb(5, 46, 22)
+
+  
+.contenedor
+  background: white
+  height: 50%
+  width: 30%
+  display: flex
+  justify-content: center
+  align-items: center
+  .container
+    height: 100%
+    width: 100%
+    border-radius: 10px
+    display: flex
+    justify-content: center
+    flex-direction: column
+    align-items: center
+    .container-titulo
+    
+      h1
+        animation: tituloInicial 3s ease forwards
+        opacity: 0
+    img
+      max-width: 200px
+      margin: 0 auto
+      display: block
+      position: absolute
+      top: 20% 
 #popup
     display: none
     position: fixed
@@ -93,15 +128,10 @@ body
 
       
 
-.fondo-opaco 
-    background-color: rgb(5, 46, 22)
 
 
-.container-titulo
-    display: flex
-    h1
-      animation: tituloInicial 3s ease forwards
-      opacity: 0
+
+
 
 
 h1
@@ -113,24 +143,20 @@ h1
 
 
 .buttons
-  display: flex
-  justify-content: space-evenly
+  margin-bottom: 40px
   button
-    display: inline-block
+    background-color: $color-boton
+    color: white
     padding: 10px 20px
-    border: 1px solid #333333
-    border-radius: 4px
-    background-color: #ffffff
-    color: #333333
-    text-decoration: none
+    border: none
+    border-radius: 5px
+    font-size: 1rem
     cursor: pointer
-    transition: background-color 0.3s, color 0.3s
-    &:hover
-      background-color: #333333
-      color: #ffffff
-    &:active
-      background-color: #666666
-      color: #ffffff
+    transition: background-color 0.3s
+    &:hover 
+        background-color: darken($color-boton, 10%) // Oscurecer el color del botón al pasar el ratón
+    &:not(:last-child) 
+        margin-right: 10px
   #login
     animation: entradaInputs 2s ease 1.3s forwards
     opacity: 0
@@ -140,14 +166,7 @@ h1
 
 
 
-.login-btn 
-  background-color: #4CAF50
-  color: white
 
-
-.register-btn 
-  background-color: #008CBA
-  color: white
 
 
 form

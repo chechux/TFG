@@ -130,7 +130,7 @@ body {
 }
 #popup2 #boton2:hover {
   background: orange;
-  transition: 0.6s ease all;
+  transition: 0.3s ease all;
 }
 
 h1 {

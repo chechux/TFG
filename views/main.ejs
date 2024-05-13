@@ -4,18 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='stylesheet' href='/stylesheets/main.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">    
     <title>Document</title>
 </head>
 <body>
-    <a href="/tablas">Tablas</a>
+<nav class="navbar">
+    <button><a href="/">Cerrar Sesión<i class="fa-solid fa-right-from-bracket"></i></a></button>
+    <img src="/images/logo5.png">
+    <ul class="nav-links">
+        <a href="/tablas">Tablas</a>
+        <a href="#">Productos</a>
+        <a href="#">Nosotros</a>
+        <a href="#">Contacto</a>
+        
+    </ul>
+</nav>
     <section class="productos">
     <% producto.forEach(item => { %>
         <div class="container">
             <div class="producto">
-                <img src=<%= item.imagen%>> 
+                <img id="img" src=<%= item.imagen%>>
                 <h1><%= item.nombre %></h1>
-                <h1><%= item.descrip %></h1>
-                <a href="/add/<%= item.id  %>">Comprar</a>
+                <h2><%= item.descrip %></h2>
+                <button><a href="/add/<%= item.id  %>">Añadir a lista</a></button>
+                <button><a href="">Añadir al carrito</a></button>
             </div>
         </div>
     <% }); %>

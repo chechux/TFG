@@ -67,25 +67,6 @@
 </section>
 
 
-<script>
-
-    const urlParams = new URLSearchParams(window.location.search);
-    const error = urlParams.get('error');
-    
-    if (error) {
-        mostrarAlertaError();
-    }
-  function mostrarAlertaError() {
-      // Muestra un mensaje de error con SweetAlert2
-      Swal.fire({
-          icon: 'error',
-          title: 'Error',
-          text: 'Credenciales incorrectas. Por favor, inténtalo de nuevo.',
-          confirmButtonText: 'Entendido'
-      });
-  }
-</script>
-
     <script src="/javascripts/sweetAlert.js"></script>  
     <script src="/javascripts/popupLogin.js"></script>
 

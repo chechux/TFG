@@ -3,6 +3,7 @@
   <head>
     <link rel='stylesheet' href='/stylesheets/login.css'/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
   </head>
   <body>
@@ -28,10 +29,10 @@
   <div id="popup">
     <button onclick="cerrarPopup()"><i id="close" class="fa-solid fa-xmark"></i></button>
     <h1>LOGIN</h1>
-    <form action="/login" method="POST">
+    <form id="loginForm" action="/login" method="POST">
         <input type="text" name="username" id="username" placeholder="Username..." required>
         <input type="password" name="pass" id="pass" placeholder="Contraseña..." required>
-        <input href="/" id="boton" class ="btn-login" type="submit" value="loguearse"></input>
+        <input id="boton" class ="btn-login" type="submit" value="loguearse"></input>
     </form>
     <p>Sino tienes cuenta registrate <a href="register" class="btn-register">aqui</a></p>
   </div>
@@ -43,7 +44,7 @@
   <div id="popup2">
     <button onclick="cerrarPopupR()"><i id="close" class="fa-solid fa-xmark"></i></button>
     <h1 id ="titulo">Registrarse</h1>
-    <form action="register" method="POST">
+    <form id="registerForm" action="/register" method="POST">
         <label for="username">User name</label>
         <input type="text" name="username" id="username" required>
 
@@ -60,15 +61,33 @@
         <div style="display: inline">
             <input id="boton2" type="submit" class="btn-save" value="Save">
         </div>
+        
     </form>
   </div>
 </section>
 
-    
 
-   
+<script>
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const error = urlParams.get('error');
     
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    if (error) {
+        mostrarAlertaError();
+    }
+  function mostrarAlertaError() {
+      // Muestra un mensaje de error con SweetAlert2
+      Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'Credenciales incorrectas. Por favor, inténtalo de nuevo.',
+          confirmButtonText: 'Entendido'
+      });
+  }
+</script>
+
+    <script src="/javascripts/sweetAlert.js"></script>  
     <script src="/javascripts/popupLogin.js"></script>
+
   </body>
 </html>

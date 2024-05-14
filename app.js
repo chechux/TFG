@@ -3,10 +3,8 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const {engine} = require("express-handlebars")
 const myconnection = require("express-myconnection")
 const session = require("express-session")
-const bodyParser = require("cookie-parser")
 const connection = require("./database/db")
 
 

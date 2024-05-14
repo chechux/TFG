@@ -116,7 +116,8 @@ router.post('/login', async (req, res) => {
     if (rows.length > 0) {
       res.redirect("/main")
     } else {
-      res.redirect('/login?error=true')
+      res.redirect('/login')
+      req.session.logg
     }
 });
   
@@ -127,10 +128,6 @@ router.post("/crearTabla",async(req,res,next)=>{
 
   res.redirect("/tablas")
   console.log(nombre)
-
-  // const idUsuario = usuarioActual.id; // Suponiendo que tienes el usuario actual disponible
-  //       await connection.query('INSERT INTO listas (id_usuario, nombre) VALUES (?, ?)', [idUsuario, nombreLista]);
-  //       res.redirect('/listas');
 })
 
 

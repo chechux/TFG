@@ -4,21 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='stylesheet' href='/stylesheets/main.css'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="/stylesheets/nav.css">    
     <title>Document</title>
 </head>
 <body>
-<nav class="navbar">
-    <button><a href="/">Cerrar Sesión<i class="fa-solid fa-right-from-bracket"></i></a></button>
-    <img src="/images/logo5.png">
-    <ul class="nav-links">
-        <a href="/tablas">Tablas</a>
-        <a href="#">Productos</a>
-        <a href="#">Nosotros</a>
-        <a href="#">Contacto</a>
-        
-    </ul>
-</nav>
+<%- include('./nav.ejs')  %>
     <section class="productos">
     <% producto.forEach(item => { %>
         <div class="container">

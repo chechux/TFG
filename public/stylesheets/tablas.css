@@ -1,0 +1,23 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+.container {
+  display: flex;
+  height: 88vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.container button {
+  padding: 20px;
+  margin-top: 30px;
+  border-radius: 100px;
+  border: none;
+  background: gray;
+}
+.container button:hover {
+  background: #149e39;
+  transition: 0.3s ease all;
+}/*# sourceMappingURL=tablas.css.map */

@@ -4,6 +4,11 @@
     <link rel='stylesheet' href='/stylesheets/login.css'/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
 
   </head>
   <body>
@@ -14,27 +19,72 @@
   <div class="container">
     <img src="/images/logo5.png" alt="logo">
     <div class="container-titulo">
-      <h1>Bienvenido a Weedgo</h1>
+      <h1>Bienvenido a</h1>
+      <h1 class="weedgo">WEEDGO</h1>
     </div>
     <div class="buttons">
-      <button id="login" onclick="abrirPopup()">login</button>
-      <button id="register" onclick="abrirPopupR()">Registrarse</button>
+      <button id="login">Loguearse <i class="fa-solid fa-right-to-bracket"></i> </button>
+      <button id="register">Registrarse <i class="fa-solid fa-user"></i></button>
     </div>
+
+    <div class="redes">
+      <div><i class="fa-brands fa-x-twitter"></i></div>
+      <div><i class="fa-brands fa-instagram"></i></div>
+      <div><i class="fa-brands fa-tiktok"></i></div>
+    </div>
+
+  </div>
+
+  <div class="container2">
+
+
+    <button onclick="toggleSection()">¿Quiénes Somos? <i class="fa-solid fa-caret-right"></i></button>
+    <section id="mySection" class="hidden">
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, deleniti repellendus ducimus hic iste praesentium in eligendi quam iure, voluptates facilis nemo aspernatur incidunt dolorem officia commodi sint culpa atque.</p>
+    </section>
+
+    <button onclick="toggleSection2()">¿A que nos dedicamos? <i class="fa-solid fa-caret-right"></i></button>
+    <section id="mySection2" class="hidden2">
+      <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis eum iure eligendi ratione? Eum, adipisci soluta, molestias necessitatibus sunt officia nemo porro harum ducimus atque, sit vero deleniti eos obcaecati.</p>
+    </section>
+
     
   </div>
 
+  <div class="container3">
+    
+    <button onclick="toggleSection3()">Mostrar Sección3 <i class="fa-solid fa-caret-right"></i></button>
+    <section id="mySection3" class="hidden3">
+      <p>Contenido de la sección.3</p>
+    </section>
 
 
+    <button onclick="toggleSection4()">Mostrar Sección4 <i class="fa-solid fa-caret-right"></i></button>
+    <section id="mySection4" class="hidden4">
+      <p>Contenido de la sección. 4</p>
+    </section>
+  </div>
+
+  
+
+
+
+
+
+
+
+  <div id="overlay"></div>
 
   <div id="popup">
-    <button onclick="cerrarPopup()"><i id="close" class="fa-solid fa-xmark"></i></button>
-    <h1>LOGIN</h1>
-    <form id="loginForm" action="/login" method="POST">
-        <input type="text" name="username" id="username" placeholder="Username..." required>
-        <input type="password" name="pass" id="pass" placeholder="Contraseña..." required>
-        <input id="boton" class ="btn-login" type="submit" value="loguearse"></input>
-    </form>
-    <p>Sino tienes cuenta registrate <a href="register" class="btn-register">aqui</a></p>
+    <div class="popup-container">
+      <button onclick="cerrarPopup()"><i id="close" class="fa-solid fa-xmark"></i></button>
+      <h1>LOGIN</h1>
+      <form id="loginForm" action="/login" method="POST">
+          <input type="text" name="username" id="username" placeholder="Username..." required>
+          <input type="password" name="pass" id="pass" placeholder="Contraseña..." required>
+          <input id="boton" class ="btn-login" type="submit" value="loguearse"></input>
+      </form>
+    </div>
   </div>
 
 
@@ -42,32 +92,74 @@
 
 
   <div id="popup2">
-    <button onclick="cerrarPopupR()"><i id="close" class="fa-solid fa-xmark"></i></button>
-    <h1 id ="titulo">Registrarse</h1>
-    <form id="registerForm" action="/register" method="POST">
-        <label for="username">User name</label>
-        <input type="text" name="username" id="username" required>
+    <div class="popup-container">
+      <button><i id="closer" class="fa-solid fa-xmark"></i></button>
+      <h1 id ="titulo">Registrarse</h1>
+      <form id="registerForm" action="/register" method="POST">
+          <label for="username">User name</label>
+          <input type="text" name="username" id="username" required>
 
-        <label for="pass">Contraseña</label>
-        <input type="password" name="pass" id="pass" required>
+          <label for="pass">Contraseña</label>
+          <input type="password" name="pass" id="pass" required>
 
-        <label for="">Gmail</label>
-        <input type="email" name="gmail" id="email" required>
-
-
-        <input placeholder="Edad..." type="number" name="edad" id="edad" required>
+          <label for="">Gmail</label>
+          <input type="email" name="gmail" id="email" required>
 
 
-        <div style="display: inline">
-            <input id="boton2" type="submit" class="btn-save" value="Save">
-        </div>
-        
-    </form>
+          <input placeholder="Edad..." type="number" name="edad" id="edad" required>
+
+
+          <div style="display: inline">
+              <input id="boton2" type="submit" class="btn-save" value="Save">
+          </div>
+          
+      </form>
+    </div>
   </div>
-</section>
 
+  
+  
 
-    <script src="/javascripts/sweetAlert.js"></script>  
+</section>  
+
+<script>
+  function toggleSection() {
+      var section = document.getElementById('mySection');
+      if (section.classList.contains('hidden')) {
+          section.classList.remove('hidden')
+      } else {
+          section.classList.add('hidden');
+      }
+  }
+
+  function toggleSection2() {
+      var section = document.getElementById('mySection2');
+      if (section.classList.contains('hidden2')) {
+          section.classList.remove('hidden2');
+      } else {
+          section.classList.add('hidden2');
+      }
+  }
+
+  function toggleSection3() {
+      var section = document.getElementById('mySection3');
+      if (section.classList.contains('hidden3')) {
+          section.classList.remove('hidden3');
+      } else {
+          section.classList.add('hidden3');
+      }
+  }
+
+  function toggleSection4() {
+      var section = document.getElementById('mySection4');
+      if (section.classList.contains('hidden4')) {
+          section.classList.remove('hidden4');
+      } else {
+          section.classList.add('hidden4');
+      }
+  }
+</script>
+
     <script src="/javascripts/popupLogin.js"></script>
 
   </body>

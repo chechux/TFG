@@ -2,13 +2,7 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background: rgb(53, 131, 69);
-  background: linear-gradient(0deg, rgb(53, 131, 69) 12%, rgb(55, 255, 102) 56%, rgb(55, 130, 150) 89%);
-}
-
-.container {
-  width: 22%;
-  padding: 0 20px;
+  background: url("https://img.freepik.com/vector-gratis/hojas-marihuana-estilo-linea-arte-sobre-fondo-negro-estructurado_1268-14249.jpg");
 }
 
 .productos {
@@ -17,6 +11,11 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+}
+
+.container {
+  width: 22%;
+  padding: 0 20px;
 }
 
 .producto {
@@ -29,6 +28,11 @@ body {
   cursor: pointer;
   background: rgb(6, 58, 14);
   transition: 0.5s ease all;
+}
+.producto button:hover {
+  animation: pulse 0.8s infinite;
+  cursor: pointer;
+  background: orange;
 }
 .producto #img {
   transition: opacity 0.3s ease;
@@ -58,4 +62,16 @@ body {
 .producto a {
   text-decoration: none;
   color: inherit;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }/*# sourceMappingURL=main.css.map */

@@ -13,13 +13,6 @@ router.get('/', (req, res, next)=>{
   next()
 });
 
-router.get("/popuplogin",(req,res,next)=>{
-  console.log("entra")
-})
-
-router.get("/popupRegister",(req,res,next)=>{
-  console.log("entra")
-})
 
 router.get("/tablas",async(req,res,next)=>{
   const [fila] = await connection.query('SELECT * FROM listas')
@@ -30,9 +23,6 @@ router.get("/crearTabla",(req,res,next)=>{
   console.log("entra")
 })
 
-router.get("/register",(req,res,next)=>{
-  res.redirect("/main")
-})
 
 
 router.get("/main", async (req,res,next)=>{
@@ -91,11 +81,12 @@ router.post("/add/:id",async(req,res,next)=>{
 
 router.post('/register', async (req, res) => {
 
-  const { username, pass, gmail, edad } = req.body;
+  const data = req.body;
 
-  if(0 < req.body.edad && req.body.edad > 18){
 
-    await connection.query('INSERT INTO usuarios (username, pass, gmail, edad) VALUES (?, ?, ?, ?)', [username, pass,gmail,edad]);
+  if(0 < data.edad && data.edad > 18){
+
+    await connection.query('INSERT INTO usuarios (username, pass, gmail, edad) VALUES (?, ?, ?, ?)', [data.username, data.pass,data.gmail, data.edad]);
     res.redirect("/main")
     
   }else{
@@ -114,10 +105,10 @@ router.post('/login', async (req, res) => {
     const [producto] = await connection.query('SELECT * FROM productos')
     const [rows] = await connection.execute('SELECT * FROM usuarios WHERE username = ? AND pass = ?', [username, pass]);
     if (rows.length > 0) {
+      console.log(username)
       res.redirect("/main")
     } else {
       res.redirect('/login')
-      req.session.logg
     }
 });
   

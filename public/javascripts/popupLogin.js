@@ -1,34 +1,52 @@
-function abrirPopup() {
-    history.pushState(null, null, 'popupLogin');
-    window.location = 'popupLogin'
-    const popup = document.getElementById('popup')
-    popup.style.display = 'block';
-    document.body.classList.add('fondo-opaco')
-}
+document.addEventListener('DOMContentLoaded', function () {
+    const openPopupButton = document.getElementById('login');
+    const closePopupButton = document.getElementById('close');
+    const popup = document.getElementById('popup');
+    const overlay = document.getElementById('overlay');
 
-function cerrarPopup() {
+    
 
-        document.getElementById('popup').style.display = 'none';
-        window.location ='/'
-        document.body.classList.remove('fondo-opaco')
-}
+    openPopupButton.addEventListener('click', function () {
+        popup.style.display = 'block';
+        overlay.style.display = 'block';
+    });
+
+    closePopupButton.addEventListener('click', function () {
+        popup.style.display = 'none';
+        overlay.style.display = 'none';
+    });
+
+    // Cierra el popup si el usuario hace clic fuera del popup
+    overlay.addEventListener('click', function () {
+        popup.style.display = 'none';
+        overlay.style.display = 'none';
+    });
+});
 
 
+document.addEventListener('DOMContentLoaded', function () {
+    const openPopupButtonr = document.getElementById('register');
+    const closePopupButtonr = document.getElementById('closer');
+    const popup2 = document.getElementById('popup2');
+    const overlay2 = document.getElementById('overlay');
 
-function abrirPopupR() {
-    history.pushState(null, null, 'popupRegister');
-    window.location = 'popupRegister'
-    const popup = document.getElementById('popup2')
-    popup.style.display = 'block';
-    document.body.classList.add('fondo-opaco')
-}
+    
 
-function cerrarPopupR() {
+    openPopupButtonr.addEventListener('click', function () {
+        popup2.style.display = 'block';
+        overlay2.style.display = 'block';
+    });
 
-        document.getElementById('popup2').style.display = 'none';
-        window.location ='/'
-        document.body.classList.remove('fondo-opaco')
-}
+    closePopupButtonr.addEventListener('click', function () {
+        popup2.style.display = 'none';
+        overlay2.style.display = 'none';
+    });
 
+    // Cierra el popup si el usuario hace clic fuera del popup
+    overlay2.addEventListener('click', function () {
+        popup2.style.display = 'none';
+        overlay2.style.display = 'none';
+    });
+});
 
 

@@ -1,6 +1,6 @@
 $color-fondo: #f0f5f9 // Verde claro para el fondo
 $color-texto: #333 
-$color-boton: #2ecc71
+$color-boton: #014421
   
 body
   font-family: Arial, sans-serif
@@ -10,41 +10,164 @@ body
   justify-content: center
   align-items: center
   height: 100vh
-  background-color: green
+  background-image: url("https://static.vecteezy.com/system/resources/previews/007/570/698/non_2x/leaves-cannabis-engraved-seamless-pattern-retro-background-botanical-with-leaf-marijuana-in-hand-drawn-style-vector.jpg")
   transition: background-color 0.3s ease
 
-
-
-.fondo-opaco 
-    background-color: rgb(5, 46, 22)
-
+#overlay 
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background: rgba(0, 0, 0, 0.7)
+    display: none
+    z-index: 10
   
 .contenedor
-  background: white
-  height: 50%
-  width: 30%
+  background: #DADD98
+  height: 85%
+  width: 73%
   display: flex
-  justify-content: center
+  justify-content: space-between
   align-items: center
+  border-radius: 20px
+  box-shadow: 10px 10px 5px 2px rgba(0, 0, 0, 0.5)
   .container
     height: 100%
-    width: 100%
+    width: 40%
     border-radius: 10px
     display: flex
-    justify-content: center
+    justify-content: space-around
     flex-direction: column
     align-items: center
-    .container-titulo
+    .buttons
+      margin-bottom: 40px
+      display: flex
+      flex-direction: column
+      align-items: center
+      
+      button
+        background-color: $color-boton
+        color: white
+        padding: 10px 20px
+        border: none
+        border-radius: 5px
+        font-size: 1rem
+        cursor: pointer
+        transition: background-color 0.3s
+        border-radius: 14px
+        
+        
+        &:hover 
+            background-color: darken($color-boton, 5%) // Oscurecer el color del botón al pasar el ratón
+      #login
+        animation: entradaInputs 2s ease 1.3s forwards
+        opacity: 0
+        margin-bottom: 20px
+        padding: 12px 86px
+        font-family: "Poetsen One", sans-serif
+        font-weight: 400
+        font-style: normal
+      #register
+        animation: entradaInputs 2s ease 1.3s forwards
+        opacity: 0
+        padding: 12px 83px
+        font-family: "Poetsen One", sans-serif
+        font-weight: 400
+        font-style: normal
     
+    .redes
+      display: flex
+      width: 35%
+      justify-content: space-evenly
+      animation: entradaBoton 1.4s ease 1s forwards
+      opacity: 0
+      div
+        border-radius: 100px
+        padding: 10px
+        transition: transform 0.2s
+        transition: .8s ease .1s all
+        &:hover
+          cursor: pointer
+          background: white
+          animation: pulse 0.6s infinite
+      
+      i
+        color: black
+        font-size: 20px
+    .container-titulo
+      margin-bottom: 40px
+      display: flex
+      flex-direction: column
+      align-items: center
+      .weedgo
+        display: flex
+        margin-top: 20px
+        animation: tituloInicial 3s ease 1.3s forwards
+
       h1
         animation: tituloInicial 3s ease forwards
         opacity: 0
+        margin: 0
+        padding: 0
+        font-size: 60px
+        font-family: "Playfair Display", serif
+        font-optical-sizing: auto
+        font-weight: 800
+        font-style: italic
+
     img
-      max-width: 200px
+      max-width: 125px
       margin: 0 auto
       display: block
       position: absolute
-      top: 20% 
+      top: 1%
+      right:48%
+      
+       
+
+
+
+
+
+.container2,.container3
+  display: flex
+  flex-direction: column
+  height:100%
+  width: 33%
+  align-items: center
+  margin-top: 150px
+  #mySection,#mySection2,#mySection3, #mySection4
+    background: #014421
+    padding: 12px
+    border-radius: 20px
+    width: 90%
+    p
+      font-size: 17px
+      color: white
+      font-family: "Raleway", sans-serif
+      font-weight: 400
+      font-style: normal
+
+  .hidden, .hidden2, .hidden3, .hidden4
+    display: none
+  button
+    background: none
+    border: none
+    margin-top: 30px
+    margin-bottom: 30px
+    width: 56%
+    padding: 7px
+    border-bottom: 1px solid transparent
+    transition: border-color 0.5s ease
+    font-family: "Raleway", sans-serif
+    font-weight: 700
+    font-style: normal
+    &:hover
+      cursor: pointer
+      border-bottom: 1px solid black
+    
+
 #popup
     display: none
     position: fixed
@@ -54,8 +177,10 @@ body
     background-color: white
     padding: 20px
     border: 1px solid #ccc
-    z-index: 100
+    z-index: 20
     transition: 2s ease all
+    .popup-content
+      position: relative
     button
       background: white
       width: 100%
@@ -126,49 +251,6 @@ body
         transition: .3s ease all
 
 
-      
-
-
-
-
-
-
-
-h1
-  font-size: 2rem
-  margin-bottom: 30px
-
-.wedgo
-    margin-left: 11px
-
-
-.buttons
-  margin-bottom: 40px
-  button
-    background-color: $color-boton
-    color: white
-    padding: 10px 20px
-    border: none
-    border-radius: 5px
-    font-size: 1rem
-    cursor: pointer
-    transition: background-color 0.3s
-    &:hover 
-        background-color: darken($color-boton, 10%) // Oscurecer el color del botón al pasar el ratón
-    &:not(:last-child) 
-        margin-right: 10px
-  #login
-    animation: entradaInputs 2s ease 1.3s forwards
-    opacity: 0
-  #register
-    animation: entradaInputs 2s ease 1.3s forwards
-    opacity: 0
-
-
-
-
-
-
 form
     display: flex
     flex-direction: column
@@ -182,7 +264,7 @@ input
 
 
 
-#close
+#close,#closer
     display: flex
     color: #bbbbbb
     justify-content: flex-end
@@ -195,6 +277,10 @@ input
 
 
 
+
+
+
+    
 
 
 @keyframes entrada
@@ -227,3 +313,14 @@ input
   100%
     transform: translateY(0)
     opacity: 1
+
+@keyframes pulse 
+    0% 
+        transform: scale(1)
+    
+    50% 
+        transform: scale(1.1)
+    
+    100% 
+        transform: scale(1)
+    

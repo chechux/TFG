@@ -1,4 +1,4 @@
-#popup 
+#popup2
     display: none
     position: fixed
     top: 50%
@@ -7,4 +7,170 @@
     background-color: white
     padding: 20px
     border: 1px solid #ccc
-    z-index: 100
+    z-index: 20
+    transition: 2s ease all
+    width: 26%
+    border-radius: 10px
+    overflow: hidden
+    height: 39%
+    &::before
+      background-image: url("https://img.freepik.com/vector-gratis/fondo-hoja-cannabis-botanico_23-2148788702.jpg?size=626&ext=jpg&ga=GA1.1.87170709.1707177600&semt=ais")
+      background-size: cover
+      background-position: center
+      background-repeat: no-repeat
+      content: ''
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+      opacity: 0.4
+      z-index: -1
+    .popup-container
+      height: 20%
+      button
+        background: none
+        width: 100%
+        justify-content: flex-end
+        display: flex
+        border: none
+        border-radius: 5px
+        font-size: 1rem
+        transition: background-color 0.3s ease
+        i
+          color: black
+          margin-bottom: 0px
+          &:hover
+            color: red
+      h1
+        opacity: 0
+        animation: entrada .8s ease .5s forwards
+        margin-top: 0px
+        display: flex
+        justify-content: center 
+        font-family: "Poppins", sans-serif
+        font-weight: 700
+        font-style: normal
+        margin-bottom: 44px
+      form
+        #username
+          opacity: 0
+          animation: entradaInputs 1s ease 1s forwards
+          background: none
+          border: none
+          border-bottom: 2px solid transparent
+          transition: border-bottom 0.5s ease
+          font-family: "Raleway", sans-serif
+          font-weight: 400
+          font-style: italic
+          &:hover
+            cursor: pointer
+            outline: none // Remueve el borde del focus
+            border-bottom: 2px solid black
+          &::placeholder
+            color: gray
+          &:focus
+            border: none
+            outline: none // Remueve el borde del focus
+            border-bottom: 2px solid black
+        label
+          animation: entradaInputs 1s ease .7s forwards
+          opacity: 0
+          color: black
+          font-family: "Raleway", sans-serif
+          font-weight: 400
+          font-style: normal
+        .div-password
+          display: flex
+          flex-direction: row
+          #icon
+            cursor: pointer
+        #boton2
+          padding: 12px
+          background: #6f42c1
+          border: 0
+          box-sizing: border-box
+          cursor: pointer
+          font-weight: bold
+          font-size: large
+          color: white
+          transition: .3s ease all
+          width: 33%
+          border-radius: 15px
+          margin-top: 20px
+          &:hover
+            background: #25006ad1
+            cursor: pointer
+            transition: .4s ease all
+
+#overlay
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background: rgba(0, 0, 0, 0.7)
+    display: none
+    z-index: 10
+
+#closer
+    font-size: 21px
+    font-weight: bold
+    transition: .3s ease all
+    &:hover
+        cursor: pointer
+
+.boton2
+    display: flex
+    justify-content: center
+form
+    display: flex
+    flex-direction: column
+
+input
+    width: 90%
+    padding: 10px
+    margin-bottom: 10px
+
+
+
+@keyframes entrada
+  0%
+    transform: translateY(-25px)
+    opacity: 0
+  100%
+    transform: translateY(0)
+    opacity: 1
+    
+@keyframes entradaInputs
+  0%
+    opacity: 0
+  100%
+    opacity: 1
+
+@keyframes entradaBoton
+  0%
+    transform: translateY(25px)
+    opacity: 0
+  100%
+    transform: translateY(0)
+    opacity: 1
+
+    
+@keyframes tituloInicial
+  0%
+    opacity: 0
+    transform: translateY(-50px)
+  100%
+    transform: translateY(0)
+    opacity: 1
+
+@keyframes pulse 
+    0% 
+        transform: scale(1)
+    
+    50% 
+        transform: scale(1.1)
+    
+    100% 
+        transform: scale(1)

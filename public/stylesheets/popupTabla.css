@@ -1,4 +1,4 @@
-#popup {
+#popup2 {
   display: none;
   position: fixed;
   top: 50%;
@@ -7,5 +7,202 @@
   background-color: white;
   padding: 20px;
   border: 1px solid #ccc;
-  z-index: 100;
+  z-index: 20;
+  transition: 2s ease all;
+  width: 26%;
+  border-radius: 10px;
+  overflow: hidden;
+  height: 39%;
+}
+#popup2::before {
+  background-image: url("https://img.freepik.com/vector-gratis/fondo-hoja-cannabis-botanico_23-2148788702.jpg?size=626&ext=jpg&ga=GA1.1.87170709.1707177600&semt=ais");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.4;
+  z-index: -1;
+}
+#popup2 .popup-container {
+  height: 20%;
+}
+#popup2 .popup-container button {
+  background: none;
+  width: 100%;
+  justify-content: flex-end;
+  display: flex;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+#popup2 .popup-container button i {
+  color: black;
+  margin-bottom: 0px;
+}
+#popup2 .popup-container button i:hover {
+  color: red;
+}
+#popup2 .popup-container h1 {
+  opacity: 0;
+  animation: entrada 0.8s ease 0.5s forwards;
+  margin-top: 0px;
+  display: flex;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  margin-bottom: 44px;
+}
+#popup2 .popup-container form #username {
+  opacity: 0;
+  animation: entradaInputs 1s ease 1s forwards;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  transition: border-bottom 0.5s ease;
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+#popup2 .popup-container form #username:hover {
+  cursor: pointer;
+  outline: none;
+  border-bottom: 2px solid black;
+}
+#popup2 .popup-container form #username::-moz-placeholder {
+  color: gray;
+}
+#popup2 .popup-container form #username::placeholder {
+  color: gray;
+}
+#popup2 .popup-container form #username:focus {
+  border: none;
+  outline: none;
+  border-bottom: 2px solid black;
+}
+#popup2 .popup-container form label {
+  animation: entradaInputs 1s ease 0.7s forwards;
+  opacity: 0;
+  color: black;
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+#popup2 .popup-container form .div-password {
+  display: flex;
+  flex-direction: row;
+}
+#popup2 .popup-container form .div-password #icon {
+  cursor: pointer;
+}
+#popup2 .popup-container form #boton2 {
+  padding: 12px;
+  background: #6f42c1;
+  border: 0;
+  box-sizing: border-box;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: large;
+  color: white;
+  transition: 0.3s ease all;
+  width: 33%;
+  border-radius: 15px;
+  margin-top: 20px;
+}
+#popup2 .popup-container form #boton2:hover {
+  background: rgba(37, 0, 106, 0.8196078431);
+  cursor: pointer;
+  transition: 0.4s ease all;
+}
+
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: none;
+  z-index: 10;
+}
+
+#closer {
+  font-size: 21px;
+  font-weight: bold;
+  transition: 0.3s ease all;
+}
+#closer:hover {
+  cursor: pointer;
+}
+
+.boton2 {
+  display: flex;
+  justify-content: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  width: 90%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+@keyframes entrada {
+  0% {
+    transform: translateY(-25px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes entradaInputs {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes entradaBoton {
+  0% {
+    transform: translateY(25px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes tituloInicial {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }/*# sourceMappingURL=popupTabla.css.map */

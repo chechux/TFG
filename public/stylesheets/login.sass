@@ -9,7 +9,7 @@ body
   display: flex
   justify-content: center
   align-items: center
-  height: 100vh
+  height: 97vh
   background-image: url("https://static.vecteezy.com/system/resources/previews/007/570/698/non_2x/leaves-cannabis-engraved-seamless-pattern-retro-background-botanical-with-leaf-marijuana-in-hand-drawn-style-vector.jpg")
   transition: background-color 0.3s ease
 
@@ -179,10 +179,27 @@ body
     border: 1px solid #ccc
     z-index: 20
     transition: 2s ease all
-    .popup-content
+    width: 33%
+    border-radius: 10px
+    overflow: hidden
+    height: 44%
+    &::before
+      background-image: url("https://img.freepik.com/vector-gratis/fondo-hoja-cannabis-botanico_23-2148788702.jpg?size=626&ext=jpg&ga=GA1.1.87170709.1707177600&semt=ais")
+      background-size: cover
+      background-position: center
+      background-repeat: no-repeat
+      content: ''
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+      opacity: 0.4
+      z-index: -1
+    .popup-container
       position: relative
     button
-      background: white
+      background: none
       width: 100%
       justify-content: flex-end
       display: flex
@@ -190,6 +207,9 @@ body
       border-radius: 5px
       font-size: 1rem
       transition: background-color 0.3s ease
+      i
+        color: black
+        margin-bottom: 0px
     .btn-login
       width: 100%
       padding: 15px
@@ -202,22 +222,61 @@ body
       color: white
       transition: .3s ease all
       &:hover
-        background: #560ae2ea
+        background: #25006ad1
     h1
       opacity: 0
       animation: entrada .8s ease .5s forwards
+      margin-bottom: 33px
+      display: flex
+      justify-content: center
+      margin-top: 0px
+      font-family: "Poppins", sans-serif
+      font-weight: 700
+      font-style: normal
+      
     #username, #pass
       opacity: 0
       animation: entradaInputs 1s ease 1s forwards
-    #boton
+      background: none
+      border: none
+      border-bottom: 2px solid transparent
+      transition: border-bottom 0.5s ease
+      font-family: "Raleway", sans-serif
+      font-weight: 400
+      font-style: italic
+      &:hover
+        cursor: pointer
+        outline: none // Remueve el borde del focus
+        border-bottom: 2px solid black
+      &::placeholder
+        color: gray
+      &:focus
+        border: none
+        outline: none // Remueve el borde del focus
+        border-bottom: 2px solid black
+        
+    .div-boton
+      display: flex
+      justify-content: center
+      #boton
+        opacity: 0
+        animation: entradaBoton 1.4s ease 1s forwards
+        font-family: "Raleway", sans-serif
+        font-weight: 800
+        font-style: normal
+        width: 33%
+        border-radius: 15px
+        margin-top: 20px
+    label
+      animation: entradaInputs 1s ease .7s forwards
       opacity: 0
-      animation: entradaBoton 1.4s ease 1s forwards
-
-
-
+      color: black
+      font-family: "Raleway", sans-serif
+      font-weight: 400
+      font-style: normal
 
 #popup2
-    display: none
+    // display: none
     position: fixed
     top: 50%
     left: 50%
@@ -225,55 +284,131 @@ body
     background-color: white
     padding: 20px
     border: 1px solid #ccc
-    z-index: 100
-    width: 20%
-    button
-      background: white
+    z-index: 20
+    transition: 2s ease all
+    width: 33%
+    border-radius: 10px
+    overflow: hidden
+    height: 55%
+    &::before
+      background-image: url("https://img.freepik.com/vector-gratis/fondo-hoja-cannabis-botanico_23-2148788702.jpg?size=626&ext=jpg&ga=GA1.1.87170709.1707177600&semt=ais")
+      background-size: cover
+      background-position: center
+      background-repeat: no-repeat
+      content: ''
+      position: absolute
+      top: 0
+      left: 0
       width: 100%
-      justify-content: flex-end
-      display: flex
-      border: none
-      border-radius: 5px
-      font-size: 1rem
-      transition: background-color 0.3s ease
-    #username, #pass, #edad, #email, label
-      opacity: 0
-      animation: entradaInputs 1s ease 1s forwards
-    h1
-      opacity: 0
-      animation: entrada .8s ease .5s forwards
-    #boton2
-      cursor: pointer
-      opacity:0
-      animation: entradaBoton 1.4s ease 1s forwards
-      &:hover
-        background: orange
-        transition: .3s ease all
+      height: 100%
+      opacity: 0.4
+      z-index: -1
+    .popup-container
+      height: 20%
+      button
+        background: none
+        width: 100%
+        justify-content: flex-end
+        display: flex
+        border: none
+        border-radius: 5px
+        font-size: 1rem
+        transition: background-color 0.3s ease
+        i
+          color: black
+          margin-bottom: 0px
+          &:hover
+            color: red
+      h1
+        opacity: 0
+        animation: entrada .8s ease .5s forwards
+        margin-top: 0px
+        display: flex
+        justify-content: center 
+        font-family: "Poppins", sans-serif
+        font-weight: 700
+        font-style: normal
+      form
+        #username, #pass, #email, #passs
+          opacity: 0
+          animation: entradaInputs 1s ease 1s forwards
+          background: none
+          border: none
+          border-bottom: 2px solid transparent
+          transition: border-bottom 0.5s ease
+          font-family: "Raleway", sans-serif
+          font-weight: 400
+          font-style: italic
+          &:hover
+            cursor: pointer
+            outline: none // Remueve el borde del focus
+            border-bottom: 2px solid black
+          &::placeholder
+            color: gray
+          &:focus
+            border: none
+            outline: none // Remueve el borde del focus
+            border-bottom: 2px solid black
+        .edad
+          opacity: 0
+          animation: entradaInputs 1s ease 1s forwards
+          width: 17%
+          font-family: "Raleway", sans-serif
+          font-weight: 400
+          font-style: italic
+          &::placeholder
+           color: black 
+        label
+          animation: entradaInputs 1s ease .7s forwards
+          opacity: 0
+          color: black
+          font-family: "Raleway", sans-serif
+          font-weight: 400
+          font-style: normal
+        .div-password
+          display: flex
+          flex-direction: row
+          #icon
+            cursor: pointer
+        #boton2
+          padding: 12px
+          background: #6f42c1
+          border: 0
+          box-sizing: border-box
+          cursor: pointer
+          font-weight: bold
+          font-size: large
+          color: white
+          transition: .3s ease all
+          width: 33%
+          border-radius: 15px
+          margin-top: 20px
+          &:hover
+            background: #25006ad1
+            cursor: pointer
+            transition: .4s ease all
+        
 
-
+.boton2
+    display: flex
+    justify-content: center
 form
     display: flex
     flex-direction: column
 
 input
-    width: 100%
+    width: 90%
     padding: 10px
-    border: 1px solid #ced4da
     margin-bottom: 10px
-    box-sizing: border-box
 
 
 
 #close,#closer
-    display: flex
-    color: #bbbbbb
-    justify-content: flex-end
     font-size: 21px
     font-weight: bold
     transition: .3s ease all
     &:hover
         cursor: pointer
-        color: red
 
 
 

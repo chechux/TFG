@@ -1,0 +1,86 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+  transition: 0.5s;
+}
+
+footer {
+  width: 100%;
+  height: 100%;
+  padding: 2rem 8%;
+  background: #161616;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+footer .logo {
+  height: 128px;
+  margin-bottom: 17rem;
+  position: absolute;
+}
+footer .div-icons, footer .menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+footer .div-icons .icon, footer .menu .icon {
+  height: 50px;
+  width: 50px;
+  border-radius: 50px;
+  border: 1px solid #f2f2f2;
+  background-image: url("/images/facebook.png");
+  background-position: center;
+  background-size: 40%;
+  background-repeat: no-repeat;
+  margin: 1rem;
+}
+footer .div-icons .icon:hover, footer .menu .icon:hover {
+  background-color: #121212;
+  filter: invert(1);
+}
+footer .div-icons .icon:nth-of-type(2), footer .menu .icon:nth-of-type(2) {
+  background-image: url("/images/insta.png");
+}
+footer .div-icons .icon:nth-of-type(3), footer .menu .icon:nth-of-type(3) {
+  background-image: url("/images/twitter.png");
+}
+footer .div-icons .icon:nth-of-type(4), footer .menu .icon:nth-of-type(4) {
+  background-image: url("/images/tiktok.png");
+}
+footer .menu {
+  list-style-type: none;
+  color: #f2f2f2;
+  font-size: 18px;
+}
+footer .menu .item {
+  margin: 1rem 1.5rem;
+  cursor: pointer;
+  opacity: 0.6;
+}
+footer .menu .item:hover {
+  opacity: 1;
+}
+footer .div-icons {
+  margin-top: 2.5rem;
+}
+
+.div-copy {
+  display: flex;
+  width: 100%;
+  background: #0e0e0e;
+  height: 85px;
+  justify-content: center;
+  align-items: center;
+}
+.div-copy .copy {
+  color: #f2f2f2;
+  opacity: 0.3;
+  text-align: center;
+}/*# sourceMappingURL=footer.css.map */

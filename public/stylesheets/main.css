@@ -9,25 +9,22 @@ body {
   padding: 50px 0;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
-}
-
-.container {
-  width: 22%;
-  padding: 0 20px;
+  margin-top: 6rem;
 }
 
 .producto {
   text-align: center;
-  margin-bottom: 50px;
-  padding: 20px;
+  margin-bottom: 160px;
+  padding: 5px;
   background: #95E06C;
   position: relative;
   overflow: hidden;
   border-radius: 17px;
   box-shadow: 8px;
   height: 43vh;
+  width: 27%;
 }
 .producto:hover {
   cursor: pointer;
@@ -57,6 +54,7 @@ body {
 .producto .div-botones {
   display: flex;
   justify-content: center;
+  margin-bottom: 20px;
 }
 .producto .div-botones button {
   z-index: 10;
@@ -83,15 +81,14 @@ body {
   font-family: "Noto Sans", sans-serif;
   font-weight: 709;
   font-style: normal;
+  margin-bottom: 15px;
 }
 .producto h2 {
   font-size: 16px;
   font-family: "Noto Sans", sans-serif;
   font-weight: 509;
   font-style: normal;
-  display: flex;
-  height: 20%;
-  align-items: center;
+  margin-top: 56px;
 }
 .producto a {
   text-decoration: none;

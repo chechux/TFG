@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const bcryptjs = require("bcryptjs");
+const bcrypt = require("bcryptjs");
 const connection = require("../database/db")
 
 
@@ -14,10 +14,7 @@ router.get('/', (req, res, next)=>{
 });
 
 
-router.get("/tablas",async(req,res,next)=>{
-  const [fila] = await connection.query('SELECT * FROM listas')
-  res.render("tablas",{fila})
-})
+
 
 router.get("/crearTabla",(req,res,next)=>{
   console.log("entra")
@@ -81,45 +78,53 @@ router.post("/add/:id",async(req,res,next)=>{
 
 router.post('/register', async (req, res) => {
 
-  const data = req.body;
+  const { username, password,gmail,edad } = req.body;
 
-
-  if(0 < data.edad && data.edad > 18){
-
-    await connection.query('INSERT INTO usuarios (username, pass, gmail, edad) VALUES (?, ?, ?, ?)', [data.username, data.pass,data.gmail, data.edad]);
-    res.redirect("/main")
-    
-  }else{
-
-    res.redirect("/")
-  }
-  
-});
+  await connection.query('INSERT INTO usuarios (username, password,gmail,edad) VALUES (?, ?, ?, ?)', [username, password, gmail, edad])
+    res.redirect('/login');
+  });
 
 router.get("/login",(req,res,next)=>{
   res.render("login")
 })
 
 router.post('/login', async (req, res) => {
-    const { username, pass } = req.body;
-    const [producto] = await connection.query('SELECT * FROM productos')
-    const [rows] = await connection.execute('SELECT * FROM usuarios WHERE username = ? AND pass = ?', [username, pass]);
+    const { username, password } = req.body;
+    const [rows] = await connection.execute('SELECT * FROM usuarios WHERE username = ? AND password = ?', [username, password]);
     if (rows.length > 0) {
-      console.log(username)
+      const user = rows[0]
+      req.session.userId = user.id
+      console.log(req.session.userId)
       res.redirect("/main")
     } else {
-      res.redirect('/login')
-    }
-});
+        res.render('login', { message: 'Invalid credentials' });
+        console.log("hola")
+      }
+  });
   
 
-router.post("/crearTabla",async(req,res,next)=>{
-  const nombre = req.body.nombre
-  await connection.execute('INSERT INTO listas  (nombre) VALUES (?)',[nombre])
 
-  res.redirect("/tablas")
-  console.log(nombre)
-})
+
+
+router.get("/tablas",async(req,res,next)=>{
+    if (!req.session.userId) {
+      return res.redirect('/login');
+    }
+  
+     const [results] = await connection.query('SELECT * FROM listas WHERE id_usuario = ?', [req.session.userId])
+      res.render('tablas', { listas : results });
+    });
+
+router.post("/crearTabla",async(req,res,next)=>{
+  if (!req.session.userId) {
+    return res.redirect('/login');
+  }
+
+  const { nombre } = req.body;
+
+  await connection.query('INSERT INTO listas (id_usuario, nombre) VALUES (?, ?)', [req.session.userId, nombre])
+    res.redirect('/tablas');
+  });
 
 
 module.exports = router;

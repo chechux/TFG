@@ -1,4 +1,3 @@
-const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
@@ -18,10 +17,20 @@ const app = express();
 
 
 app.use(session({
-  secret:'secret',
-  resave:true,
-  saveUninitialized:true,
-}))
+  secret: 'your_secret_key',
+  resave: false,
+  saveUninitialized: false
+}));
+
+const db = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: '1234',
+  database: 'user_tables'
+});
+
+
+
 
 
 // view engine setup

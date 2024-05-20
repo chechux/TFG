@@ -2,13 +2,9 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const myconnection = require("express-myconnection")
 const session = require("express-session")
-const connection = require("./database/db")
-const bodyParser = require("body-parser")
-const passport = require("passport")
 const mysql = require('mysql2')
-const bcrypt = require('bcryptjs')
+
 
 const indexRouter = require('./routes/index')
 

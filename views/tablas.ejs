@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="/stylesheets/nav.css">
     <link rel="stylesheet" href="/stylesheets/tablas.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway&display=swap" rel="stylesheet">  
     <title>Document</title>
 </head>
 <body>
@@ -14,23 +18,56 @@
 <%- include("./popupTabla.ejs")  %>
 <% if(listas.length <= 0) { %>
     <div class="container">
-        <h1>no tienes ninfyna tabla, crea una pulsando</h1>
-        <button id="abrir" onclick="abrirPopup()">AQUI</button>
+        <div class="container2">
+            <h1>No tienes ninguna tabla</h1>
+            <button id="abrir" class="hover-button" onclick="abrirPopup()">
+                <span class="button-text">Crea una tabla</span>
+                <i class="fa-sharp fa-solid fa-plus icon"></i>
+            </button>
+        </div>
     </div>
+
 <% } else { %>
     
     
-    <h1> pulsa <button id="abrir" onclick="abrirPopup()">aqui</button> para crear otra</h1>
+    
+
+    <section class="container4">
+        <section class="container3">
+            <h1> Pulsa <button id="abrir" class="hover-button" onclick="abrirPopup()">
+                <span class="button-text">AQUI</span>
+                <i class="fa-sharp fa-solid fa-plus icon"></i>
+                </button> para crear otra
+            </h1>
+            <div class="hr">
+                <hr class="hr2">
+            </div>
+            <% listas.forEach(item => { %>
+                    <div class="listas">
+                        <div class="titulo">
+                            <h1><%= item.nombre %></h1>
+                        </div>
+                        <div class="botones">
+                            <button class="edit-button">
+                                <a id="editar" href="/editar/<%=item.id%>">Editar</a>
+                                <i class="fa fa-edit"></i> 
+                              </button>
+                           
+                            <button class="delete-button">
+                                <a href="/delete/<%= item.id  %>" class="text">Eliminar</a>
+                                <i class="fa-sharp fa-solid fa-trash icon-trash"></i>
+                              </button>
+                        </div>
+                    </div>
+                    <div class="hr">
+                        <hr>
+                    </div>
+                <% }); %>
+            </section>
+    </section>
 
     <% } %>
-
-    <% listas.forEach(item => { %>
-        <div>
-            <h1><%= item.nombre %></h1>
-            <a id="eliminar" href="/editar/<%=item.id%>">Editar</a>
-            <a id="eliminar" href="/delete/<%= item.id  %>">Eliminar</a>
-        </div>
-        <% }); %>
+    
 
         <%- include('./footer.ejs')  %>
 

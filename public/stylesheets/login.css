@@ -145,10 +145,10 @@ body {
   width: 90%;
 }
 .container2 #mySection p, .container2 #mySection2 p, .container2 #mySection3 p, .container2 #mySection4 p, .container3 #mySection p, .container3 #mySection2 p, .container3 #mySection3 p, .container3 #mySection4 p {
-  font-size: 17px;
+  font-size: 15px;
   color: white;
   font-family: "Raleway", sans-serif;
-  font-weight: 400;
+  font-weight: 500;
   font-style: normal;
 }
 .container2 .hidden, .container2 .hidden2, .container2 .hidden3, .container2 .hidden4, .container3 .hidden, .container3 .hidden2, .container3 .hidden3, .container3 .hidden4 {
@@ -163,8 +163,8 @@ body {
   padding: 7px;
   border-bottom: 1px solid transparent;
   transition: border-color 0.5s ease;
-  font-family: "Raleway", sans-serif;
-  font-weight: 700;
+  font-family: "Poetsen One", sans-serif;
+  font-weight: 400;
   font-style: normal;
 }
 .container2 button:hover, .container3 button:hover {

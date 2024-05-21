@@ -2,6 +2,14 @@
     margin: 0px
     padding: 0px
 
+
+
+$primary-color: #4caf50
+$primary-color-hover: #45a049
+$primary-color-active: #3e8e41
+$white-color: #ffffff
+
+
 body
     background: url("https://img.freepik.com/vector-gratis/hojas-marihuana-estilo-linea-arte-sobre-fondo-negro-estructurado_1268-14249.jpg")
 .container
@@ -72,7 +80,7 @@ body
     .container3
         display: flex
         flex-direction: column
-        background: #D0F0C0
+        background: #a7db8d
         width: 50%
         margin-bottom: 9rem
         margin-top: 9rem
@@ -132,15 +140,15 @@ body
 
         &:hover
             cursor: pointer
-            height: 15vh
+            height: 19vh
 
         .titulo
-        h1
-            margin-bottom: 10px
-            margin-top: 10px
-            font-family: "Raleway", sans-serif
-            font-weight: 500
-            font-style: normal
+            h1
+                margin-bottom: 15px
+                margin-top: 10px
+                font-family: "Raleway", sans-serif
+                font-weight: 500
+                font-style: normal
 
         .botones
             display: flex
@@ -151,7 +159,7 @@ body
             opacity: 0
             width: 50%
 
-        .edit-button, .delete-button
+        .edit-button, .delete-button, .buy-button
             background-color: #007bff
             color: white
             border: none
@@ -198,6 +206,21 @@ body
             &:focus
                 outline: none
                 box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.5)
+        .buy-button
+            background-color: #4caf50
+
+            &:hover
+                background-color: #45a049
+                transform: scale(1.05)
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2)
+
+            &:active
+                background-color: #3e8e41
+                transform: scale(0.95)
+
+            &:focus
+                outline: none
+                box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.5)
 
         &:hover .botones
             display: flex
@@ -235,3 +258,7 @@ body
     opacity: 0
   100%
     opacity: 1
+
+
+
+

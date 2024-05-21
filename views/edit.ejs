@@ -4,29 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/stylesheets/nav.css">
+    <link rel="stylesheet" href="/stylesheets/editar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <title>Document</title>
 </head>
 <body>
 <%- include('./nav.ejs')  %>
-<div class="card-body">
+<div class="container">
     <form action="/editar/<%= tabla.id %>" method="POST">
-        <div class="form-group">
-            <input type="text" class="form-control" name="nombre" placeholder="nuevo nombre..." autofocus value="<%= tabla.nombre %>">
-            <div class="form-group">
-                <button class="btn btn-success btn-block">Save</button>
-            </div>
+        <h1>Nuevo nombre de la tabla:</h1>
+        <input type="text" class="form-control" name="nombre" placeholder="nuevo nombre..." autofocus value="<%= tabla.nombre %>">
+        <button class="btn btn-success btn-block">Save</button>
+
             <% productos.forEach(item => { %>
-                <div>
+                <div class="productos">
                     <h1><%= item.nombre %></h1>
                     <form action="/editar/<%= item.id %>" method="post">
                         <input type="hidden" name="listas" value="<%= item.id %>">
+                        <h1><%= item.precio %>$</h1>
                         <button>Eliminar producto</button>
                     </form>
 
                 </div>
                 <% }); %>
-        </div>
         
         
     </form>

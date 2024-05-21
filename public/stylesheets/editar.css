@@ -1,0 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: url("https://img.freepik.com/vector-gratis/hojas-marihuana-estilo-linea-arte-sobre-fondo-negro-estructurado_1268-14249.jpg");
+}
+
+.container {
+  background: white;
+  margin-top: 9rem;
+  margin-bottom: 9rem;
+}/*# sourceMappingURL=editar.css.map */

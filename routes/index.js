@@ -112,6 +112,10 @@ router.get("/tablas",async(req,res,next)=>{
     }
   
      const [results] = await connection.query('SELECT * FROM listas WHERE id_usuario = ?', [req.session.userId])
+     for (let tabla of results ){
+      const [productos] = await connection.query('SELECT p.precio FROM productos p JOIN listas_productos tp ON p.id = tp.id_productos WHERE tp.id_lista =? ',[tabla.id])
+      tabla.totalprecio = productos.reduce((acc,producto)=> acc + parseFloat(producto.precio), 0)
+     }
       res.render('tablas', { listas : results });
     });
 

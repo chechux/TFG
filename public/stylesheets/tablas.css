@@ -81,7 +81,7 @@ body {
 .container4 .container3 {
   display: flex;
   flex-direction: column;
-  background: #D0F0C0;
+  background: #a7db8d;
   width: 50%;
   margin-bottom: 9rem;
   margin-top: 9rem;
@@ -142,10 +142,10 @@ body {
 }
 .container4 .listas:hover {
   cursor: pointer;
-  height: 15vh;
+  height: 19vh;
 }
-.container4 .listas h1 {
-  margin-bottom: 10px;
+.container4 .listas .titulo h1 {
+  margin-bottom: 15px;
   margin-top: 10px;
   font-family: "Raleway", sans-serif;
   font-weight: 500;
@@ -160,7 +160,7 @@ body {
   opacity: 0;
   width: 50%;
 }
-.container4 .listas .edit-button, .container4 .listas .delete-button {
+.container4 .listas .edit-button, .container4 .listas .delete-button, .container4 .listas .buy-button {
   background-color: #007bff;
   color: white;
   border: none;
@@ -173,23 +173,23 @@ body {
   align-items: center;
   justify-content: center;
 }
-.container4 .listas .edit-button:hover, .container4 .listas .delete-button:hover {
+.container4 .listas .edit-button:hover, .container4 .listas .delete-button:hover, .container4 .listas .buy-button:hover {
   background-color: #0056b3;
   transform: scale(1.05);
 }
-.container4 .listas .edit-button:active, .container4 .listas .delete-button:active {
+.container4 .listas .edit-button:active, .container4 .listas .delete-button:active, .container4 .listas .buy-button:active {
   background-color: #004085;
   transform: scale(0.95);
 }
-.container4 .listas .edit-button:focus, .container4 .listas .delete-button:focus {
+.container4 .listas .edit-button:focus, .container4 .listas .delete-button:focus, .container4 .listas .buy-button:focus {
   outline: none;
   box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
 }
-.container4 .listas .edit-button a, .container4 .listas .delete-button a {
+.container4 .listas .edit-button a, .container4 .listas .delete-button a, .container4 .listas .buy-button a {
   text-decoration: none;
   color: inherit;
 }
-.container4 .listas .edit-button i, .container4 .listas .delete-button i {
+.container4 .listas .edit-button i, .container4 .listas .delete-button i, .container4 .listas .buy-button i {
   margin-left: 8px;
 }
 .container4 .listas .delete-button {
@@ -207,6 +207,22 @@ body {
 .container4 .listas .delete-button:focus {
   outline: none;
   box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.5);
+}
+.container4 .listas .buy-button {
+  background-color: #4caf50;
+}
+.container4 .listas .buy-button:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.container4 .listas .buy-button:active {
+  background-color: #3e8e41;
+  transform: scale(0.95);
+}
+.container4 .listas .buy-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.5);
 }
 .container4 .listas:hover .botones {
   display: flex;

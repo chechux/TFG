@@ -46,6 +46,7 @@
                     <div class="listas">
                         <div class="titulo">
                             <h1><%= item.nombre %></h1>
+                            <h1>Precio total : <%= item.totalprecio.toFixed(2) %>$</h1>
                         </div>
                         <div class="botones">
                             <button class="edit-button">
@@ -56,6 +57,11 @@
                             <button class="delete-button">
                                 <a href="/delete/<%= item.id  %>" class="text">Eliminar</a>
                                 <i class="fa-sharp fa-solid fa-trash icon-trash"></i>
+                              </button>
+
+                            <button class="buy-button">
+                                <span class="button-text-buy">Comprar</span>
+                                <i class="fa-sharp fa-solid fa-cart-plus icon-buy"></i>
                               </button>
                         </div>
                     </div>

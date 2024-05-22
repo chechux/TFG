@@ -9,11 +9,12 @@
 </head>
 <body>
     <%- include('./nav.ejs')  %>
-    <h1> selecciona la tabla que quieras</h1>
-    
-    <% listas.forEach(item => { %>
+    <% if(results.length <= 0) { %>
+        <h1>No tienes ninguna tabla, crea una pulsando <a href="/tablas">aqui</a></h1>
+    <% } else { %>
+    <% results.forEach(item => { %>
         <div>
-            
+            <h1>Selecciona una tabla:</h1>
             <form action ="/add/<%= item.id %>" method="POST">    
                 <h1><%= item.nombre %></h1>
                 <input type="hidden" name="listas" value="<%=id_producto %>">
@@ -21,7 +22,7 @@
             </form>
         </div>
         <% }); %>
-
+    <% } %>
         <%- include('./footer.ejs')  %>
 </body>
 </html>

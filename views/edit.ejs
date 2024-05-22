@@ -10,29 +10,39 @@
 </head>
 <body>
 <%- include('./nav.ejs')  %>
-<div class="container">
-    <form action="/editar/<%= tabla.id %>" method="POST">
-        <h1>Nuevo nombre de la tabla:</h1>
-        <input type="text" class="form-control" name="nombre" placeholder="nuevo nombre..." autofocus value="<%= tabla.nombre %>">
-        <button class="btn btn-success btn-block">Save</button>
-
-            <% productos.forEach(item => { %>
+<section class="container2">
+    <div class="container">
+        <form class="form1" action="/editar/<%= tabla.id %>" method="POST">
+            <div class="titulo">
+                <h1>Nuevo nombre de la tabla:</h1>
+                <input type="text" class="input-text" name="nombre" placeholder="nuevo nombre..." autofocus value="<%= tabla.nombre %>">
+                <button id="button" class="btn btn-success btn-block"><i class="fa-sharp fa-solid fa-check"></i></button>
+            </div>
+        </form>
                 <div class="productos">
-                    <h1><%= item.nombre %></h1>
-                    <form action="/editar/<%= item.id %>" method="post">
-                        <input type="hidden" name="listas" value="<%= item.id %>">
-                        <h1><%= item.precio %>$</h1>
-                        <button>Eliminar producto</button>
-                    </form>
-
+                    
+                        <% productos.forEach(item => { %>
+                            <div class="producto">
+                                <form class="form2" action="/editar/<%= item.id %>" method="post">
+                                    <h2>
+                                        - <%= item.nombre %> : <%= item.precio  %>$
+                                    </h2>
+                                    
+                                    <button id="abrir" class="hover-button">
+                                        <input type="hidden" name="listas" value="<%= item.id %>">
+                                        <span class="button-text">Eliminar producto</span>
+                                        <i class="fa-sharp fa-solid fa-trash icon"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        <% }); %>
+                    
                 </div>
-                <% }); %>
-        
-        
-    </form>
+            
+    </div>
+</section>
 
-    <%- include('./footer.ejs')  %>
-</div>
+<%- include('./footer.ejs')  %>
 </body>
 </html>
 

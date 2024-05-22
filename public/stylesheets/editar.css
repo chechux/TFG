@@ -7,8 +7,158 @@ body {
   background: url("https://img.freepik.com/vector-gratis/hojas-marihuana-estilo-linea-arte-sobre-fondo-negro-estructurado_1268-14249.jpg");
 }
 
-.container {
-  background: white;
+.container2 {
+  display: flex;
+  justify-content: center;
+}
+.container2 .container {
   margin-top: 9rem;
   margin-bottom: 9rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background: #D0F0C0;
+  width: 55%;
+}
+.container2 .container .form1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+.container2 .container .form1 .titulo {
+  display: flex;
+  margin-top: 1.5rem;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.container2 .container .form1 .titulo #button {
+  width: 6%;
+  margin-left: 1rem;
+  background-color: #a3d9a5;
+  border: 2px solid #70af85;
+  color: #2f4f4f;
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-flex;
+  transition: all 0.3s ease;
+}
+.container2 .container .form1 .titulo #button i {
+  margin-right: 5px;
+  font-size: 20px;
+  transition: transform 0.3s ease;
+}
+.container2 .container .form1 .titulo #button:hover {
+  background-color: #86c391;
+  border-color: #5e9e6f;
+}
+.container2 .container .form1 .titulo #button:focus {
+  background-color: #70af85;
+  border-color: #5e9e6f;
+  box-shadow: 0 0 5px 2px rgba(112, 175, 133, 0.5);
+}
+.container2 .container .form1 .titulo #button:active {
+  background-color: #5e9e6f;
+  border-color: #4a8c5c;
+  transform: scale(0.98);
+}
+.container2 .container .form1 .titulo #button:hover i {
+  transform: scale(1.1);
+}
+.container2 .container .form1 .titulo #button:focus i {
+  transform: scale(1.1);
+}
+.container2 .container .form1 .titulo h1 {
+  margin-right: 20px;
+}
+.container2 .container .form1 .titulo .input-text {
+  background-color: #f0fdf4;
+  border: 2px solid #a3d9a5;
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-size: 16px;
+  color: #2f4f4f;
+  outline: none;
+  transition: all 0.3s ease;
+}
+.container2 .container .form1 .titulo .input-text:hover {
+  background-color: #e1f8e9;
+  border-color: #86c391;
+}
+.container2 .container .form1 .titulo .input-text:focus {
+  background-color: white;
+  border-color: #70af85;
+  box-shadow: 0 0 5px 2px rgba(112, 175, 133, 0.5);
+}
+.container2 .container .form1 .titulo .input-text:active {
+  background-color: white;
+  border-color: #5e9e6f;
+}
+.container2 .container .form1 .titulo .input-text::-moz-placeholder {
+  color: #9abf9b;
+  font-style: italic;
+}
+.container2 .container .form1 .titulo .input-text::placeholder {
+  color: #9abf9b;
+  font-style: italic;
+}
+.container2 .productos {
+  width: 100%;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+.container2 .productos .producto {
+  display: flex;
+  margin-bottom: 1rem;
+}
+.container2 .productos .producto .form2 {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+}
+.container2 .productos .producto .hover-button {
+  position: relative;
+  display: inline-block;
+  padding: 10px 30px;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  overflow: hidden;
+  font-size: 14px;
+  transition: all 0.5s ease;
+}
+.container2 .productos .producto .hover-button:hover {
+  background-color: #c0392b;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.container2 .productos .producto .hover-button .button-text {
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+  font-family: "Poetsen One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.container2 .productos .producto .hover-button .icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+.container2 .productos .producto .hover-button:hover .button-text {
+  opacity: 0;
+  visibility: hidden;
+}
+.container2 .productos .producto .hover-button:hover .icon {
+  opacity: 1;
+  visibility: visible;
 }/*# sourceMappingURL=editar.css.map */

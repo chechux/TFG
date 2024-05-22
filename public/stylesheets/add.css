@@ -1,0 +1,75 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: url("https://img.freepik.com/vector-gratis/hojas-marihuana-estilo-linea-arte-sobre-fondo-negro-estructurado_1268-14249.jpg");
+}
+
+.container3 {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+.container3 .container {
+  background: #D0F0C0;
+  margin-bottom: 9rem;
+  margin-top: 9rem;
+  width: 42%;
+}
+.container3 .container .container2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.container3 .container .container2 .titulo {
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+}
+.container3 .container .container2 .tablas {
+  width: 45%;
+  margin-bottom: 1rem;
+}
+.container3 .container .container2 .tablas form {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.container3 .container .container2 .tablas form .add-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+.container3 .container .container2 .tablas form .add-button i {
+  margin-left: 8px;
+}
+.container3 .container .container2 .tablas form .add-button:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.container3 .container .container2 .tablas form .add-button:active {
+  background-color: #3e8e41;
+  transform: scale(0.95);
+}
+.container3 .container .container2 .tablas form .add-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.5);
+}
+.container3 .container .container2 .tablas form .add-button:disabled {
+  background-color: #c8e6c9;
+  color: #a5d6a7;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}/*# sourceMappingURL=add.css.map */

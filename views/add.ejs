@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/stylesheets/nav.css">
+    <link rel="stylesheet" href="/stylesheets/add.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <title>Document</title>
 </head>
@@ -12,16 +13,25 @@
     <% if(results.length <= 0) { %>
         <h1>No tienes ninguna tabla, crea una pulsando <a href="/tablas">aqui</a></h1>
     <% } else { %>
-    <% results.forEach(item => { %>
-        <div>
-            <h1>Selecciona una tabla:</h1>
-            <form action ="/add/<%= item.id %>" method="POST">    
-                <h1><%= item.nombre %></h1>
-                <input type="hidden" name="listas" value="<%=id_producto %>">
-                <button>añadir</button>
-            </form>
+   <div class="container3">
+    <div class="container">
+        <div class="container2">
+            <h1 class="titulo">Selecciona una tabla:</h1>
+            <% results.forEach(item => { %>
+                <div class="tablas">
+                    <form action ="/add/<%= item.id %>" method="POST">    
+                        <h1><%= item.nombre %></h1>
+                        <input type="hidden" name="listas" value="<%=id_producto %>">
+                        <button class="add-button">
+                            Añadir
+                            <i class="fa fa-plus"></i>
+                        </button>
+                    </form>
+                </div>
+            <% }); %>
         </div>
-        <% }); %>
+    </div>
+    </div>
     <% } %>
         <%- include('./footer.ejs')  %>
 </body>

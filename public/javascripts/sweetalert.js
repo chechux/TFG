@@ -18,7 +18,7 @@ document.getElementById('registerForm').addEventListener('submit', function(even
     })
     .then(response => response.json())
     .then(result => {
-      if (result.redirect === "/") {
+      if (result.redirect === "/login") {
         Swal.fire({
           icon: 'warning',
           title: 'Edad insuficiente',

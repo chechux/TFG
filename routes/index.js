@@ -94,17 +94,33 @@ router.post("/crearTabla",async(req,res,next)=>{
 
 
 
+  router.post('/carrito/add/:id', async (req, res) => {
 
-  router.post('/register', async (req, res) => {
-    const { username, password, gmail, edad } = req.body;
-    if (edad < 18) {
-      return res.status(400).json({ message: 'Debes ser mayor de 18 años para registrarte', redirect: '/' });
-    } else {
-      await connection.query('INSERT INTO usuarios (username, password, gmail, edad) VALUES (?, ?, ?, ?)', [username, password, gmail, edad]);
-      return res.status(200).json({ message: 'Usuario registrado con éxito', redirect: '/main' });
-    }
+    const productId = req.params.id;
+  
+    await connection.query('INSERT INTO carritos (user_id, product_id) VALUES (?, ?)', [req.session.userId, productId]);
+    res.status(200).json({ message: 'Producto añadido al carrito' });
   });
   
+  router.get('/cart', async (req, res) => {
+    const [cart] = await connection.query(`SELECT productos.id, productos.nombre, productos.descrip, productos.precio, productos.imagen FROM carritos JOIN productos ON carritos.product_id = productos.id WHERE carritos.user_id = ?`, [req.session.userId]);
+    const total = cart.reduce((acc,producto)=> acc + parseFloat(producto.precio), 0)
+    res.render('cart', { cart, total});
+  });
+
+  router.post('/carrito/remove/:id', async (req, res) => {
+    const productId = req.params.id;
+    await connection.query('DELETE FROM carritos WHERE user_id = ? AND product_id = ?', [req.session.userId, productId]);
+    res.status(200).json({ message: 'Producto eliminado del carrito' });
+});
+
+
+
+
+
+
+
+
   router.get("/login",(req,res,next)=>{
     res.render("login")
 })
@@ -120,6 +136,16 @@ router.post('/login', async (req, res) => {
       res.json({ success: false, message: 'Invalid credentials' });
     }
 
+});
+
+router.post('/register', async (req, res) => {
+  const { username, password, gmail, edad } = req.body;
+  if (edad < 18) {
+    return res.status(400).json({ message: 'Debes ser mayor de 18 años para registrarte', redirect: '/login' });
+  } else {
+    await connection.query('INSERT INTO usuarios (username, password, gmail, edad) VALUES (?, ?, ?, ?)', [username, password, gmail, edad]);
+    return res.status(200).json({ message: 'Usuario registrado con éxito', redirect: '/' });
+  }
 });
 
 module.exports = router;

@@ -1,0 +1,48 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrito</title>
+</head>
+<body>
+  <button><a href="/main">Volver a Productos</a></button>
+</nav>
+<section class="carrito">
+  <h1>Carrito de Compras</h1>
+  <ul>
+    <% cart.forEach(item => { %>
+      <li>
+        <div>
+          <h2><%= item.nombre %></h2>
+          <p><%= item.descrip %></p>
+          <p>$<%= item.precio%></p>
+          <button class="remove-from-cart" data-id="<%= item.id %>">Eliminar del carrito</button>
+        </div>
+      </li>
+    <% }); %>
+  </ul>
+  <h1>Precio total : <%= total.toFixed(2) %>$</h1>
+</section>
+
+<script>
+  document.querySelectorAll('.remove-from-cart').forEach(button => {
+    button.addEventListener('click', async (e) => {
+      e.preventDefault();
+      const productId = e.target.getAttribute('data-id');
+      const response = await fetch(`/carrito/remove/${productId}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+      if (response.ok) {
+        alert('Producto eliminado del carrito');
+        window.location.reload(); // Recargar la página para actualizar el carrito
+      } else {
+        alert('Hubo un problema al eliminar el producto del carrito');
+      }
+    });
+  });
+</script>
+</body>
+</html>

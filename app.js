@@ -4,12 +4,14 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const session = require("express-session")
 const mysql = require('mysql2')
+const bodyParser = require('body-parser')
 
 
 const indexRouter = require('./routes/index')
 
 
 const app = express();
+app.use(bodyParser.json())
 
 
 app.use(session({

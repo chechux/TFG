@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const bcrypt = require("bcryptjs");
 const connection = require("../database/db")
 
 
@@ -97,29 +96,30 @@ router.post("/crearTabla",async(req,res,next)=>{
 
 
   router.post('/register', async (req, res) => {
-
-    const { username, password,gmail,edad } = req.body;
-  
-    await connection.query('INSERT INTO usuarios (username, password,gmail,edad) VALUES (?, ?, ?, ?)', [username, password, gmail, edad])
-      res.redirect('/login');
-    });
+    const { username, password, gmail, edad } = req.body;
+    if (edad < 18) {
+      return res.status(400).json({ message: 'Debes ser mayor de 18 años para registrarte', redirect: '/' });
+    } else {
+      await connection.query('INSERT INTO usuarios (username, password, gmail, edad) VALUES (?, ?, ?, ?)', [username, password, gmail, edad]);
+      return res.status(200).json({ message: 'Usuario registrado con éxito', redirect: '/main' });
+    }
+  });
   
   router.get("/login",(req,res,next)=>{
     res.render("login")
-  })
+})
   
-  router.post('/login', async (req, res) => {
-      const { username, password } = req.body;
-      const [rows] = await connection.execute('SELECT * FROM usuarios WHERE username = ? AND password = ?', [username, password]);
-      if (rows.length > 0) {
-        const user = rows[0]
-        req.session.userId = user.id
-        console.log(req.session.userId)
-        res.redirect("/main")
-      } else {
-          res.render('login', { message: 'Invalid credentials' });
-          console.log("hola")
-        }
-    });
+router.post('/login', async (req, res) => {
+    const { username, password } = req.body;
+    const [rows] = await connection.execute('SELECT * FROM usuarios WHERE username = ? AND password = ?', [username, password]);
+    if (rows.length > 0) {
+      const user = rows[0];
+      req.session.userId = user.id;
+      res.json({ success: true, message: 'Login successful', redirectUrl: '/main' });
+    } else {
+      res.json({ success: false, message: 'Invalid credentials' });
+    }
+
+});
 
 module.exports = router;

@@ -3,6 +3,30 @@ const router = express.Router();
 const connection = require("../database/db")
 
 
+function isAuthenticated(req, res, next) {
+  if (req.session.userId) {
+    return next();
+  } else {
+    res.redirect('/error');
+  }
+}
+
+//---------------MATAMOS SESION--------------------
+
+router.get('/logout', (req, res) => {
+  req.session.destroy(err => {
+    if (err) {
+      return res.redirect('/main')
+    }
+    res.clearCookie('connect.sid')
+    res.redirect('/login')
+  });
+});
+
+router.get("/error",(req,res)=>{
+  res.render("error")
+})
+
 
 /* GET home page. */
 router.get('/', (req, res, next)=>{
@@ -21,7 +45,7 @@ router.get("/crearTabla",(req,res,next)=>{
 
 
 
-router.get("/main", async (req,res,next)=>{
+router.get("/main", isAuthenticated, async (req,res,next)=>{
   const [producto] = await connection.query('SELECT * FROM productos')
   res.render("main",{producto})
 })
@@ -31,7 +55,7 @@ router.get("/main", async (req,res,next)=>{
 
 //--------------RUTA PARA CREAR LISTAS-------------------
 
-router.post("/crearTabla",async(req,res,next)=>{
+router.post("/crearTabla", isAuthenticated,async(req,res,next)=>{
 
   const { nombre } = req.body;
 
@@ -45,7 +69,7 @@ router.post("/crearTabla",async(req,res,next)=>{
 
 //--------------RUTA PARA EDITAR LISTAS-------------------
 
-router.get("/editar/:id",async (req,res,next)=>{
+router.get("/editar/:id", isAuthenticated,async (req,res,next)=>{
   const {id} = req.params
   const [tabla] = await connection.query('SELECT * FROM listas WHERE id=?',[id])
   const [productos] = await connection.query('SELECT p.* FROM productos p INNER JOIN listas_productos lp ON p.id = lp.id_productos WHERE lp.id_lista =?',[id])
@@ -54,7 +78,7 @@ router.get("/editar/:id",async (req,res,next)=>{
 
 })
 
-router.post("/editar/:id",async(req,res,next)=>{
+router.post("/editar/:id",isAuthenticated,async(req,res,next)=>{
   const {id} = req.params
   const {nombre} = req.body
   const new_nombre ={nombre}
@@ -71,7 +95,7 @@ router.post("/editar/:id",async(req,res,next)=>{
 //--------------RUTA PARA ELIMINAR LISTAS-------------------
 
 
-router.get('/delete/:id', async (req, res) => {
+router.get('/delete/:id', isAuthenticated, async (req, res) => {
   const {id} = req.params
   await connection.query('DELETE FROM listas_productos WHERE id_lista = ?',[id])
   await connection.query('DELETE FROM listas WHERE id = ?', [id])
@@ -83,14 +107,14 @@ router.get('/delete/:id', async (req, res) => {
 
 //--------------RUTA PARA AÑADIR PRODUCTIS A LISTAS-------------------
 
-router.get("/add/:id",async(req,res)=>{
+router.get("/add/:id", isAuthenticated,async(req,res)=>{
   const id_producto = req.params.id;
   const [results] = await connection.query('SELECT * FROM listas WHERE id_usuario = ?', [req.session.userId])
   res.render("add",{results,id_producto})
 
 })
 
-router.post("/add/:id",async(req,res,next)=>{
+router.post("/add/:id", isAuthenticated,async(req,res,next)=>{
   const id_lista = req.params.id
   const id_producto = req.body.listas
   await connection.query('INSERT INTO listas_productos (id_lista, id_productos) VALUES (?,?)',[id_lista, id_producto])
@@ -104,7 +128,7 @@ router.post("/add/:id",async(req,res,next)=>{
 
 //--------------RUTA PARA MOSTRAR LAS LISTAS-------------------
 
-router.get("/tablas",async(req,res,next)=>{
+router.get("/tablas", isAuthenticated,async(req,res,next)=>{
      const [results] = await connection.query('SELECT * FROM listas WHERE id_usuario = ?', [req.session.userId])
      for (let tabla of results ){
       const [productos] = await connection.query('SELECT p.precio FROM productos p JOIN listas_productos tp ON p.id = tp.id_productos WHERE tp.id_lista =? ',[tabla.id])
@@ -119,7 +143,7 @@ router.get("/tablas",async(req,res,next)=>{
 
 //--------------RUTA PARA AÑADIR AL CARRITO LISTAS-------------------    
 
-  router.post('/listas/carrito/:id', async (req, res) => {
+  router.post('/listas/carrito/:id',isAuthenticated, async (req, res) => {
     const listaId = req.params.id;
     const [lista] = await connection.query('SELECT * FROM listas WHERE id = ?', [listaId]);
     const nombreLista = lista[0].nombre;
@@ -136,7 +160,7 @@ router.get("/tablas",async(req,res,next)=>{
 
 
 //--------------RUTA PARA AÑADIR PRODUCTOS AL CARRITO------------------
-  router.post('/carrito/add/:id', async (req, res) => {
+  router.post('/carrito/add/:id', isAuthenticated, async (req, res) => {
 
     const productId = req.params.id;
     const [producto] = await connection.query('SELECT * FROM productos WHERE id = ?', [productId])
@@ -150,7 +174,7 @@ router.get("/tablas",async(req,res,next)=>{
 
 
   //--------------RUTA PARA MOSTRAR EL CARRITO-------------------
-  router.get('/cart', async (req, res) => {
+  router.get('/cart', isAuthenticated,async (req, res) => {
     const [cart] = await connection.query(`SELECT * FROM carritos WHERE user_id = ?`, [req.session.userId]);
 
     const listas = cart.filter(item => item.tipo === 'lista');
@@ -166,7 +190,7 @@ router.get("/tablas",async(req,res,next)=>{
 
 
   //--------------RUTA PARA ELIMINAR PRODUCTOS DEL CARRITO-------------------
-  router.post('/carrito/remove/:id', async (req, res) => {
+  router.post('/carrito/remove/:id', isAuthenticated, async (req, res) => {
     const carritoId = req.params.id;
     await connection.query('DELETE FROM carritos WHERE id = ?', [carritoId]);
     res.status(200).json({ message: 'Producto eliminado del carrito' });
@@ -178,7 +202,7 @@ router.get("/tablas",async(req,res,next)=>{
 
 //--------------RUTAS LOGIN Y REGISTER-------------------
 
-  router.get("/login",(req,res,next)=>{
+  router.get("/login", (req,res,next)=>{
     res.render("login")
 })
   

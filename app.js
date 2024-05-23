@@ -59,6 +59,10 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+app.use((req, res, next) => {
+  res.status(404).render('404');
+});
+
   
 
 module.exports = app;

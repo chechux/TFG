@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap')
+
+$primary-color: #4CAF50
+$secondary-color: #45a049
+$error-color: #e74c3c
+$background-color: #f5f5f5
+$white-color: #fff
+$box-shadow-color: rgba(0, 0, 0, 0.1)
+
+body
+    font-family: 'Roboto', sans-serif
+    background-color: $background-color
+    color: #333
+    margin: 0
+    padding: 0
+    display: flex
+    justify-content: center
+    align-items: center
+    height: 100vh
+    text-align: center
+    background: url("https://img.freepik.com/vector-gratis/hojas-marihuana-estilo-linea-arte-sobre-fondo-negro-estructurado_1268-14249.jpg")
+
+
+.error-container
+    background-color: $white-color
+    padding: 40px
+    border-radius: 8px
+    box-shadow: 0 4px 8px $box-shadow-color
+    max-width: 500px
+    width: 100%
+    animation: fadeIn 1s ease-in-out
+
+h1
+    font-size: 6rem
+    color: $error-color
+    margin: 0
+
+h2
+    font-size: 2rem
+    color: #333
+    margin: 20px 0
+
+p
+    font-size: 1.2rem
+    margin: 20px 0
+
+a
+    display: inline-block
+    margin-top: 20px
+    padding: 10px 20px
+    background-color: $primary-color
+    color: $white-color
+    text-decoration: none
+    border-radius: 5px
+    transition: background-color 0.3s ease, transform 0.3s ease
+
+    &:hover
+        background-color: $secondary-color
+        transform: scale(1.05)
+
+@keyframes fadeIn
+  from
+    opacity: 0
+  to
+    opacity: 1

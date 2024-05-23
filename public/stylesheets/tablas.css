@@ -158,7 +158,7 @@ body {
   margin-top: 10px;
   transition: display 0.5s ease, opacity 0.5s ease;
   opacity: 0;
-  width: 50%;
+  width: 65%;
 }
 .container4 .listas .edit-button, .container4 .listas .delete-button, .container4 .listas .buy-button {
   background-color: #007bff;

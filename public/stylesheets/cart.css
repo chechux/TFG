@@ -1,0 +1,184 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #bfffb2;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  background: url("https://img.freepik.com/vector-gratis/hojas-marihuana-estilo-linea-arte-sobre-fondo-negro-estructurado_1268-14249.jpg");
+}
+
+h1 {
+  color: #4CAF50;
+  font-size: 2.5rem;
+  margin-top: 2rem;
+  margin-bottom: 30px;
+}
+
+h1, h2 {
+  margin-bottom: 20px;
+}
+
+button {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.container2 {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+.container2 .container {
+  background-color: white;
+  margin-bottom: 8rem;
+  margin-top: 8rem;
+  width: 95%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.container2 .container h1 {
+  animation: entrada3 0.5s ease 0.5s forwards;
+  opacity: 0;
+}
+.container2 .container .carrito {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.container2 .container .carrito .container-lista, .container2 .container .carrito .container-product {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  align-items: center;
+}
+.container2 .container .carrito .titulo, .container2 .container .carrito .titulo2 {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  opacity: 0;
+  animation: entrada3 1s ease 1s forwards;
+  margin-bottom: 17px;
+  align-items: center;
+}
+.container2 .container .carrito .titulo h2, .container2 .container .carrito .titulo2 h2 {
+  margin-bottom: 3px;
+}
+.container2 .container .carrito .titulo hr, .container2 .container .carrito .titulo2 hr {
+  width: 150%;
+  height: 3px;
+  background: black;
+}
+.container2 .container .carrito .cart-item {
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  display: flex;
+  width: 75%;
+  margin-bottom: 1rem;
+  opacity: 0;
+  animation: entrada2 1.3s ease-out 1.5s forwards;
+  background-color: rgba(76, 175, 80, 0.25);
+  border-radius: 10px;
+}
+.container2 .container .carrito .cart-item button {
+  background-color: #db2f2f;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+}
+.container2 .container .carrito .cart-item button:hover {
+  background-color: #8a1919;
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.container2 .container .carrito .cart-item button:active {
+  background-color: #3e8e41;
+  transform: scale(0.95);
+}
+.container2 .container .carrito .cart-item i {
+  margin-left: 5px;
+}
+.container2 .container .carrito .cart-item h2 {
+  font-size: 1.3rem;
+}
+.container2 .container .carrito .cart-item p {
+  font-size: 0.9rem;
+}
+.container2 .comprar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+  opacity: 0;
+  animation: entrada3 1.3s ease 1.9s forwards;
+}
+.container2 .comprar #abrir {
+  position: relative;
+  display: inline-block;
+  padding: 10px 30px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  overflow: hidden;
+  font-size: 16px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.container2 .comprar #abrir:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.175);
+}
+.container2 .comprar .button-text {
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+  font-family: "Poetsen One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.container2 .comprar .icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+.container2 .comprar:hover .button-text {
+  opacity: 0;
+  visibility: hidden;
+}
+.container2 .comprar:hover .icon {
+  opacity: 1;
+  visibility: visible;
+}
+
+@keyframes entrada2 {
+  0% {
+    transform: translateX(-70px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+@keyframes entrada3 {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}/*# sourceMappingURL=cart.css.map */

@@ -29,6 +29,22 @@ router.get("/main", async (req,res,next)=>{
 
 
 
+//--------------RUTA PARA CREAR LISTAS-------------------
+
+router.post("/crearTabla",async(req,res,next)=>{
+
+  const { nombre } = req.body;
+
+  await connection.query('INSERT INTO listas (id_usuario, nombre) VALUES (?, ?)', [req.session.userId, nombre])
+    res.redirect('/tablas');
+  });
+
+
+
+
+
+//--------------RUTA PARA EDITAR LISTAS-------------------
+
 router.get("/editar/:id",async (req,res,next)=>{
   const {id} = req.params
   const [tabla] = await connection.query('SELECT * FROM listas WHERE id=?',[id])
@@ -50,6 +66,11 @@ router.post("/editar/:id",async(req,res,next)=>{
 })
 
 
+
+
+//--------------RUTA PARA ELIMINAR LISTAS-------------------
+
+
 router.get('/delete/:id', async (req, res) => {
   const {id} = req.params
   await connection.query('DELETE FROM listas_productos WHERE id_lista = ?',[id])
@@ -57,6 +78,10 @@ router.get('/delete/:id', async (req, res) => {
   res.redirect("/tablas")
 })
 
+
+
+
+//--------------RUTA PARA AÑADIR PRODUCTIS A LISTAS-------------------
 
 router.get("/add/:id",async(req,res)=>{
   const id_producto = req.params.id;
@@ -75,6 +100,10 @@ router.post("/add/:id",async(req,res,next)=>{
 })
 
 
+
+
+//--------------RUTA PARA MOSTRAR LAS LISTAS-------------------
+
 router.get("/tablas",async(req,res,next)=>{
      const [results] = await connection.query('SELECT * FROM listas WHERE id_usuario = ?', [req.session.userId])
      for (let tabla of results ){
@@ -84,14 +113,11 @@ router.get("/tablas",async(req,res,next)=>{
       res.render('tablas', { listas : results });
     });
 
-router.post("/crearTabla",async(req,res,next)=>{
 
-  const { nombre } = req.body;
 
-  await connection.query('INSERT INTO listas (id_usuario, nombre) VALUES (?, ?)', [req.session.userId, nombre])
-    res.redirect('/tablas');
-  });
 
+
+//--------------RUTA PARA AÑADIR AL CARRITO LISTAS-------------------    
 
   router.post('/listas/carrito/:id', async (req, res) => {
     const listaId = req.params.id;
@@ -106,6 +132,10 @@ router.post("/crearTabla",async(req,res,next)=>{
   });
 
 
+
+
+
+//--------------RUTA PARA AÑADIR PRODUCTOS AL CARRITO------------------
   router.post('/carrito/add/:id', async (req, res) => {
 
     const productId = req.params.id;
@@ -115,7 +145,11 @@ router.post("/crearTabla",async(req,res,next)=>{
 
     res.status(200).json({ message: 'Producto añadido al carrito' });
   });
-  
+
+
+
+
+  //--------------RUTA PARA MOSTRAR EL CARRITO-------------------
   router.get('/cart', async (req, res) => {
     const [cart] = await connection.query(`SELECT * FROM carritos WHERE user_id = ?`, [req.session.userId]);
 
@@ -129,6 +163,9 @@ router.post("/crearTabla",async(req,res,next)=>{
     res.render('cart', { cart, productos, total, listas});
   });
 
+
+
+  //--------------RUTA PARA ELIMINAR PRODUCTOS DEL CARRITO-------------------
   router.post('/carrito/remove/:id', async (req, res) => {
     const carritoId = req.params.id;
     await connection.query('DELETE FROM carritos WHERE id = ?', [carritoId]);
@@ -139,7 +176,7 @@ router.post("/crearTabla",async(req,res,next)=>{
 
 
 
-
+//--------------RUTAS LOGIN Y REGISTER-------------------
 
   router.get("/login",(req,res,next)=>{
     res.render("login")

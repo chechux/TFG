@@ -2,55 +2,92 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/stylesheets/cart.css">
+  <link rel="stylesheet" href="/stylesheets/nav.css">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <title>Carrito</title>
 </head>
 <body>
-  <button><a href="/main">Volver a Productos</a></button>
-</nav>
-<section class="carrito">
-  <h1>Carrito de Compras</h1>
+  <%- include('./nav.ejs')  %>
+  
 
-  <h2>Listas</h2>
-  <div id="cart-lists">
-    <% if (listas.length > 0) { %>
-      <% listas.forEach(item => { %>
-        <div class="cart-item">
-          <div>
-            <h2><%= item.nombre_lista %></h2>
-            <p>Precio Total: $<%= item.precio_total%></p>
-          </div>
-          <form action="/carrito/remove/<%= item.id %>" method="POST" class="remove-button-form">
-            <button type="submit">Eliminar</button>
-          </form>
+<section class="container2">
+  <section class="container">
+    <h1>Carrito de Compras</h1>
+    <div class="carrito">
+  
+      <div class="container-lista">
+        <div class="titulo">
+          <h2>Listas</h2>
+          <hr>
         </div>
-      <% }); %>
-    <% } else { %>
-      <p>No hay listas en el carrito.</p>
-    <% } %>
-  </div>
+        
+          <% if (listas.length > 0) { %>
+            <% listas.forEach(item => { %>
+              <div class="cart-item">
+                <div>
+                  <h2><%= item.nombre_lista %></h2>
+                  <p>Precio Total: $<%= item.precio_total%></p>
+                </div>
+  
+                <form action="/carrito/remove/<%= item.id %>" method="POST" class="remove-button-form">
+                  <button type="submit">Eliminar <i class="fa-solid fa-trash"></i></button>
+                </form>
+              </div>
+            <% }); %>
+      </div>
+  
+      <% } else { %>
+        <p>No hay listas en el carrito.</p>
+      <% } %>
+  
+  
+    <div class="container-product">
+      <div class="titulo2">
+        <h2>Productos</h2>
+        <hr>
+      </div>
+        <% if (productos.length > 0) { %>
+          <% productos.forEach(item => { %>
+            <div class="cart-item">
+              <div>
+                <h2><%= item.nombre_lista %></h2>
+                <p>Precio: $<%= item.precio_total%></p>
+              </div>
+  
+              <form action="/carrito/remove/<%= item.id %>" method="POST" class="remove-button-form">
+                <button type="submit">Eliminar <i class="fa-solid fa-trash"></i></button>
+              </form>
+            </div>
+          <% }); %>
+      </div>
+  
+        <% } else { %>
+          <p>No hay productos en el carrito.</p>
+        <% } %>
+  
+    </div>
+    <div class="comprar">
+      <h2>Total: $<%= total %></h2>
+      <button id="abrir" class="hover-button" onclick="abrirPopup()">
+        <span class="button-text">Comprar</span>
+        <i class="fa-solid fa-dollar-sign icon"></i>
+        </button>
+    </div>
+  </section>
+</section>
 
-  <h2>Productos</h2>
-  <div id="cart-products">
-    <% if (productos.length > 0) { %>
-      <% productos.forEach(item => { %>
-        <div class="cart-item">
-          <div>
-            <h2><%= item.nombre_lista %></h2>
-            <p>Precio: $<%= item.precio_total%></p>
-          </div>
-          <form action="/carrito/remove/<%= item.id %>" method="POST" class="remove-button-form">
-            <button type="submit">Eliminar</button>
-          </form>
-        </div>
-      <% }); %>
-    <% } else { %>
-      <p>No hay productos en el carrito.</p>
-    <% } %>
-  </div>
 
-  <h2>Total: $<%= total %></h2>
+  <%- include('./footer.ejs')  %>
 
+
+<!-------------------MENSAJES SWEET ALERT  ------------------------>
+
+
+
+
+<!-----MENSAJE PARA ELIMINAR -------->
 <script>
   document.querySelectorAll('.remove-button-form').forEach(form => {
     form.addEventListener('submit', async (e) => {
@@ -73,6 +110,26 @@
   });
 </script>
 
+
+
+<!-----MENSAJE PARA COMPRAR -------->
+
+<script>
+  document.getElementById('abrir').addEventListener('click', function() {
+    Swal.fire({
+      title: 'Compra realizada',
+      text: 'Tu compra se ha realizado con éxito.',
+      icon: 'success',
+      confirmButtonText: 'OK'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        window.location.href = '/main';
+      }
+    });
+  });
+</script>
+
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </body>
 </html>

@@ -2,6 +2,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <title>Carrito</title>
 </head>
 <body>
@@ -9,40 +10,69 @@
 </nav>
 <section class="carrito">
   <h1>Carrito de Compras</h1>
-  <ul>
-    <% cart.forEach(item => { %>
-      <li>
-        <div>
-          <h2><%= item.nombre %></h2>
-          <p><%= item.descrip %></p>
-          <p>$<%= item.precio%></p>
-          <button class="remove-from-cart" data-id="<%= item.id %>">Eliminar del carrito</button>
+
+  <h2>Listas</h2>
+  <div id="cart-lists">
+    <% if (listas.length > 0) { %>
+      <% listas.forEach(item => { %>
+        <div class="cart-item">
+          <div>
+            <h2><%= item.nombre_lista %></h2>
+            <p>Precio Total: $<%= item.precio_total%></p>
+          </div>
+          <form action="/carrito/remove/<%= item.id %>" method="POST" class="remove-button-form">
+            <button type="submit">Eliminar</button>
+          </form>
         </div>
-      </li>
-    <% }); %>
-  </ul>
-  <h1>Precio total : <%= total.toFixed(2) %>$</h1>
-</section>
+      <% }); %>
+    <% } else { %>
+      <p>No hay listas en el carrito.</p>
+    <% } %>
+  </div>
+
+  <h2>Productos</h2>
+  <div id="cart-products">
+    <% if (productos.length > 0) { %>
+      <% productos.forEach(item => { %>
+        <div class="cart-item">
+          <div>
+            <h2><%= item.nombre_lista %></h2>
+            <p>Precio: $<%= item.precio_total%></p>
+          </div>
+          <form action="/carrito/remove/<%= item.id %>" method="POST" class="remove-button-form">
+            <button type="submit">Eliminar</button>
+          </form>
+        </div>
+      <% }); %>
+    <% } else { %>
+      <p>No hay productos en el carrito.</p>
+    <% } %>
+  </div>
+
+  <h2>Total: $<%= total %></h2>
 
 <script>
-  document.querySelectorAll('.remove-from-cart').forEach(button => {
-    button.addEventListener('click', async (e) => {
+  document.querySelectorAll('.remove-button-form').forEach(form => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const productId = e.target.getAttribute('data-id');
-      const response = await fetch(`/carrito/remove/${productId}`, {
+      const response = await fetch(form.action, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        }
       });
+
       if (response.ok) {
-        alert('Producto eliminado del carrito');
-        window.location.reload(); // Recargar la página para actualizar el carrito
-      } else {
-        alert('Hubo un problema al eliminar el producto del carrito');
+        Swal.fire({
+          title: 'Eliminado!',
+          text: 'Producto eliminado del carrito.',
+          icon: 'success',
+          confirmButtonText: 'OK'
+        }).then(() => {
+          window.location.reload();
+        });
       }
     });
   });
 </script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>

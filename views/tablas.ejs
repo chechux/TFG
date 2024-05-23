@@ -59,10 +59,12 @@
                                 <i class="fa-sharp fa-solid fa-trash icon-trash"></i>
                               </button>
 
-                            <button class="buy-button">
-                                <span class="button-text-buy">Comprar</span>
-                                <i class="fa-sharp fa-solid fa-cart-plus icon-buy"></i>
-                              </button>
+                              <form action="/listas/carrito/<%= item.id %>" method="POST" class="buy-button-form" style="display: inline;">
+                                <button type="submit" class="buy-button">
+                                  <span class="button-text-buy">Añadir al carrito</span>
+                                  <i class="fa-sharp fa-solid fa-cart-plus icon-buy"></i>
+                                </button>
+                              </form>
                         </div>
                     </div>
                     <div class="hr">
@@ -77,7 +79,34 @@
 
         <%- include('./footer.ejs')  %>
 
+
+
+<script>
+        document.querySelectorAll('.buy-button-form').forEach(form => {
+        form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const formData = new FormData(form);
+        const id = form.action.split('/').pop();
+
+        const response = await fetch(`/listas/carrito/${id}`, {
+          method: 'POST',
+          body: formData
+        });
+
+        if (response.ok) {
+          Swal.fire({
+            title: 'Añadido!',
+            text: 'Lista añadida al carrito.',
+            icon: 'success',
+            confirmButtonText: 'OK'
+          });
+        } 
+    });
+});
+</script>
 <script src="/javascripts/popupTabla.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </body>
 </html>

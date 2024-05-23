@@ -6,6 +6,7 @@
     <link rel='stylesheet' href='/stylesheets/main.css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="/stylesheets/nav.css">
+    
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -41,9 +42,12 @@
           }
         });
         if (response.ok) {
-          alert('Producto añadido al carrito');
-        } else {
-          alert('Hubo un problema al añadir el producto al carrito');
+          Swal.fire({
+            title: 'Añadido!',
+            text: 'Producto añadido al carrito.',
+            icon: 'success',
+            confirmButtonText: 'OK'
+          })
         }
       });
     });
@@ -74,5 +78,8 @@
   });
 });
 </script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </body>
 </html>

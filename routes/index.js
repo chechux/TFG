@@ -93,27 +93,47 @@ router.post("/crearTabla",async(req,res,next)=>{
   });
 
 
+  router.post('/listas/carrito/:id', async (req, res) => {
+    const listaId = req.params.id;
+    const [lista] = await connection.query('SELECT * FROM listas WHERE id = ?', [listaId]);
+    const nombreLista = lista[0].nombre;
+    const [productos] = await connection.query('SELECT p.precio FROM productos p JOIN listas_productos tp ON p.id = tp.id_productos WHERE tp.id_lista = ?', [listaId]);
+    const precioTotal = productos.reduce((acc, producto) => acc + parseFloat(producto.precio), 0);
+  
+    await connection.query('INSERT INTO carritos (user_id, nombre_lista, precio_total, tipo) VALUES (?, ?, ?, ?)', [req.session.userId, nombreLista, precioTotal,"lista"]);
+    
+    res.status(200).json({ message: 'Lista añadida al carrito' });
+  });
+
 
   router.post('/carrito/add/:id', async (req, res) => {
 
     const productId = req.params.id;
-  
-    await connection.query('INSERT INTO carritos (user_id, product_id) VALUES (?, ?)', [req.session.userId, productId]);
+    const [producto] = await connection.query('SELECT * FROM productos WHERE id = ?', [productId])
+
+    await connection.query('INSERT INTO carritos (user_id, nombre_lista, precio_total, tipo) VALUES (?, ?, ?, ?)', [req.session.userId, producto[0].nombre, producto[0].precio, 'producto'])
+
     res.status(200).json({ message: 'Producto añadido al carrito' });
   });
   
   router.get('/cart', async (req, res) => {
-    const [cart] = await connection.query(`SELECT productos.id, productos.nombre, productos.descrip, productos.precio, productos.imagen FROM carritos JOIN productos ON carritos.product_id = productos.id WHERE carritos.user_id = ?`, [req.session.userId]);
-    const total = cart.reduce((acc,producto)=> acc + parseFloat(producto.precio), 0)
-    res.render('cart', { cart, total});
+    const [cart] = await connection.query(`SELECT * FROM carritos WHERE user_id = ?`, [req.session.userId]);
+
+    const listas = cart.filter(item => item.tipo === 'lista');
+    const productos = cart.filter(item => item.tipo === 'producto');
+
+    const totalListas = listas.reduce((acc, item) => acc + parseFloat(item.precio_total), 0).toFixed(2);
+    const totalProductos = productos.reduce((acc, item) => acc + parseFloat(item.precio_total), 0).toFixed(2);
+
+    const total = (parseFloat(totalListas) + parseFloat(totalProductos)).toFixed(2)
+    res.render('cart', { cart, productos, total, listas});
   });
 
   router.post('/carrito/remove/:id', async (req, res) => {
-    const productId = req.params.id;
-    await connection.query('DELETE FROM carritos WHERE user_id = ? AND product_id = ?', [req.session.userId, productId]);
+    const carritoId = req.params.id;
+    await connection.query('DELETE FROM carritos WHERE id = ?', [carritoId]);
     res.status(200).json({ message: 'Producto eliminado del carrito' });
 });
-
 
 
 

@@ -18,21 +18,38 @@ body
         margin-bottom: 9rem
         margin-top: 9rem
         width: 42%
+        padding: 1rem
         .container2
             display: flex
             flex-direction: column
             align-items: center
             .titulo
                 margin-top: 2rem
-                margin-bottom: 1.5rem
+                margin-bottom: 2.5rem
+                font-family: "Noto Sans", sans-serif
+                font-weight: 686
+                font-style: normal
+                font-size: 33px
+                hr
+                    height: 5px
+                    background: black
+
             .tablas 
-                width: 45%
+                width: 65%
                 margin-bottom: 1rem
+                margin-top: 1.4rem
                 form
                     width: 100%
                     display: flex
                     align-items: center
                     justify-content: space-evenly
+                    h1
+                        font-family: "Roboto", sans-serif
+                        font-weight: 400
+                        font-style: normal
+                        font-size: 26px
+
+
                     .add-button 
                         display: inline-flex
                         align-items: center
@@ -45,6 +62,9 @@ body
                         font-size: 16px
                         cursor: pointer 
                         transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease
+                        font-family: "Poetsen One", sans-serif
+                        font-weight: 400
+                        font-style: normal
                         i
                             margin-left: 8px
 
@@ -67,3 +87,20 @@ body
                             cursor: not-allowed
                             box-shadow: none
                             transform: none
+
+
+@media screen and (max-width: 768px)    
+    .container3
+        .container
+            width: 76%
+            .titulo2
+                display: flex
+                width: 100%
+                .titulo
+                    font-size: 23px
+            .tablas
+                form
+                    flex-direction: column
+                    .add-button
+                        margin-top: 15px
+                        font-size: 14px

@@ -1,7 +1,10 @@
-$color-fondo: #f0f5f9 // Verde claro para el fondo
+$color-fondo: #f0f5f9
 $color-texto: #333 
 $color-boton: #014421
   
+  
+  
+
 body
   font-family: Arial, sans-serif
   margin: 0
@@ -24,7 +27,7 @@ body
     z-index: 10
   
 .contenedor
-  background: #DADD98
+  background: rgb(218, 221, 152)
   height: 85%
   width: 73%
   display: flex
@@ -40,6 +43,7 @@ body
     justify-content: space-around
     flex-direction: column
     align-items: center
+    
     .buttons
       margin-bottom: 40px
       display: flex
@@ -63,11 +67,14 @@ body
       #login
         animation: entradaInputs 2s ease 1.3s forwards
         opacity: 0
-        margin-bottom: 20px
-        padding: 12px 86px
+        margin-bottom: 35px
+        padding: 14px 88px
         font-family: "Poetsen One", sans-serif
         font-weight: 400
         font-style: normal
+        font-size: 21px
+        i
+          margin-left: 8px
       #register
         animation: entradaInputs 2s ease 1.3s forwards
         opacity: 0
@@ -75,6 +82,9 @@ body
         font-family: "Poetsen One", sans-serif
         font-weight: 400
         font-style: normal
+        font-size: 21px
+        i
+          margin-left: 8px
     
     .redes
       display: flex
@@ -135,8 +145,10 @@ body
   flex-direction: column
   height:100%
   width: 33%
-  align-items: center
   margin-top: 150px
+  .item1
+      display: flex
+      flex-direction: column
   #mySection,#mySection2,#mySection3, #mySection4
     background: #014421
     padding: 12px
@@ -415,7 +427,8 @@ input
 
 
 
-    
+
+
 
 
 @keyframes entrada
@@ -459,3 +472,32 @@ input
     100% 
         transform: scale(1)
     
+@media (max-width: 768px)
+    .contenedor
+        flex-direction: column
+        display: flex
+        align-items: center
+        justify-content: flex-start
+        .container
+          width: 50%
+          height: 42%
+          margin-top: 5rem
+          .container2,.container3
+              height: 14%
+              margin-top: 0px
+              width: 36%
+              flex-direction: row
+              #mySection
+                margin-bottom: 5rem
+              .item1,.item2
+                display: flex
+                flex-direction: column
+                align-items: center
+                button
+                  width: 100%
+                  font-size: 20px
+          #popup
+            height: 18%
+            .div-boton
+              #boton
+                width: 41%

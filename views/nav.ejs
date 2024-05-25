@@ -2,13 +2,29 @@
     <form action="/logout">   
         <button type="submit">Cerrar Sesión <i class="fa-solid fa-right-from-bracket"></i></button>
     </form>
-   
+    <div class="menu-toggle" id="mobile-menu">
+        <i class="fa-solid fa-bars"></i>
+    </div>
     <img src="/images/logo5.png" alt="Logo">
     <ul class="nav-links">
+        <div class="close-menu" id="close-menu">
+            <i class="fa-solid fa-times"></i>
+        </div>
         <li><a href="/main">Inicio</a></li>
         <li><a href="/tablas">Tablas</a></li>
         <li><a href="#">Contacto</a></li>
         <li><a href="/cart"><i class="fa-solid fa-cart-shopping"></i></a></li>
     </ul>
 </nav>
+
+<script>
+    document.getElementById('mobile-menu').addEventListener('click', function() {
+    document.querySelector('.nav-links').classList.toggle('active');
+    document.getElementById('close-menu').style.display = 'block';
+});
+    document.getElementById('close-menu').addEventListener('click', function() {
+    document.querySelector('.nav-links').classList.remove('active');
+    document.getElementById('close-menu').style.display = 'none';
+});
+</script>
 

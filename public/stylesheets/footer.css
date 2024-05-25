@@ -82,4 +82,10 @@ footer .div-icons {
   color: #f2f2f2;
   opacity: 0.3;
   text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  footer .logo {
+    margin-bottom: 28rem;
+  }
 }/*# sourceMappingURL=footer.css.map */

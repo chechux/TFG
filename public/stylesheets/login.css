@@ -22,7 +22,7 @@ body {
 }
 
 .contenedor {
-  background: #DADD98;
+  background: rgb(218, 221, 152);
   height: 85%;
   width: 73%;
   display: flex;
@@ -63,11 +63,15 @@ body {
 .contenedor .container .buttons #login {
   animation: entradaInputs 2s ease 1.3s forwards;
   opacity: 0;
-  margin-bottom: 20px;
-  padding: 12px 86px;
+  margin-bottom: 35px;
+  padding: 14px 88px;
   font-family: "Poetsen One", sans-serif;
   font-weight: 400;
   font-style: normal;
+  font-size: 21px;
+}
+.contenedor .container .buttons #login i {
+  margin-left: 8px;
 }
 .contenedor .container .buttons #register {
   animation: entradaInputs 2s ease 1.3s forwards;
@@ -76,6 +80,10 @@ body {
   font-family: "Poetsen One", sans-serif;
   font-weight: 400;
   font-style: normal;
+  font-size: 21px;
+}
+.contenedor .container .buttons #register i {
+  margin-left: 8px;
 }
 .contenedor .container .redes {
   display: flex;
@@ -135,8 +143,11 @@ body {
   flex-direction: column;
   height: 100%;
   width: 33%;
-  align-items: center;
   margin-top: 150px;
+}
+.container2 .item1, .container3 .item1 {
+  display: flex;
+  flex-direction: column;
 }
 .container2 #mySection, .container2 #mySection2, .container2 #mySection3, .container2 #mySection4, .container3 #mySection, .container3 #mySection2, .container3 #mySection3, .container3 #mySection4 {
   background: #014421;
@@ -503,5 +514,42 @@ input {
   }
   100% {
     transform: scale(1);
+  }
+}
+@media (max-width: 768px) {
+  .contenedor {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .contenedor .container {
+    width: 50%;
+    height: 42%;
+    margin-top: 5rem;
+  }
+  .contenedor .container .container2, .contenedor .container .container3 {
+    height: 14%;
+    margin-top: 0px;
+    width: 36%;
+    flex-direction: row;
+  }
+  .contenedor .container .container2 #mySection, .contenedor .container .container3 #mySection {
+    margin-bottom: 5rem;
+  }
+  .contenedor .container .container2 .item1, .contenedor .container .container2 .item2, .contenedor .container .container3 .item1, .contenedor .container .container3 .item2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .contenedor .container .container2 .item1 button, .contenedor .container .container2 .item2 button, .contenedor .container .container3 .item1 button, .contenedor .container .container3 .item2 button {
+    width: 100%;
+    font-size: 20px;
+  }
+  .contenedor .container #popup {
+    height: 18%;
+  }
+  .contenedor .container #popup .div-boton #boton {
+    width: 41%;
   }
 }/*# sourceMappingURL=login.css.map */

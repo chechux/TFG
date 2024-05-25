@@ -62,4 +62,10 @@ a:hover {
   to {
     opacity: 1;
   }
+}
+@media screen and (max-width: 768px) {
+  .error-container {
+    padding: 17px;
+    width: 77%;
+  }
 }/*# sourceMappingURL=404.css.map */

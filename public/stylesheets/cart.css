@@ -181,4 +181,26 @@ button {
   100% {
     opacity: 1;
   }
+}
+@media screen and (max-width: 768px) {
+  .container2 .container h1 {
+    display: flex;
+    font-size: 1.9rem;
+  }
+  .container2 .container .carrito {
+    flex-direction: column;
+    align-items: center;
+  }
+  .container2 .container .carrito .container-lista, .container2 .container .carrito .container-product {
+    width: 125%;
+  }
+  .container2 .container .carrito .cart-item {
+    width: 80%;
+  }
+  .container2 .container .carrito .cart-item h2 {
+    font-size: 1.15rem;
+  }
+  .container2 .container .carrito .cart-item button {
+    font-size: 0.8rem;
+  }
 }/*# sourceMappingURL=cart.css.map */

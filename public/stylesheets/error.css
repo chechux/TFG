@@ -48,4 +48,11 @@ a:hover {
 
 img {
   height: 10rem;
+}
+
+@media screen and (max-width: 768px) {
+  .error-container {
+    width: 66%;
+    padding: 35px;
+  }
 }/*# sourceMappingURL=error.css.map */

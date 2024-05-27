@@ -10,7 +10,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway&display=swap" rel="stylesheet">  
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Noto+Sans:ital,wght@0,299;1,299&family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=REM:ital,wght@0,176;1,176&display=swap" rel="stylesheet">
+
     <title>Document</title>
 </head>
 <body>
@@ -46,22 +49,22 @@
                     <div class="listas">
                         <div class="titulo">
                             <h1><%= item.nombre %></h1>
-                            <h1>Precio total : <%= item.totalprecio.toFixed(2) %>$</h1>
+                            <h1 class="precio">Precio total : <%= item.totalprecio.toFixed(2) %>$</h1>
                         </div>
                         <div class="botones">
                             <button class="edit-button">
                                 <a id="editar" href="/editar/<%=item.id%>">Editar</a>
                                 <i class="fa fa-edit"></i> 
-                              </button>
+                            </button>
                            
-                            <button class="delete-button">
-                                <a href="/delete/<%= item.id  %>" class="text">Eliminar</a>
+                            <button class="delete-button" data-id="<%= item.id %>">
+                                <a href="javascript:void(0);" class="text">Eliminar</a>
                                 <i class="fa-sharp fa-solid fa-trash icon-trash"></i>
-                              </button>
+                            </button>
 
                               <form action="/listas/carrito/<%= item.id %>" method="POST" class="buy-button-form" style="display: inline;">
                                 <button type="submit" class="buy-button">
-                                  <span class="button-text-buy">Añadir al carrito</span>
+                                  <a class="button-text-buy">Añadir al carrito</a>
                                   <i class="fa-sharp fa-solid fa-cart-plus icon-buy"></i>
                                 </button>
                               </form>
@@ -101,6 +104,31 @@
             confirmButtonText: 'OK'
           });
         } 
+    });
+});
+
+document.addEventListener('DOMContentLoaded', (event) => {
+    const deleteButtons = document.querySelectorAll('.delete-button');
+
+    deleteButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const itemId = this.getAttribute('data-id');
+            const itemName = this.getAttribute('data-name');
+
+            Swal.fire({
+                title: `¿Seguro que quieres eliminar esta tabla?`,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Sí, eliminar',
+                cancelButtonText: 'No, cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = `/delete/${itemId}`;
+                }
+            });
+        });
     });
 });
 </script>

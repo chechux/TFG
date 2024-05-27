@@ -6,7 +6,6 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway&display=swap" rel="stylesheet">
@@ -17,129 +16,126 @@
 
     
 
-<section class="contenedor">
-  <div class="container">
-    <img src="/images/logo5.png" alt="logo">
-    <div class="container-titulo">
-      <h1>Bienvenido a</h1>
-      <h1 class="weedgo">WEEDGO</h1>
+<div class="contenedor2">
+  <div class="contenedor">
+    <div class="container">
+      <img src="/images/logo5.png" alt="logo">
+      <div class="container-titulo">
+        <h1>Bienvenido a</h1>
+        <h1 class="weedgo">WEEDGO</h1>
+      </div>
+      <div class="buttons">
+        <button id="login">Loguearse <i class="fa-solid fa-right-to-bracket"></i> </button>
+        <button id="register">Registrarse <i class="fa-solid fa-user"></i></button>
+      </div>
+
+  
     </div>
-    <div class="buttons">
-      <button id="login">Loguearse <i class="fa-solid fa-right-to-bracket"></i> </button>
-      <button id="register">Registrarse <i class="fa-solid fa-user"></i></button>
+  
+    <div class="container2">
+  
+  
+      <div class="item1">
+        <button onclick="toggleSection()">¿Quiénes Somos? <i class="fa-solid fa-caret-right"></i></button>
+        <section id="mySection" class="hidden">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, deleniti repellendus ducimus hic iste praesentium in eligendi quam iure, voluptates facilis nemo aspernatur incidunt dolorem officia commodi sint culpa atque.</p>
+        </section>
+      </div>
+  
+      <div class="item2">
+        <button onclick="toggleSection2()">¿A que nos dedicamos? <i class="fa-solid fa-caret-right"></i></button>
+        <section id="mySection2" class="hidden2">
+          <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis eum iure eligendi ratione? Eum, adipisci soluta, molestias necessitatibus sunt officia nemo porro harum ducimus atque, sit vero deleniti eos obcaecati.</p>
+        </section>
+      </div>
+  
+      
     </div>
-
-    <div class="redes">
-      <div><i class="fa-brands fa-x-twitter"></i></div>
-      <div><i class="fa-brands fa-instagram"></i></div>
-      <div><i class="fa-brands fa-tiktok"></i></div>
+  
+    <div class="container3">
+      
+      <div class="item1">
+        <button onclick="toggleSection3()">Mostrar Sección3 <i class="fa-solid fa-caret-right"></i></button>
+        <section id="mySection3" class="hidden3">
+          <p>Contenido de la sección.3</p>
+        </section>
+      </div>
+  
+  
+      <div class="item2">
+        <button onclick="toggleSection4()">Mostrar Sección4 <i class="fa-solid fa-caret-right"></i></button>
+        <section id="mySection4" class="hidden4">
+          <p>Contenido de la sección. 4</p>
+        </section>
+      </div>
     </div>
-
-  </div>
-
-  <div class="container2">
-
-
-    <div class="item1">
-      <button onclick="toggleSection()">¿Quiénes Somos? <i class="fa-solid fa-caret-right"></i></button>
-      <section id="mySection" class="hidden">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, deleniti repellendus ducimus hic iste praesentium in eligendi quam iure, voluptates facilis nemo aspernatur incidunt dolorem officia commodi sint culpa atque.</p>
-      </section>
-    </div>
-
-    <div class="item2">
-      <button onclick="toggleSection2()">¿A que nos dedicamos? <i class="fa-solid fa-caret-right"></i></button>
-      <section id="mySection2" class="hidden2">
-        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis eum iure eligendi ratione? Eum, adipisci soluta, molestias necessitatibus sunt officia nemo porro harum ducimus atque, sit vero deleniti eos obcaecati.</p>
-      </section>
-    </div>
-
+  
     
-  </div>
-
-  <div class="container3">
+  
+  
+  
+  
+  
+  
+  
+    <div id="overlay"></div>
+  
+    <div id="popup">
+      <div class="popup-container">
+        <button onclick="cerrarPopup()"><i id="close" class="fa-solid fa-xmark"></i></button>
+        <h1>LOGIN</h1>
+        <form id="loginForm" action="/login" method="POST">
+            <label for="username">Nombre de usuario:</label>
+            <input type="text" name="username" id="username" placeholder="Escribe tu nombre..." required>
+  
+            <label for="pass">Contraseña:</label>
+            <input type="password" name="password" id="pass" placeholder="Escribe tu contraseña..." required>
+            <div class="div-boton">
+              <input id="boton" class ="btn-login" type="submit" value="loguearse"></input>
+            </div>
+        </form>
+      </div>
+    </div>
+  
+  
+  
+  
+  
+    <div id="popup2">
+      <div class="popup-container">
+        <button><i id="closer" class="fa-solid fa-xmark"></i></button>
+        <h1 id ="titulo">REGISTRARSE</h1>
+        <form id="registerForm" action="/register" method="POST">
+            <label for="username">Nombre de usuario:</label>
+            <input type="text" name="username" id="username" placeholder="Escribe tu nombre..." required>
+  
+            <label for="pass">Contraseña:</label>
+            <div class="div-password"> 
+              <input type="password" name="password" class="pass" id="passs" placeholder="Escribe tu contraseña" required>
+              <i id="icon" class="fa-solid fa-eye-slash"></i>
+              <i id="icon2" class="fa-solid fa-eye"></i>
+            </div>
+  
+            <label for="">Gmail:</label>
+            <input type="email" name="gmail" id="email"  placeholder="Escribe tu gmail" required>
+  
+  
+            <input placeholder="Edad" type="number" name="edad" class="edad" required>
+  
+  
+            <div class="boton2">
+                <input id="boton2" type="submit" class="btn-save" value="Registrarse">
+            </div>
+            
+        </form>
+      </div>
+    </div>
+  
     
-    <div class="item1">
-      <button onclick="toggleSection3()">Mostrar Sección3 <i class="fa-solid fa-caret-right"></i></button>
-      <section id="mySection3" class="hidden3">
-        <p>Contenido de la sección.3</p>
-      </section>
-    </div>
-
-
-    <div class="item2">
-      <button onclick="toggleSection4()">Mostrar Sección4 <i class="fa-solid fa-caret-right"></i></button>
-      <section id="mySection4" class="hidden4">
-        <p>Contenido de la sección. 4</p>
-      </section>
-    </div>
-  </div>
-
+    
   
-
-
-
-
-
-
-
-  <div id="overlay"></div>
-
-  <div id="popup">
-    <div class="popup-container">
-      <button onclick="cerrarPopup()"><i id="close" class="fa-solid fa-xmark"></i></button>
-      <h1>LOGIN</h1>
-      <form id="loginForm" action="/login" method="POST">
-          <label for="username">Nombre de usuario:</label>
-          <input type="text" name="username" id="username" placeholder="Escribe tu nombre..." required>
-
-          <label for="pass">Contraseña:</label>
-          <input type="password" name="password" id="pass" placeholder="Escribe tu contraseña..." required>
-          <div class="div-boton">
-            <input id="boton" class ="btn-login" type="submit" value="loguearse"></input>
-          </div>
-      </form>
-    </div>
-  </div>
-
-
-
-
-
-  <div id="popup2">
-    <div class="popup-container">
-      <button><i id="closer" class="fa-solid fa-xmark"></i></button>
-      <h1 id ="titulo">REGISTRARSE</h1>
-      <form id="registerForm" action="/register" method="POST">
-          <label for="username">Nombre de usuario:</label>
-          <input type="text" name="username" id="username" placeholder="Escribe tu nombre..." required>
-
-          <label for="pass">Contraseña:</label>
-          <div class="div-password"> 
-            <input type="password" name="password" class="pass" id="passs" placeholder="Escribe tu contraseña" required>
-            <i id="icon" class="fa-solid fa-eye-slash"></i>
-            <i id="icon2" class="fa-solid fa-eye"></i>
-          </div>
-
-          <label for="">Gmail:</label>
-          <input type="email" name="gmail" id="email"  placeholder="Escribe tu gmail" required>
-
-
-          <input placeholder="Edad" type="number" name="edad" class="edad" required>
-
-
-          <div class="boton2">
-              <input id="boton2" type="submit" class="btn-save" value="save">
-          </div>
-          
-      </form>
-    </div>
-  </div>
-
-  
-  
-
-</section>  
+  </div>  
+</div>
 
 <script>
   function toggleSection() {
@@ -180,7 +176,7 @@
 
 
 
-  //Función para los iconos de mostrar y ocultar contraseña
+  //------------------------------Función para los iconos de mostrar y ocultar contraseña------------------------
   
   const pass = document.getElementById("passs")
   const icon = document.getElementById("icon")

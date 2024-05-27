@@ -6,15 +6,10 @@ $color-boton: #014421
   
 
 body
-  font-family: Arial, sans-serif
   margin: 0
   padding: 0
-  display: flex
-  justify-content: center
-  align-items: center
-  height: 97vh
   background-image: url("https://static.vecteezy.com/system/resources/previews/007/570/698/non_2x/leaves-cannabis-engraved-seamless-pattern-retro-background-botanical-with-leaf-marijuana-in-hand-drawn-style-vector.jpg")
-  transition: background-color 0.3s ease
+
 
 #overlay 
     position: fixed
@@ -25,114 +20,119 @@ body
     background: rgba(0, 0, 0, 0.7)
     display: none
     z-index: 10
-  
-.contenedor
-  background: rgb(218, 221, 152)
-  height: 85%
-  width: 73%
+
+.contenedor2
   display: flex
-  justify-content: space-between
+  height: 100vh
+  justify-content: center
   align-items: center
-  border-radius: 20px
-  box-shadow: 10px 10px 5px 2px rgba(0, 0, 0, 0.5)
-  .container
-    height: 100%
-    width: 40%
-    border-radius: 10px
+  .contenedor
+    background: rgb(218, 221, 152)
+    height: 85%
+    width: 73%
     display: flex
-    justify-content: space-around
-    flex-direction: column
+    justify-content: space-between
     align-items: center
-    
-    .buttons
-      margin-bottom: 40px
+    border-radius: 20px
+    box-shadow: 10px 10px 5px 2px rgba(0, 0, 0, 0.5)
+    .container
+      height: 100%
+      width: 40%
+      border-radius: 10px
       display: flex
+      justify-content: space-around
       flex-direction: column
       align-items: center
       
-      button
-        background-color: $color-boton
-        color: white
-        padding: 10px 20px
-        border: none
-        border-radius: 5px
-        font-size: 1rem
-        cursor: pointer
-        transition: background-color 0.3s
-        border-radius: 14px
-        
-        
-        &:hover 
-            background-color: darken($color-boton, 5%) // Oscurecer el color del botón al pasar el ratón
-      #login
-        animation: entradaInputs 2s ease 1.3s forwards
-        opacity: 0
-        margin-bottom: 35px
-        padding: 14px 88px
-        font-family: "Poetsen One", sans-serif
-        font-weight: 400
-        font-style: normal
-        font-size: 21px
-        i
-          margin-left: 8px
-      #register
-        animation: entradaInputs 2s ease 1.3s forwards
-        opacity: 0
-        padding: 12px 83px
-        font-family: "Poetsen One", sans-serif
-        font-weight: 400
-        font-style: normal
-        font-size: 21px
-        i
-          margin-left: 8px
-    
-    .redes
-      display: flex
-      width: 35%
-      justify-content: space-evenly
-      animation: entradaBoton 1.4s ease 1s forwards
-      opacity: 0
-      div
-        border-radius: 100px
-        padding: 10px
-        transition: transform 0.2s
-        transition: .8s ease .1s all
-        &:hover
-          cursor: pointer
-          background: white
-          animation: pulse 0.6s infinite
-      
-      i
-        color: black
-        font-size: 20px
-    .container-titulo
-      margin-bottom: 40px
-      display: flex
-      flex-direction: column
-      align-items: center
-      .weedgo
+      .buttons
+        margin-bottom: 40px
         display: flex
-        margin-top: 20px
-        animation: tituloInicial 3s ease 1.3s forwards
-
-      h1
-        animation: tituloInicial 3s ease forwards
+        flex-direction: column
+        align-items: center
+        
+        button
+          background-color: $color-boton
+          color: white
+          padding: 10px 20px
+          border: none
+          border-radius: 5px
+          font-size: 1rem
+          cursor: pointer
+          transition: background-color 0.3s
+          border-radius: 14px
+          
+          
+          &:hover 
+              background-color: darken($color-boton, 5%) // Oscurecer el color del botón al pasar el ratón
+        #login
+          animation: entradaInputs 2s ease 1.3s forwards
+          opacity: 0
+          margin-bottom: 35px
+          padding: 14px 88px
+          font-family: "Poetsen One", sans-serif
+          font-weight: 400
+          font-style: normal
+          font-size: 21px
+          i
+            margin-left: 8px
+        #register
+          animation: entradaInputs 2s ease 1.3s forwards
+          opacity: 0
+          padding: 12px 83px
+          font-family: "Poetsen One", sans-serif
+          font-weight: 400
+          font-style: normal
+          font-size: 21px
+          i
+            margin-left: 8px
+      
+      .redes
+        display: flex
+        width: 35%
+        justify-content: space-evenly
+        animation: entradaBoton 1.4s ease 1s forwards
         opacity: 0
-        margin: 0
-        padding: 0
-        font-size: 60px
-        font-family: "Playfair Display", serif
-        font-optical-sizing: auto
-        font-weight: 800
-        font-style: italic
+        div
+          border-radius: 100px
+          padding: 10px
+          transition: transform 0.2s
+          transition: .8s ease .1s all
+          &:hover
+            cursor: pointer
+            background: white
+            animation: pulse 0.6s infinite
+        
+        i
+          color: black
+          font-size: 20px
+      .container-titulo
+        margin-bottom: 40px
+        display: flex
+        flex-direction: column
+        align-items: center
+        .weedgo
+          display: flex
+          margin-top: 20px
+          animation: tituloInicial 3s ease 1.3s forwards
 
-    img
-      max-width: 125px
-      margin: 0 auto
-      display: block
-      position: absolute
-      top: 1%
-      right:48%
+        h1
+          animation: tituloInicial 3s ease forwards
+          opacity: 0
+          margin: 0
+          padding: 0
+          font-size: 60px
+          font-family: "Playfair Display", serif
+          font-optical-sizing: auto
+          font-weight: 800
+          font-style: italic
+
+      img
+        max-width: 125px
+        margin: 0 auto
+        display: block
+        position: absolute
+        top: 1%
+        right:48%
       
        
 
@@ -222,6 +222,8 @@ body
       i
         color: black
         margin-bottom: 0px
+        &:hover
+          color: red
     .btn-login
       width: 100%
       padding: 15px
@@ -233,6 +235,7 @@ body
       font-size: large
       color: white
       transition: .3s ease all
+      
       &:hover
         background: #25006ad1
     h1
@@ -279,6 +282,9 @@ body
         width: 33%
         border-radius: 15px
         margin-top: 20px
+        font-family: "Poetsen One", sans-serif
+        font-weight: 400
+        font-style: normal
     label
       animation: entradaInputs 1s ease .7s forwards
       opacity: 0
@@ -301,7 +307,7 @@ body
     width: 33%
     border-radius: 10px
     overflow: hidden
-    height: 55%
+    height: 60%
     &::before
       background-image: url("https://img.freepik.com/vector-gratis/fondo-hoja-cannabis-botanico_23-2148788702.jpg?size=626&ext=jpg&ga=GA1.1.87170709.1707177600&semt=ais")
       background-size: cover
@@ -395,6 +401,9 @@ body
           width: 33%
           border-radius: 15px
           margin-top: 20px
+          font-family: "Poetsen One", sans-serif
+          font-weight: 400
+          font-style: normal
           &:hover
             background: #25006ad1
             cursor: pointer
@@ -472,32 +481,9 @@ input
     100% 
         transform: scale(1)
     
-@media (max-width: 768px)
+@media screen and (max-width: 768px)
+  .contenedor2
+    flex-direction: column
+    background: red
     .contenedor
-        flex-direction: column
-        display: flex
-        align-items: center
-        justify-content: flex-start
-        .container
-          width: 50%
-          height: 42%
-          margin-top: 5rem
-          .container2,.container3
-              height: 14%
-              margin-top: 0px
-              width: 36%
-              flex-direction: row
-              #mySection
-                margin-bottom: 5rem
-              .item1,.item2
-                display: flex
-                flex-direction: column
-                align-items: center
-                button
-                  width: 100%
-                  font-size: 20px
-          #popup
-            height: 18%
-            .div-boton
-              #boton
-                width: 41%
+      background: red

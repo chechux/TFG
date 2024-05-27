@@ -5,19 +5,68 @@ body {
   background: url("https://img.freepik.com/vector-gratis/hojas-marihuana-estilo-linea-arte-sobre-fondo-negro-estructurado_1268-14249.jpg");
 }
 
+.filtros {
+  text-align: center;
+  margin: 20px 0;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  margin-top: 6rem;
+}
+.filtros h1 {
+  font-size: 24px;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  font-family: "Arial", sans-serif;
+}
+.filtros #filter-form {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+}
+.filtros #filter-form button {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-family: "Arial", sans-serif;
+  border: transparent;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  background: transparent;
+}
+.filtros #filter-form button:hover {
+  background-color: #1abc9c;
+  border-color: #1abc9c;
+  color: #fff;
+}
+.filtros #filter-form button:focus {
+  outline: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.filtros #filter-form button span {
+  position: relative;
+  z-index: 1;
+}
+.filtros .final {
+  background: white;
+  height: 2px;
+  width: 100%;
+  margin-top: 5px;
+}
+
 .productos {
   padding: 50px 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: center;
-  margin-top: 6rem;
 }
 
 .producto {
   text-align: center;
   margin-bottom: 160px;
-  padding: 5px;
   background: #95E06C;
   position: relative;
   overflow: hidden;
@@ -65,7 +114,7 @@ body {
   padding: 10px 10px;
   cursor: pointer;
   transition: background-color 0.3s;
-  margin-top: 75px;
+  margin-top: 50px;
   font-family: "Poetsen One", sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -83,17 +132,19 @@ body {
   background: orange;
 }
 .producto h1 {
-  font-family: "Noto Sans", sans-serif;
-  font-weight: 709;
+  font-family: "Merriweather", serif;
+  font-weight: 800;
   font-style: normal;
-  margin-bottom: 15px;
+  margin-bottom: 40px;
+  font-size: 33px;
 }
 .producto h2 {
-  font-size: 16px;
-  font-family: "Noto Sans", sans-serif;
-  font-weight: 509;
+  font-size: 17px;
+  font-family: "REM", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 176;
   font-style: normal;
-  margin-top: 56px;
+  margin-bottom: 1.5rem;
 }
 .producto a {
   text-decoration: none;

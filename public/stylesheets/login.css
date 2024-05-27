@@ -1,13 +1,7 @@
 body {
-  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 97vh;
   background-image: url("https://static.vecteezy.com/system/resources/previews/007/570/698/non_2x/leaves-cannabis-engraved-seamless-pattern-retro-background-botanical-with-leaf-marijuana-in-hand-drawn-style-vector.jpg");
-  transition: background-color 0.3s ease;
 }
 
 #overlay {
@@ -21,7 +15,13 @@ body {
   z-index: 10;
 }
 
-.contenedor {
+.contenedor2 {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+.contenedor2 .contenedor {
   background: rgb(218, 221, 152);
   height: 85%;
   width: 73%;
@@ -31,7 +31,7 @@ body {
   border-radius: 20px;
   box-shadow: 10px 10px 5px 2px rgba(0, 0, 0, 0.5);
 }
-.contenedor .container {
+.contenedor2 .contenedor .container {
   height: 100%;
   width: 40%;
   border-radius: 10px;
@@ -40,13 +40,13 @@ body {
   flex-direction: column;
   align-items: center;
 }
-.contenedor .container .buttons {
+.contenedor2 .contenedor .container .buttons {
   margin-bottom: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.contenedor .container .buttons button {
+.contenedor2 .contenedor .container .buttons button {
   background-color: #014421;
   color: white;
   padding: 10px 20px;
@@ -57,10 +57,10 @@ body {
   transition: background-color 0.3s;
   border-radius: 14px;
 }
-.contenedor .container .buttons button:hover {
+.contenedor2 .contenedor .container .buttons button:hover {
   background-color: #012b15;
 }
-.contenedor .container .buttons #login {
+.contenedor2 .contenedor .container .buttons #login {
   animation: entradaInputs 2s ease 1.3s forwards;
   opacity: 0;
   margin-bottom: 35px;
@@ -70,10 +70,10 @@ body {
   font-style: normal;
   font-size: 21px;
 }
-.contenedor .container .buttons #login i {
+.contenedor2 .contenedor .container .buttons #login i {
   margin-left: 8px;
 }
-.contenedor .container .buttons #register {
+.contenedor2 .contenedor .container .buttons #register {
   animation: entradaInputs 2s ease 1.3s forwards;
   opacity: 0;
   padding: 12px 83px;
@@ -82,43 +82,43 @@ body {
   font-style: normal;
   font-size: 21px;
 }
-.contenedor .container .buttons #register i {
+.contenedor2 .contenedor .container .buttons #register i {
   margin-left: 8px;
 }
-.contenedor .container .redes {
+.contenedor2 .contenedor .container .redes {
   display: flex;
   width: 35%;
   justify-content: space-evenly;
   animation: entradaBoton 1.4s ease 1s forwards;
   opacity: 0;
 }
-.contenedor .container .redes div {
+.contenedor2 .contenedor .container .redes div {
   border-radius: 100px;
   padding: 10px;
   transition: transform 0.2s;
   transition: 0.8s ease 0.1s all;
 }
-.contenedor .container .redes div:hover {
+.contenedor2 .contenedor .container .redes div:hover {
   cursor: pointer;
   background: white;
   animation: pulse 0.6s infinite;
 }
-.contenedor .container .redes i {
+.contenedor2 .contenedor .container .redes i {
   color: black;
   font-size: 20px;
 }
-.contenedor .container .container-titulo {
+.contenedor2 .contenedor .container .container-titulo {
   margin-bottom: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.contenedor .container .container-titulo .weedgo {
+.contenedor2 .contenedor .container .container-titulo .weedgo {
   display: flex;
   margin-top: 20px;
   animation: tituloInicial 3s ease 1.3s forwards;
 }
-.contenedor .container .container-titulo h1 {
+.contenedor2 .contenedor .container .container-titulo h1 {
   animation: tituloInicial 3s ease forwards;
   opacity: 0;
   margin: 0;
@@ -129,7 +129,7 @@ body {
   font-weight: 800;
   font-style: italic;
 }
-.contenedor .container img {
+.contenedor2 .contenedor .container img {
   max-width: 125px;
   margin: 0 auto;
   display: block;
@@ -230,6 +230,9 @@ body {
   color: black;
   margin-bottom: 0px;
 }
+#popup button i:hover {
+  color: red;
+}
 #popup .btn-login {
   width: 100%;
   padding: 15px;
@@ -296,6 +299,9 @@ body {
   width: 33%;
   border-radius: 15px;
   margin-top: 20px;
+  font-family: "Poetsen One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 #popup label {
   animation: entradaInputs 1s ease 0.7s forwards;
@@ -320,7 +326,7 @@ body {
   width: 33%;
   border-radius: 10px;
   overflow: hidden;
-  height: 55%;
+  height: 60%;
 }
 #popup2::before {
   background-image: url("https://img.freepik.com/vector-gratis/fondo-hoja-cannabis-botanico_23-2148788702.jpg?size=626&ext=jpg&ga=GA1.1.87170709.1707177600&semt=ais");
@@ -435,6 +441,9 @@ body {
   width: 33%;
   border-radius: 15px;
   margin-top: 20px;
+  font-family: "Poetsen One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 #popup2 .popup-container form #boton2:hover {
   background: rgba(37, 0, 106, 0.8196078431);
@@ -516,40 +525,12 @@ input {
     transform: scale(1);
   }
 }
-@media (max-width: 768px) {
-  .contenedor {
+@media screen and (max-width: 768px) {
+  .contenedor2 {
     flex-direction: column;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
+    background: red;
   }
-  .contenedor .container {
-    width: 50%;
-    height: 42%;
-    margin-top: 5rem;
-  }
-  .contenedor .container .container2, .contenedor .container .container3 {
-    height: 14%;
-    margin-top: 0px;
-    width: 36%;
-    flex-direction: row;
-  }
-  .contenedor .container .container2 #mySection, .contenedor .container .container3 #mySection {
-    margin-bottom: 5rem;
-  }
-  .contenedor .container .container2 .item1, .contenedor .container .container2 .item2, .contenedor .container .container3 .item1, .contenedor .container .container3 .item2 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .contenedor .container .container2 .item1 button, .contenedor .container .container2 .item2 button, .contenedor .container .container3 .item1 button, .contenedor .container .container3 .item2 button {
-    width: 100%;
-    font-size: 20px;
-  }
-  .contenedor .container #popup {
-    height: 18%;
-  }
-  .contenedor .container #popup .div-boton #boton {
-    width: 41%;
+  .contenedor2 .contenedor {
+    background: red;
   }
 }/*# sourceMappingURL=login.css.map */

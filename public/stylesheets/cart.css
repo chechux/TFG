@@ -164,6 +164,11 @@ button {
   visibility: visible;
 }
 
+.p {
+  animation: entrada2 1.3s ease-out 1.5s forwards;
+  opacity: 0;
+}
+
 @keyframes entrada2 {
   0% {
     transform: translateX(-70px);
@@ -193,6 +198,7 @@ button {
   }
   .container2 .container .carrito .container-lista, .container2 .container .carrito .container-product {
     width: 125%;
+    margin-bottom: 2.3rem;
   }
   .container2 .container .carrito .cart-item {
     width: 80%;

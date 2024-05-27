@@ -25,6 +25,7 @@ body
             align-items: center
             width: 100%
             margin-bottom: 2rem
+        
             .titulo
                 display: flex
                 margin-top: 1.5rem
@@ -95,11 +96,71 @@ body
                     &::placeholder
                         color: #9abf9b // Color del placeholder
                         font-style: italic
+        .cont-no-item
+            display: flex
+            flex-direction: column
+            margin-bottom: 3rem
+            align-items: center
+            margin-top: 2rem
+            .no-item
+                display: flex
+                justify-content: center
+                font-size: 20px
+                margin-bottom: 5px
+            hr
+                height: 3px
+                background: black
+                margin-bottom: 20px
+                width: 50%
+        .div-boton-volver
+            display: flex
+            justify-content: center
+            .back-button
+                display: flex
+                align-items: center
+                justify-content: center
+                padding: 10px 20px
+                background-color: #2c3e50 // Color de fondo del botón
+                color: #fff // Color del texto
+                border: 2px solid #2c3e50 // Mismo color que el fondo para mantener consistencia
+                border-radius: 5px
+                font-size: 16px
+                
+                cursor: pointer
+                transition: all 0.3s ease
+                position: relative
+                overflow: hidden
+                width: 25%
+                margin-bottom: 1rem
+                a
+                    color: inherit
+                    text-decoration: none
+                    font-family: "Poetsen One", sans-serif
+                    font-weight: 400
+                    font-style: normal
+
+                i
+                    margin-right: 10px
+                    transition: transform 0.3s ease
+
+                &:hover
+                    background-color: #1abc9c // Color de fondo al pasar el mouse
+                    color: #fff
+                    border-color: #1abc9c
+
+                    i
+                    transform: translateX(-5px) // Desplazar el icono a la izquierda al hacer hover
+
+                    &::before
+                    transform: translateX(0)
+
+
     .productos
         width: 100%
         margin-top: 2rem
         display: flex
         flex-direction: column
+        margin-bottom: 1.4rem
         .producto
             display: flex
             margin-bottom: 1rem
@@ -147,3 +208,45 @@ body
 
                 
 
+@media screen and (max-width: 768px) 
+    .container2
+        .container
+            width: 83%
+            .form1
+                .titulo
+                    flex-direction: column
+                    h1
+                        margin-right: 0px
+                        font-size: 20px
+                        margin-bottom: .8rem
+                    
+                    #button
+                        margin-left: 0px
+                        width: 16%
+                        margin-top: 1.5rem
+            .cont-no-item 
+                .no-item
+                    font-size: 14px  
+                hr
+                    margin-bottom: 0px
+                    height: 0px
+                    width: 0%   
+            .div-boton-volver 
+                .back-button
+                    width: 60%
+            .productos
+                .producto
+                    .form2
+                        align-items: center
+                        justify-content: space-between
+                        h2
+                            font-size: 10px
+                        button
+                            padding: 15px 24px
+                            span
+                                display: none
+                                visibility: none
+                            i
+                                opacity: 1
+                                visibility: visible
+                                font-size: 16px

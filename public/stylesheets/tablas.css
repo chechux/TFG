@@ -85,12 +85,18 @@ body {
   width: 50%;
   margin-bottom: 9rem;
   margin-top: 9rem;
+  border-radius: 15px;
+  box-shadow: 10px 10px 5px 2px rgba(0, 0, 0, 0.5);
 }
 .container4 h1 {
   display: flex;
   justify-content: center;
   margin-top: 2rem;
   margin-bottom: 0.5rem;
+  font-family: "Merriweather", serif;
+  font-weight: 800;
+  font-style: normal;
+  font-size: 26px;
 }
 .container4 h1 .hover-button {
   position: relative;
@@ -102,10 +108,10 @@ body {
   border-radius: 5px;
   cursor: pointer;
   overflow: hidden;
-  font-size: 16px;
+  font-size: 17px;
   transition: all 0.5s ease;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 15px;
+  margin-right: 15px;
 }
 .container4 h1 .button-text {
   transition: opacity 0.5s ease, visibility 0.5s ease;
@@ -142,14 +148,22 @@ body {
 }
 .container4 .listas:hover {
   cursor: pointer;
-  height: 19vh;
+  height: 21vh;
 }
 .container4 .listas .titulo h1 {
   margin-bottom: 15px;
   margin-top: 10px;
   font-family: "Raleway", sans-serif;
-  font-weight: 500;
+  font-weight: 600;
   font-style: normal;
+  font-size: 25px;
+}
+.container4 .listas .titulo .precio {
+  font-family: "REM", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 176;
+  font-style: normal;
+  font-size: 20px;
 }
 .container4 .listas .botones {
   display: flex;
@@ -188,6 +202,9 @@ body {
 .container4 .listas .edit-button a, .container4 .listas .delete-button a, .container4 .listas .buy-button a {
   text-decoration: none;
   color: inherit;
+  font-family: "Poetsen One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 .container4 .listas .edit-button i, .container4 .listas .delete-button i, .container4 .listas .buy-button i {
   margin-left: 8px;
@@ -266,6 +283,16 @@ body {
   }
 }
 @media screen and (max-width: 768px) {
+  .container .container2 {
+    width: 80%;
+    height: 43%;
+  }
+  .container .container2 h1 {
+    font-size: 22px;
+  }
+  .container .container2 .hover-button {
+    font-size: 14px;
+  }
   .container4 h1 {
     flex-direction: column;
     align-items: center;
@@ -278,7 +305,7 @@ body {
     width: 75%;
   }
   .container4 .listas:hover {
-    height: 40vh;
+    height: 44vh;
   }
   .container4 .listas .botones {
     flex-direction: column;

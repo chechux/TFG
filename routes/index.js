@@ -45,10 +45,24 @@ router.get("/crearTabla",(req,res,next)=>{
 
 
 
-router.get("/main", isAuthenticated, async (req,res,next)=>{
-  const [producto] = await connection.query('SELECT * FROM productos')
-  res.render("main",{producto})
-})
+router.get('/main', isAuthenticated, async (req, res) => {
+  let category = req.query.category || 'all';
+  let query = 'SELECT * FROM productos';
+  let params = [];
+
+  if (category !== 'all') {
+      query += ' WHERE categoria = ?';
+      params.push(category);
+  }
+
+  try {
+      const [products] = await connection.query(query, params);
+      res.render('main', { products });
+  } catch (error) {
+      console.error(error);
+      res.status(500).send('Error al obtener los productos');
+  }
+});
 
 
 

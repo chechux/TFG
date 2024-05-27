@@ -84,11 +84,17 @@ body
         width: 50%
         margin-bottom: 9rem
         margin-top: 9rem
+        border-radius: 15px
+        box-shadow: 10px 10px 5px 2px rgba(0, 0, 0, 0.5)
     h1
         display: flex
         justify-content: center
         margin-top: 2rem
         margin-bottom: .5rem
+        font-family: "Merriweather", serif
+        font-weight: 800
+        font-style: normal
+        font-size: 26px
 
         .hover-button
             position: relative
@@ -100,10 +106,10 @@ body
             border-radius: 5px
             cursor: pointer
             overflow: hidden
-            font-size: 16px
+            font-size: 17px
             transition: all 0.5s ease
-            margin-left: 10px
-            margin-right: 10px
+            margin-left: 15px
+            margin-right: 15px
 
         .button-text
             transition: opacity .5s ease, visibility .5s ease
@@ -136,19 +142,26 @@ body
         position: relative
         overflow: hidden
         height: 7vh
-        transition: height 0.5s ease
+        transition: height 0.5s ease            
 
         &:hover
             cursor: pointer
-            height: 19vh
+            height: 21vh
 
         .titulo
             h1
                 margin-bottom: 15px
                 margin-top: 10px
                 font-family: "Raleway", sans-serif
-                font-weight: 500
+                font-weight: 600
                 font-style: normal
+                font-size: 25px
+            .precio
+                font-family: "REM", sans-serif
+                font-optical-sizing: auto
+                font-weight: 176
+                font-style: normal
+                font-size: 20px
 
         .botones
             display: flex
@@ -171,6 +184,7 @@ body
             display: flex
             align-items: center
             justify-content: center
+            
 
             &:hover
                 background-color: #0056b3
@@ -186,7 +200,10 @@ body
 
             a
                 text-decoration: none
-                color: inherit 
+                color: inherit
+                font-family: "Poetsen One", sans-serif
+                font-weight: 400
+                font-style: normal
 
             i
                 margin-left: 8px
@@ -261,6 +278,14 @@ body
 
 
 @media screen and (max-width: 768px)    
+    .container 
+        .container2
+            width: 80%
+            height: 43% 
+            h1
+                font-size: 22px
+            .hover-button
+                font-size: 14px
     .container4
         h1
             flex-direction: column
@@ -272,7 +297,7 @@ body
             width: 75%
         .listas
             &:hover
-                height: 40vh
+                height: 44vh
             .botones
                 flex-direction: column
                 button

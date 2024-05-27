@@ -36,11 +36,13 @@
                 </form>
               </div>
             <% }); %>
+
+        <% } else { %>
+          <p class="p">No hay listas en el carrito.</p>
+        <% } %>
       </div>
   
-      <% } else { %>
-        <p>No hay listas en el carrito.</p>
-      <% } %>
+      
   
   
     <div class="container-product">
@@ -61,11 +63,12 @@
               </form>
             </div>
           <% }); %>
+          <% } else { %>
+            <p class="p">No hay productos en el carrito.</p>
+          <% } %>
       </div>
   
-        <% } else { %>
-          <p>No hay productos en el carrito.</p>
-        <% } %>
+        
   
     </div>
     <div class="comprar">
@@ -75,6 +78,7 @@
         <i class="fa-solid fa-dollar-sign icon"></i>
         </button>
     </div>
+
   </section>
 </section>
 

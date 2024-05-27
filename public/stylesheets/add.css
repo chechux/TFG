@@ -7,6 +7,65 @@ body {
   background: url("https://img.freepik.com/vector-gratis/hojas-marihuana-estilo-linea-arte-sobre-fondo-negro-estructurado_1268-14249.jpg");
 }
 
+.container-no-tabla {
+  display: flex;
+  justify-content: center;
+  margin-top: 9rem;
+  margin-bottom: 9rem;
+  width: 100%;
+}
+.container-no-tabla .no-tabla {
+  background: #D0F0C0;
+  width: 50%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.container-no-tabla .no-tabla .div-boton-volver {
+  display: flex;
+  justify-content: center;
+}
+.container-no-tabla .no-tabla .div-boton-volver .back-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  background-color: #2c3e50;
+  color: #fff;
+  border: 2px solid #2c3e50;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  width: 25%;
+  margin-bottom: 1rem;
+}
+.container-no-tabla .no-tabla .div-boton-volver .back-button a {
+  color: inherit;
+  text-decoration: none;
+  font-family: "Poetsen One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.container-no-tabla .no-tabla .div-boton-volver .back-button i {
+  margin-right: 10px;
+  transition: transform 0.3s ease;
+}
+.container-no-tabla .no-tabla .div-boton-volver .back-button:hover {
+  background-color: #1abc9c;
+  color: #fff;
+  border-color: #1abc9c;
+}
+.container-no-tabla .no-tabla .div-boton-volver .back-button:hover i {
+  transform: translateX(-5px);
+}
+.container-no-tabla .no-tabla .div-boton-volver .back-button:hover::before {
+  transform: translateX(0);
+}
+
 .container3 {
   display: flex;
   width: 100%;
@@ -16,19 +75,62 @@ body {
   background: #D0F0C0;
   margin-bottom: 9rem;
   margin-top: 9rem;
-  width: 42%;
+  width: 35%;
   padding: 1rem;
+  border-radius: 17px;
+  box-shadow: 20px 13px 5px 2px rgba(0, 0, 0, 0.5);
 }
 .container3 .container .container2 {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+.container3 .container .container2 .div-boton-volver {
+  display: flex;
+  justify-content: center;
+}
+.container3 .container .container2 .div-boton-volver .back-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  background-color: #2c3e50;
+  color: #fff;
+  border: 2px solid #2c3e50;
+  border-radius: 5px;
+  font-size: 16px;
+  font-family: "Arial", sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  margin-bottom: 0.7rem;
+  margin-top: 4rem;
+}
+.container3 .container .container2 .div-boton-volver .back-button a {
+  color: inherit;
+  text-decoration: none;
+  font-family: "Poetsen One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.container3 .container .container2 .div-boton-volver .back-button i {
+  margin-right: 10px;
+  transition: transform 0.3s ease;
+}
+.container3 .container .container2 .div-boton-volver .back-button:hover {
+  background-color: #1abc9c;
+  color: #fff;
+  border-color: #1abc9c;
+  transform: translateX(-5px);
+  transform: translateX(0);
+}
 .container3 .container .container2 .titulo {
   margin-top: 2rem;
   margin-bottom: 2.5rem;
-  font-family: "Noto Sans", sans-serif;
-  font-weight: 686;
+  font-family: "Merriweather", serif;
+  font-weight: 800;
   font-style: normal;
   font-size: 33px;
 }
@@ -48,8 +150,9 @@ body {
   justify-content: space-evenly;
 }
 .container3 .container .container2 .tablas form h1 {
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
+  font-family: "REM", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 176;
   font-style: normal;
   font-size: 26px;
 }
@@ -62,7 +165,7 @@ body {
   border: none;
   border-radius: 5px;
   padding: 10px 20px;
-  font-size: 16px;
+  font-size: 14px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
   font-family: "Poetsen One", sans-serif;

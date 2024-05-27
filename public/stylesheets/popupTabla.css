@@ -114,6 +114,9 @@
   width: 33%;
   border-radius: 15px;
   margin-top: 20px;
+  font-family: "Poetsen One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 #popup2 .popup-container form #boton2:hover {
   background: rgba(37, 0, 106, 0.8196078431);

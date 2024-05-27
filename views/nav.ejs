@@ -1,21 +1,32 @@
-<nav class="navbar">
-    <form action="/logout">   
-        <button type="submit">Cerrar Sesión <i class="fa-solid fa-right-from-bracket"></i></button>
-    </form>
-    <div class="menu-toggle" id="mobile-menu">
-        <i class="fa-solid fa-bars"></i>
-    </div>
-    <img src="/images/logo5.png" alt="Logo">
-    <ul class="nav-links">
-        <div class="close-menu" id="close-menu">
-            <i class="fa-solid fa-times"></i>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=REM:ital,wght@0,680;1,680&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <nav class="navbar">
+        <form action="/logout">   
+            <button type="submit">Cerrar Sesión <i class="fa-solid fa-right-from-bracket"></i></button>
+        </form>
+        <div class="menu-toggle" id="mobile-menu">
+            <i class="fa-solid fa-bars"></i>
         </div>
-        <li><a href="/main">Inicio</a></li>
-        <li><a href="/tablas">Tablas</a></li>
-        <li><a href="#">Contacto</a></li>
-        <li><a href="/cart"><i class="fa-solid fa-cart-shopping"></i></a></li>
-    </ul>
-</nav>
+        <img src="/images/logo5.png" alt="Logo">
+        <ul class="nav-links">
+            <div class="close-menu" id="close-menu">
+                <i class="fa-solid fa-times"></i>
+            </div>
+            <li><a href="/main">Inicio</a></li>
+            <li><a href="/tablas">Tablas</a></li>
+            <li><a href="#">Contacto</a></li>
+            <li><a href="/cart"><i class="fa-solid fa-cart-shopping"></i></a></li>
+        </ul>
+    </nav>
+</body>
+</html>
 
 <script>
     document.getElementById('mobile-menu').addEventListener('click', function() {

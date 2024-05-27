@@ -18,6 +18,9 @@
   overflow: hidden;
   z-index: 0;
   border-radius: 25px;
+  font-family: "REM", sans-serif;
+  font-weight: 680;
+  font-style: normal;
 }
 .navbar button::before {
   content: "";
@@ -89,6 +92,9 @@
   color: #fff;
   transition: color 0.3s ease;
   padding: 12px;
+  font-family: "REM", sans-serif;
+  font-weight: 680;
+  font-style: normal;
 }
 .navbar .nav-links li a:hover {
   color: #2ecc71;

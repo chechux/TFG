@@ -16,15 +16,25 @@ body {
 }
 .container-no-tabla .no-tabla {
   background: #D0F0C0;
-  width: 50%;
+  width: 45%;
   padding: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  border-radius: 17px;
+  box-shadow: 20px 13px 5px 2px rgba(0, 0, 0, 0.5);
+  height: 34vh;
+}
+.container-no-tabla .no-tabla h1 {
+  font-family: "Merriweather", serif;
+  font-weight: 800;
+  font-style: normal;
 }
 .container-no-tabla .no-tabla .div-boton-volver {
   display: flex;
   justify-content: center;
+  margin-top: 4rem;
 }
 .container-no-tabla .no-tabla .div-boton-volver .back-button {
   display: flex;
@@ -40,7 +50,7 @@ body {
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
-  width: 25%;
+  width: 100%;
   margin-bottom: 1rem;
 }
 .container-no-tabla .no-tabla .div-boton-volver .back-button a {
@@ -213,5 +223,20 @@ body {
   .container3 .container .tablas form .add-button {
     margin-top: 15px;
     font-size: 14px;
+  }
+  .container-no-tabla {
+    height: 44vh;
+  }
+  .container-no-tabla .no-tabla {
+    height: 40vh;
+    width: 78%;
+    justify-content: center;
+  }
+  .container-no-tabla .no-tabla h1 {
+    font-size: 25px;
+    margin-top: 1rem;
+  }
+  .container-no-tabla .no-tabla .back-button {
+    margin-top: 2rem;
   }
 }/*# sourceMappingURL=add.css.map */

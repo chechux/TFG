@@ -19,6 +19,8 @@ body
         flex-direction: column
         background: #D0F0C0
         width: 55%
+        border-radius: 17px
+        box-shadow: 20px 13px 5px 2px rgba(0, 0, 0, 0.5)
         .form1
             display: flex
             flex-direction: column
@@ -70,6 +72,9 @@ body
                         transform: scale(1.1)
                 h1
                     margin-right: 20px
+                    font-family: "Merriweather", serif
+                    font-weight: 800
+                    font-style: normal
                 .input-text
                     background-color: #f0fdf4 // Fondo verde claro
                     border: 2px solid #a3d9a5 // Borde verde
@@ -125,12 +130,11 @@ body
                 border: 2px solid #2c3e50 // Mismo color que el fondo para mantener consistencia
                 border-radius: 5px
                 font-size: 16px
-                
                 cursor: pointer
                 transition: all 0.3s ease
                 position: relative
                 overflow: hidden
-                width: 25%
+                width: 21%
                 margin-bottom: 1rem
                 a
                     color: inherit
@@ -149,10 +153,10 @@ body
                     border-color: #1abc9c
 
                     i
-                    transform: translateX(-5px) // Desplazar el icono a la izquierda al hacer hover
+                        transform: translateX(-5px) // Desplazar el icono a la izquierda al hacer hover
 
                     &::before
-                    transform: translateX(0)
+                        transform: translateX(0)
 
 
     .productos
@@ -168,6 +172,11 @@ body
                 display: flex
                 width: 100%
                 justify-content: space-evenly
+                h2
+                    font-family: "REM", sans-serif
+                    font-weight: 200
+                    font-style: normal
+                    font-size: 25px
             .hover-button
                 position: relative
                 display: inline-block

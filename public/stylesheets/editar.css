@@ -19,6 +19,8 @@ body {
   flex-direction: column;
   background: #D0F0C0;
   width: 55%;
+  border-radius: 17px;
+  box-shadow: 20px 13px 5px 2px rgba(0, 0, 0, 0.5);
 }
 .container2 .container .form1 {
   display: flex;
@@ -74,6 +76,9 @@ body {
 }
 .container2 .container .form1 .titulo h1 {
   margin-right: 20px;
+  font-family: "Merriweather", serif;
+  font-weight: 800;
+  font-style: normal;
 }
 .container2 .container .form1 .titulo .input-text {
   background-color: #f0fdf4;
@@ -143,7 +148,7 @@ body {
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
-  width: 25%;
+  width: 21%;
   margin-bottom: 1rem;
 }
 .container2 .container .div-boton-volver .back-button a {
@@ -161,7 +166,11 @@ body {
   background-color: #1abc9c;
   color: #fff;
   border-color: #1abc9c;
+}
+.container2 .container .div-boton-volver .back-button:hover i {
   transform: translateX(-5px);
+}
+.container2 .container .div-boton-volver .back-button:hover::before {
   transform: translateX(0);
 }
 .container2 .productos {
@@ -179,6 +188,12 @@ body {
   display: flex;
   width: 100%;
   justify-content: space-evenly;
+}
+.container2 .productos .producto .form2 h2 {
+  font-family: "REM", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 25px;
 }
 .container2 .productos .producto .hover-button {
   position: relative;

@@ -87,5 +87,6 @@ footer .div-icons {
 @media screen and (max-width: 768px) {
   footer .logo {
     margin-bottom: 28rem;
+    height: 105px;
   }
 }/*# sourceMappingURL=footer.css.map */

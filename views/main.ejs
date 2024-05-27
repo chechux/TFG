@@ -18,30 +18,31 @@
 <body>
 <%- include('./nav.ejs')  %>
 
+<div id="overlay"></div>
 
-  <div class="filtros">
-    <h1>Filtrar productos <i class="fa-solid fa-filter"></i></h1>
-    <form id="filter-form" action="/main" method="GET">
-        <button type="submit" name="category" value="all">Todos</button>
-        <hr>
-        <button type="submit" name="category" value="mecheros">Mecheros</button>
-        <hr>
-        <button type="submit" name="category" value="grinders">Grinders</button>
-        <hr>
-        <button type="submit" name="category" value="papel">Papeles</button>
-        <hr>
-        <button type="submit" name="category" value="producto">Productos</button>
-        <hr>
-        <button type="submit" name="category" value="hierba">Hierbas</button>
-        <hr>
-        <button type="submit" name="category" value="otro">Otros</button>
-        <hr>
-        <button type="submit" name="category" value="papel">Papeles</button>
-        <hr>
-        <button type="submit" name="category" value="boquilla">Boquillas</button>
-    </form>
-    <hr class="final">
-  </div>
+<div class="filtros">
+  <h1>Filtrar <i class="fa-solid fa-filter" id="filter-icon"></i></h1>
+  <form id="filter-form" action="/main" method="GET">
+      <button class="reinicio" type="submit" name="category" value="all">Reiniciar filtro</button>
+      <hr class="primero">
+      <button type="submit" name="category" value="mecheros">Mecheros</button>
+      <hr>
+      <button type="submit" name="category" value="grinders">Grinders</button>
+      <hr>
+      <button type="submit" name="category" value="papel">Papeles</button>
+      <hr>
+      <button type="submit" name="category" value="producto">Productos</button>
+      <hr>
+      <button type="submit" name="category" value="hierba">Hierbas</button>
+      <hr>
+      <button type="submit" name="category" value="otro">Otros</button>
+      <hr>
+      <button type="submit" name="category" value="papel">Papeles</button>
+      <hr>
+      <button type="submit" name="category" value="boquilla">Boquillas</button>
+  </form>
+  <hr class="final">
+</div>
 
     <section class="productos">
     <% products.forEach(item => { %>
@@ -109,6 +110,20 @@
     });
   });
 });
+
+
+const overlay = document.getElementById('overlay');
+document.getElementById('filter-icon').addEventListener('click', function() {
+    const filterForm = document.getElementById('filter-form');
+    if (filterForm.classList.contains('visible')) {
+        filterForm.classList.remove('visible');
+        overlay.style.display = 'none'
+    } else {
+        filterForm.classList.add('visible');
+        overlay.style.display = 'block'
+        
+    }
+});  
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

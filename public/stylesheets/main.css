@@ -107,8 +107,7 @@ body {
   align-items: center;
   position: relative;
 }
-
-.producto {
+.productos .producto {
   text-align: center;
   margin-bottom: 160px;
   background: #95E06C;
@@ -119,10 +118,10 @@ body {
   height: 43vh;
   width: 27%;
 }
-.producto:hover {
+.productos .producto:hover {
   cursor: pointer;
 }
-.producto .hover-image {
+.productos .producto .hover-image {
   overflow: hidden;
   background-color: none;
   display: flex;
@@ -131,8 +130,9 @@ body {
   text-align: center;
   font-size: 18px;
   margin: 10px;
+  z-index: 10;
 }
-.producto .hover-image::before {
+.productos .producto .hover-image::before {
   content: "";
   position: absolute;
   top: 0;
@@ -144,12 +144,12 @@ body {
   opacity: var(--bg-opacity, 0);
   transition: opacity 0.5s ease;
 }
-.producto .div-botones {
+.productos .producto .div-botones {
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
 }
-.producto .div-botones button {
+.productos .producto .div-botones button {
   position: relative;
   background-color: #333;
   color: #fff;
@@ -164,24 +164,24 @@ body {
   margin-right: 9px;
   margin-left: 9px;
 }
-.producto .div-botones button a {
+.productos .producto .div-botones button a {
   font-family: "Poetsen One", sans-serif;
   font-weight: 400;
   font-style: normal;
 }
-.producto .div-botones button:hover {
+.productos .producto .div-botones button:hover {
   animation: pulse 0.8s infinite;
   cursor: pointer;
   background: orange;
 }
-.producto h1 {
+.productos .producto h1 {
   font-family: "Merriweather", serif;
   font-weight: 800;
   font-style: normal;
   margin-bottom: 40px;
   font-size: 33px;
 }
-.producto h2 {
+.productos .producto h2 {
   font-size: 17px;
   font-family: "REM", sans-serif;
   font-optical-sizing: auto;
@@ -189,7 +189,7 @@ body {
   font-style: normal;
   margin-bottom: 1.5rem;
 }
-.producto a {
+.productos .producto a {
   text-decoration: none;
   color: inherit;
 }

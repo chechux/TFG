@@ -1,6 +1,4 @@
-$color-fondo: #f0f5f9
-$color-texto: #333 
-$color-boton: #014421
+
   
   
   
@@ -51,7 +49,7 @@ body
         align-items: center
         
         button
-          background-color: $color-boton
+          background-color: #014421
           color: white
           padding: 10px 20px
           border: none
@@ -63,9 +61,9 @@ body
           
           
           &:hover 
-              background-color: darken($color-boton, 5%) // Oscurecer el color del botón al pasar el ratón
+              background-color: darken(#014421, 5%) // Oscurecer el color del botón al pasar el ratón
         #login
-          animation: entradaInputs 2s ease 1.3s forwards
+          animation: entradaInputs 1.3s ease 2.3s forwards
           opacity: 0
           margin-bottom: 35px
           padding: 14px 88px
@@ -76,7 +74,7 @@ body
           i
             margin-left: 8px
         #register
-          animation: entradaInputs 2s ease 1.3s forwards
+          animation: entradaInputs 1.3s ease 2.3s forwards
           opacity: 0
           padding: 12px 83px
           font-family: "Poetsen One", sans-serif
@@ -113,7 +111,7 @@ body
         .weedgo
           display: flex
           margin-top: 20px
-          animation: tituloInicial 3s ease 1.3s forwards
+          animation: tituloInicial 2s ease 1.3s forwards
 
         h1
           animation: tituloInicial 3s ease forwards
@@ -132,7 +130,7 @@ body
         display: block
         position: absolute
         top: 1%
-        right:48%
+        right:45%
       
        
 
@@ -146,9 +144,11 @@ body
   height:100%
   width: 33%
   margin-top: 150px
-  .item1
+  .item1,.item2
       display: flex
       flex-direction: column
+      animation: entrada2 1.1s ease-out 3.1s forwards
+      opacity: 0
   #mySection,#mySection2,#mySection3, #mySection4
     background: #014421
     padding: 12px
@@ -168,7 +168,7 @@ body
     border: none
     margin-top: 30px
     margin-bottom: 30px
-    width: 56%
+    width: 66%
     padding: 7px
     border-bottom: 1px solid transparent
     transition: border-color 0.5s ease
@@ -386,8 +386,10 @@ body
         .div-password
           display: flex
           flex-direction: row
-          #icon
+          i
             cursor: pointer
+            animation: entradaInputs 1s ease 1s forwards
+            opacity: 0
         #boton2
           padding: 12px
           background: #6f42c1
@@ -480,6 +482,14 @@ input
     
     100% 
         transform: scale(1)
+
+@keyframes entrada2
+  0%
+    transform: translateX(-70px)
+    opacity: 0
+  100%
+    transform: translateX(0px)
+    opacity: 1
     
 @media screen and (max-width: 768px)
   .contenedor2

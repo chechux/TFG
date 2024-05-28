@@ -20,8 +20,8 @@
   <section class="container">
     <h1>Carrito de Compras</h1>
     <div class="carrito">
-  
       <div class="container-lista">
+
         <div class="titulo">
           <h2>Listas</h2>
           <hr>
@@ -30,6 +30,7 @@
           <% if (listas.length > 0) { %>
             <% listas.forEach(item => { %>
               <div class="cart-item">
+
                 <div>
                   <h2><%= item.nombre_lista %></h2>
                   <p>Precio Total: $<%= item.precio_total%></p>
@@ -38,6 +39,7 @@
                 <form action="/carrito/remove/<%= item.id %>" method="POST" class="remove-button-form">
                   <button type="submit">Eliminar <i class="fa-solid fa-trash"></i></button>
                 </form>
+
               </div>
             <% }); %>
 
@@ -46,43 +48,47 @@
         <% } %>
       </div>
   
-      
-  
-  
-    <div class="container-product">
-      <div class="titulo2">
-        <h2>Productos</h2>
-        <hr>
-      </div>
-        <% if (productos.length > 0) { %>
-          <% productos.forEach(item => { %>
-            <div class="cart-item">
-              <div>
-                <h2><%= item.nombre_lista %></h2>
-                <p>Precio: $<%= item.precio_total%></p>
+
+
+      <div class="container-product">
+
+        <div class="titulo2">
+          <h2>Productos</h2>
+          <hr>
+        </div>
+
+          <% if (productos.length > 0) { %>
+            <% productos.forEach(item => { %>
+              <div class="cart-item">
+
+                <div>
+                  <h2><%= item.nombre_lista %></h2>
+                  <p>Precio: $<%= item.precio_total%></p>
+                </div>
+    
+                <form action="/carrito/remove/<%= item.id %>" method="POST" class="remove-button-form">
+                  <button type="submit">Eliminar <i class="fa-solid fa-trash"></i></button>
+                </form>
+
               </div>
-  
-              <form action="/carrito/remove/<%= item.id %>" method="POST" class="remove-button-form">
-                <button type="submit">Eliminar <i class="fa-solid fa-trash"></i></button>
-              </form>
-            </div>
-          <% }); %>
+            <% }); %>
           <% } else { %>
             <p class="p">No hay productos en el carrito.</p>
           <% } %>
       </div>
   
-        
-  
     </div>
+
+
     <div class="comprar">
       <h2>Total: $<%= total %></h2>
+
       <button id="abrir" class="hover-button" onclick="abrirPopup()">
         <span class="button-text">Comprar</span>
         <i class="fa-solid fa-dollar-sign icon"></i>
         </button>
-    </div>
 
+    </div>
   </section>
 </section>
 

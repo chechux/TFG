@@ -61,7 +61,7 @@ body {
   background-color: #012b15;
 }
 .contenedor2 .contenedor .container .buttons #login {
-  animation: entradaInputs 2s ease 1.3s forwards;
+  animation: entradaInputs 1.3s ease 2.3s forwards;
   opacity: 0;
   margin-bottom: 35px;
   padding: 14px 88px;
@@ -74,7 +74,7 @@ body {
   margin-left: 8px;
 }
 .contenedor2 .contenedor .container .buttons #register {
-  animation: entradaInputs 2s ease 1.3s forwards;
+  animation: entradaInputs 1.3s ease 2.3s forwards;
   opacity: 0;
   padding: 12px 83px;
   font-family: "Poetsen One", sans-serif;
@@ -116,7 +116,7 @@ body {
 .contenedor2 .contenedor .container .container-titulo .weedgo {
   display: flex;
   margin-top: 20px;
-  animation: tituloInicial 3s ease 1.3s forwards;
+  animation: tituloInicial 2s ease 1.3s forwards;
 }
 .contenedor2 .contenedor .container .container-titulo h1 {
   animation: tituloInicial 3s ease forwards;
@@ -135,7 +135,7 @@ body {
   display: block;
   position: absolute;
   top: 1%;
-  right: 48%;
+  right: 45%;
 }
 
 .container2, .container3 {
@@ -145,9 +145,11 @@ body {
   width: 33%;
   margin-top: 150px;
 }
-.container2 .item1, .container3 .item1 {
+.container2 .item1, .container2 .item2, .container3 .item1, .container3 .item2 {
   display: flex;
   flex-direction: column;
+  animation: entrada2 1.1s ease-out 3.1s forwards;
+  opacity: 0;
 }
 .container2 #mySection, .container2 #mySection2, .container2 #mySection3, .container2 #mySection4, .container3 #mySection, .container3 #mySection2, .container3 #mySection3, .container3 #mySection4 {
   background: #014421;
@@ -170,7 +172,7 @@ body {
   border: none;
   margin-top: 30px;
   margin-bottom: 30px;
-  width: 56%;
+  width: 66%;
   padding: 7px;
   border-bottom: 1px solid transparent;
   transition: border-color 0.5s ease;
@@ -425,8 +427,10 @@ body {
   display: flex;
   flex-direction: row;
 }
-#popup2 .popup-container form .div-password #icon {
+#popup2 .popup-container form .div-password i {
   cursor: pointer;
+  animation: entradaInputs 1s ease 1s forwards;
+  opacity: 0;
 }
 #popup2 .popup-container form #boton2 {
   padding: 12px;
@@ -523,6 +527,16 @@ input {
   }
   100% {
     transform: scale(1);
+  }
+}
+@keyframes entrada2 {
+  0% {
+    transform: translateX(-70px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
   }
 }
 @media screen and (max-width: 768px) {

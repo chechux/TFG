@@ -13,49 +13,59 @@
 </head>
 <body>
 <%- include('./nav.ejs')  %>
+
 <section class="container2">
     <div class="container">
+
         <form class="form1" action="/editar/<%= tabla.id %>" method="POST">
             <div class="titulo">
+
                 <h1>Nuevo nombre de la tabla:</h1>
                 <input type="text" class="input-text" name="nombre" placeholder="nuevo nombre..." autofocus value="<%= tabla.nombre %>">
                 <button id="button" class="btn btn-success btn-block"><i class="fa-sharp fa-solid fa-check"></i></button>
+
             </div>
         </form>
+        <!-----CONTENIDO SINO HAY PRODUCTOS EN LA TABLA ------>
         <% if(productos.length <= 0) { %>
             <div class="cont-no-item">
+
                 <h1 class="no-item">No tienes ningun producto añadido</h1>
                 <hr>
+
             </div>
         <% } else { %>
                 <div class="productos">
-                        <% productos.forEach(item => { %>
-                            <div class="producto">
-                                <form class="form2" action="/editar/<%= item.id %>" method="post">
-                                    <h2>
-                                        - <%= item.nombre %>: <%= item.precio  %>$
-                                    </h2>
-                                    
-                                    <button id="abrir" class="hover-button">
-                                        <input type="hidden" name="listas" value="<%= item.id %>">
-                                        <span class="button-text">Eliminar producto</span>
-                                        <i class="fa-sharp fa-solid fa-trash icon"></i>
-                                    </button>
-                                </form>
-                            </div>
-                        <% }); %>
+                    <% productos.forEach(item => { %>
+                        <div class="producto">
+
+                            <form class="form2" action="/editar/<%= item.id %>" method="post">
+                                <h2><%= item.nombre %>: <%= item.precio %>$</h2>
+
+                                <button id="abrir" class="hover-button">
+                                    <input type="hidden" name="listas" value="<%= item.id %>">
+                                    <span class="button-text">Eliminar producto</span>
+                                    <i class="fa-sharp fa-solid fa-trash icon"></i>
+                                </button>
+
+                            </form>
+                        </div>
+                    <% }); %>
                 </div>
             <% } %>
+
             <div class="div-boton-volver">
                 <button class="back-button">
                     <i class="fa-solid fa-arrow-left"></i>
                     <a href="/tablas">Volver atras</a>
                 </button>
             </div>
+            
         </div>
 </section>
 
 <%- include('./footer.ejs')  %>
+
 </body>
 </html>
 

@@ -7,50 +7,57 @@
     <link rel="stylesheet" href="/stylesheets/nav.css">
     <link rel="stylesheet" href="/stylesheets/tablas.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Noto+Sans:ital,wght@0,299;1,299&family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=REM:ital,wght@0,176;1,176&display=swap" rel="stylesheet">
 
     <title>Document</title>
 </head>
 <body>
+
 <%- include('./nav.ejs')  %>
 <%- include("./popupTabla.ejs")  %>
-<% if(listas.length <= 0) { %>
+
+<!---------------- CONTENIDO SINO HAY TABLAS ------------------->
+
+<% if(listas.length <= 0) { %> 
     <div class="container">
         <div class="container2">
+
             <h1>No tienes ninguna tabla</h1>
             <button id="abrir" class="hover-button" onclick="abrirPopup()">
                 <span class="button-text">Crea una tabla</span>
                 <i class="fa-sharp fa-solid fa-plus icon"></i>
             </button>
+
         </div>
     </div>
 
 <% } else { %>
-    
-    
-    
 
     <section class="container4">
         <section class="container3">
-            <h1> Pulsa <button id="abrir" class="hover-button" onclick="abrirPopup()">
+
+            <h1> Pulsa 
+                <button id="abrir" class="hover-button" onclick="abrirPopup()">
                 <span class="button-text">AQUI</span>
                 <i class="fa-sharp fa-solid fa-plus icon"></i>
-                </button> para crear otra
+                </button> 
+                para crear otra
             </h1>
+
             <div class="hr">
                 <hr class="hr2">
             </div>
+
             <% listas.forEach(item => { %>
                     <div class="listas">
+
                         <div class="titulo">
                             <h1><%= item.nombre %></h1>
                             <h1 class="precio">Precio total : <%= item.totalprecio.toFixed(2) %>$</h1>
                         </div>
+
                         <div class="botones">
                             <button class="edit-button">
                                 <a id="editar" href="/editar/<%=item.id%>">Editar</a>
@@ -68,22 +75,23 @@
                                   <i class="fa-sharp fa-solid fa-cart-plus icon-buy"></i>
                                 </button>
                               </form>
+
                         </div>
                     </div>
+
                     <div class="hr">
                         <hr>
                     </div>
                 <% }); %>
             </section>
     </section>
-
-    <% } %>
+<% } %>
     
 
-        <%- include('./footer.ejs')  %>
+<%- include('./footer.ejs')  %>
 
 
-
+<!--------------- SWEET ALERT PARA CUANDO UNA LISTA SE AÑADE AL CARRITO ------------------>
 <script>
         document.querySelectorAll('.buy-button-form').forEach(form => {
         form.addEventListener('submit', async (e) => {
@@ -106,6 +114,7 @@
         } 
     });
 });
+// --------------- SWEET ALERT PARA CUANDO SE ELIMINA UNA LISTA ------------------>
 
 document.addEventListener('DOMContentLoaded', (event) => {
     const deleteButtons = document.querySelectorAll('.delete-button');
@@ -132,8 +141,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
 });
 </script>
-<script src="/javascripts/popupTabla.js"></script>
 
+<script src="/javascripts/popupTabla.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </body>

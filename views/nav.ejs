@@ -8,25 +8,33 @@
 </head>
 <body>
     <nav class="navbar">
-        <form action="/logout">   
+
+         <form action="/logout">  <!-- Para capturar la ruta logout y asi matar la sesion -->
             <button type="submit">Cerrar Sesión <i class="fa-solid fa-right-from-bracket"></i></button>
         </form>
-        <div class="menu-toggle" id="mobile-menu">
+
+        <div class="menu-toggle" id="mobile-menu"> <!-- Menú hamburguesa -->
             <i class="fa-solid fa-bars"></i>
         </div>
+
         <img src="/images/logo5.png" alt="Logo">
         <ul class="nav-links">
-            <div class="close-menu" id="close-menu">
+
+            <div class="close-menu" id="close-menu"> <!-- Para cerrar el menú hamburguesa -->
                 <i class="fa-solid fa-times"></i>
             </div>
+
             <li><a href="/main">Inicio</a></li>
             <li><a href="/tablas">Tablas</a></li>
-            <li><a href="#">Contacto</a></li>
             <li><a href="/cart"><i class="fa-solid fa-cart-shopping"></i></a></li>
+
         </ul>
     </nav>
 </body>
 </html>
+
+
+<!---------------- Funcionamiento del menú hamburguesa ------------------>
 
 <script>
     document.getElementById('mobile-menu').addEventListener('click', function() {

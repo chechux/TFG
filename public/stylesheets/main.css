@@ -222,21 +222,24 @@ body {
     align-items: center;
     align-content: center;
   }
-  .producto {
+  .productos .producto {
     width: 80%;
     height: auto;
     margin-bottom: 60px;
   }
-  .producto h2 {
+  .productos .producto h2 {
     font-size: 14px;
     margin-bottom: 17px;
   }
-  h1 {
+  .productos h1 {
     font-size: 20px;
   }
-  h1 button {
+  .productos h1 button {
     font-size: 14px;
     padding: 8px 16px;
+  }
+  .filtros {
+    z-index: 11;
   }
   .filtros #filter-form {
     width: 50%;

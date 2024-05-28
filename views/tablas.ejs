@@ -110,9 +110,10 @@
             text: 'Lista añadida al carrito.',
             icon: 'success',
             confirmButtonText: 'OK'
-          });
-        } 
-    });
+          }).then(() => {
+            window.location.href="/main"();
+        })
+    }});
 });
 // --------------- SWEET ALERT PARA CUANDO SE ELIMINA UNA LISTA ------------------>
 

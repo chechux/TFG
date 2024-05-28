@@ -265,21 +265,21 @@ body {
   .container2 .container .div-boton-volver .back-button {
     width: 60%;
   }
-  .container2 .container .productos .producto .form2 {
+  .productos .producto .form2 {
     align-items: center;
     justify-content: space-between;
   }
-  .container2 .container .productos .producto .form2 h2 {
+  .productos .producto .form2 h2 {
     font-size: 10px;
   }
-  .container2 .container .productos .producto .form2 button {
+  .productos .producto .form2 .hover-button {
     padding: 15px 24px;
   }
-  .container2 .container .productos .producto .form2 button span {
+  .productos .producto .form2 .hover-button span {
     display: none;
     visibility: none;
   }
-  .container2 .container .productos .producto .form2 button i {
+  .productos .producto .form2 .hover-button .icon {
     opacity: 1;
     visibility: visible;
     font-size: 16px;

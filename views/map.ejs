@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/stylesheets/map.css">
+        <link rel="stylesheet" type="text/css" href="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.25.0/maps/maps.css"/>
+        <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.25.0/maps/maps-web.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    </head>
+    <body>
+        <div id="overlay"></div>
+
+        <div id="container-map">
+            <button onclick="cerrarPopup()"><i id="close" class="fa-solid fa-xmark"></i></button>
+            <div class="titulo">
+                <h1>Seleciona el destino del pedido</h1>
+            </div>
+            <div id="map"></div>
+        </div>
+        
+        <script>
+            // Initialize the map
+            var map = tt.map({
+                key: "QHYP4gU0UnFpvvvQ9a7dGaqCnMjwVGpQ",
+                container: "map",
+                center: [0, 0],
+                zoom: 2
+            });
+    
+            // Add click event listener
+            map.on('click', async (e) => {
+                const lngLat = e.lngLat;
+    
+                // Show SweetAlert confirmation dialog
+                const result = await Swal.fire({
+                    title: '¿Seguro que quiere esta localización?',
+                    text: `Lat: ${lngLat.lat}, Lng: ${lngLat.lng}`,
+                    icon: 'question',
+                    showCancelButton: true,
+                    confirmButtonText: 'Sí, estoy seguro',
+                    cancelButtonText: 'Cancelar'
+                });
+    
+                if (result.isConfirmed) {
+                    // User confirmed the location
+                    new tt.Marker().setLngLat(lngLat).addTo(map);
+                    Swal.fire({
+                        title: 'Localización seleccionada',
+                        text: `El pedido esta en curso ¡Gracias por comprar en Weedgo!`,
+                        icon: 'success',
+                        timer: 5000
+                    }).then(() => {
+                window.location.href="/main";
+                });
+                }
+            });
+            
+        </script>
+<script src="/javascripts/popupMap.js"></script>
+</body>
+</html>

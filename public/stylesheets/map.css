@@ -1,0 +1,90 @@
+#container-map {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #ccc;
+  z-index: 20;
+  transition: 2s ease all;
+  width: 29%;
+  border-radius: 10px;
+  overflow: hidden;
+  height: 69vh;
+  align-content: center;
+}
+#container-map::before {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.4;
+  z-index: -1;
+}
+#container-map button {
+  font-size: 21px;
+  font-weight: bold;
+  transition: 0.3s ease all;
+  background: none;
+  width: 100%;
+  justify-content: flex-end;
+  display: flex;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+#container-map button i {
+  color: black;
+  margin-bottom: 0px;
+}
+#container-map button i:hover {
+  color: red;
+}
+#container-map .titulo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+#container-map .titulo h1 {
+  font-size: 26px;
+}
+
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: none;
+  z-index: 10;
+}
+
+#map {
+  width: 100%;
+  height: 50vh;
+}
+
+#close {
+  font-size: 21px;
+  font-weight: bold;
+  transition: 0.3s ease all;
+}
+#close:hover {
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  #container-map {
+    width: 85%;
+    height: 85vh;
+  }
+}/*# sourceMappingURL=map.css.map */

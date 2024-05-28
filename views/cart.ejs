@@ -5,6 +5,7 @@
   <link rel="stylesheet" href="/stylesheets/cart.css">
   <link rel="stylesheet" href="/stylesheets/nav.css">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link rel="stylesheet" href="/stylesheets/map.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,6 +15,7 @@
 </head>
 <body>
   <%- include('./nav.ejs')  %>
+  <%- include("./map.ejs")  %>
   
 
 <section class="container2">
@@ -98,7 +100,7 @@
 
 <!-------------------MENSAJES SWEET ALERT  ------------------------>
 
-
+<script src="/javascripts/popupMap.js"></script>
 
 
 <!-----MENSAJE PARA ELIMINAR -------->
@@ -125,25 +127,6 @@
 </script>
 
 
-
-<!-----MENSAJE PARA COMPRAR -------->
-
-<script>
-  document.getElementById('abrir').addEventListener('click', function() {
-    Swal.fire({
-      title: 'Compra realizada',
-      text: 'Tu compra se ha realizado con éxito.',
-      icon: 'success',
-      confirmButtonText: 'OK'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        window.location.href = '/main';
-      }
-    });
-  });
-</script>
-
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </body>
 </html>

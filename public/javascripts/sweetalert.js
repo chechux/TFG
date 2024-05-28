@@ -16,10 +16,9 @@ document.getElementById('registerForm').addEventListener('submit', function(even
     },
     body: JSON.stringify(data)
   })
-
   .then(response => response.json())
   .then(result => {
-    if (result.redirect === "/login") {
+    if (result.redirect === "/") {
       Swal.fire({
         icon: 'warning',
         title: 'Edad insuficiente',
@@ -29,7 +28,14 @@ document.getElementById('registerForm').addEventListener('submit', function(even
       }).then(() => {
         window.location.href = result.redirect;
       });
-
+    } else if (result.redirect === "/register") {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: result.message,
+        showConfirmButton: false,
+        timer: 2000
+      });
     } else {
       Swal.fire({
         icon: 'success',
@@ -42,8 +48,7 @@ document.getElementById('registerForm').addEventListener('submit', function(even
       });
     }
   })
-});
-
+})
 //---------------------sweet alert para el login----------------------------
 
 document.getElementById('loginForm').addEventListener('submit', async function(event) {

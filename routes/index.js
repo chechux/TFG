@@ -235,6 +235,11 @@ router.post('/login', async (req, res) => {
 router.post('/register', async (req, res) => {
     const { username, password, gmail, edad } = req.body;
 
+    const [gmailRepe] = await connection.query('SELECT * FROM usuarios WHERE gmail = ?', [gmail]);
+    if (gmailRepe.length > 0) {
+        return res.status(400).json({ message: 'El correo electrónico ya está en uso', redirect: '/register' });
+    }
+    
     if (edad < 18) {
 
       return res.status(400).json({ message: 'Debes ser mayor de 18 años para registrarte', redirect: '/login' });

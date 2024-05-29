@@ -18,9 +18,10 @@ footer {
   flex-direction: column;
 }
 footer .logo {
-  height: 128px;
+  height: 109px;
   margin-bottom: 17rem;
   position: absolute;
+  left: 48%;
 }
 footer .div-icons, footer .menu {
   display: flex;
@@ -86,7 +87,8 @@ footer .div-icons {
 
 @media screen and (max-width: 768px) {
   footer .logo {
-    margin-bottom: 28rem;
-    height: 105px;
+    margin-bottom: 25rem;
+    height: 93px;
+    left: 37%;
   }
 }/*# sourceMappingURL=footer.css.map */

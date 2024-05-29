@@ -41,7 +41,9 @@ router.get('/', (req, res, next)=>{
 });
 
 
-
+router.get("/contacto",(req,res)=>{
+  res.render("contacto")
+})
 
 router.get("/crearTabla",(req,res,next)=>{
   console.log("entra")

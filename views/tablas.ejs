@@ -22,11 +22,20 @@
 
 <% if(listas.length <= 0) { %> 
     <div class="container">
-        <div class="container2">
 
-            <h1>No tienes ninguna tabla</h1>
+        
+
+        <div class="container2">
+            <div class="tooltip-container">
+                <i class="fa-solid fa-question"></i>
+                <div class="tooltip-content">
+                    <span class="tooltip-close">&times;</span>
+                    <p>Las Weedtabs se utilizan para agilizar el proceso de compra, crea todas las que quieras y compra con un solo click varios productos al mismo tiempo </p>
+                </div>
+            </div>
+            <h1>No tienes ninguna Weetab</h1>
             <button id="abrir" class="hover-button" onclick="abrirPopup()">
-                <span class="button-text">Crea una tabla</span>
+                <span class="button-text">Crea una</span>
                 <i class="fa-sharp fa-solid fa-plus icon"></i>
             </button>
 
@@ -107,7 +116,7 @@
         if (response.ok) {
           Swal.fire({
             title: 'Añadido!',
-            text: 'Lista añadida al carrito.',
+            text: 'Weetab añadida al carrito.',
             icon: 'success',
             confirmButtonText: 'OK'
           }).then(() => {
@@ -126,7 +135,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             const itemName = this.getAttribute('data-name');
 
             Swal.fire({
-                title: `¿Seguro que quieres eliminar esta tabla?`,
+                title: `¿Seguro que quieres eliminar esta Weetab?`,
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#d33',
@@ -141,6 +150,21 @@ document.addEventListener('DOMContentLoaded', (event) => {
         });
     });
 });
+
+document.querySelector('.fa-question').addEventListener('click', function() {
+            document.querySelector('.tooltip-content').style.display = 'block';
+        });
+
+        document.querySelector('.tooltip-close').addEventListener('click', function() {
+            document.querySelector('.tooltip-content').style.display = 'none';
+        });
+
+        // Close tooltip when clicking outside
+        window.addEventListener('click', function(e) {
+            if (!document.querySelector('.tooltip-container').contains(e.target)) {
+                document.querySelector('.tooltip-content').style.display = 'none';
+            }
+        });
 </script>
 
 <script src="/javascripts/popupTabla.js"></script>

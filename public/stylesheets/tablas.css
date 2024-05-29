@@ -23,6 +23,67 @@ body {
   height: 40%;
   border-radius: 20px;
 }
+.container .container2 .tooltip-container {
+  position: relative;
+  display: inline-block;
+  border-radius: 100px;
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  margin-bottom: -60px;
+  margin-top: -30px;
+}
+.container .container2 .tooltip-container i {
+  padding: 7px 10px;
+  cursor: pointer;
+  color: black;
+  border: 3px solid black;
+  border-radius: 100px;
+  margin-right: 30px;
+  margin-bottom: 20px;
+  font-size: 12px;
+}
+.container .container2 .tooltip-container i:hover {
+  color: white;
+  background: black;
+}
+.container .container2 .tooltip-container .tooltip-content {
+  display: none;
+  position: absolute;
+  bottom: 120%;
+  left: 93%;
+  transform: translateX(-50%);
+  width: 200px;
+  padding: 23px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  z-index: 10;
+  transition: opacity 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.container .container2 .tooltip-container .tooltip-content::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 10px;
+  border-style: solid;
+  border-color: #333 transparent transparent transparent;
+}
+.container .container2 .tooltip-container .tooltip-content.visible {
+  display: block;
+  opacity: 1;
+}
+.container .container2 .tooltip-container .tooltip-content .tooltip-close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+  color: #fff;
+}
 .container .container2 .hover-button {
   position: relative;
   display: inline-block;

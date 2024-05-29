@@ -84,12 +84,16 @@
 
     <div class="comprar">
       <h2>Total: $<%= total %></h2>
-
-      <button id="abrir" class="hover-button" onclick="abrirPopup()">
-        <span class="button-text">Comprar</span>
-        <i class="fa-solid fa-dollar-sign icon"></i>
+      <% if (total === "0.00") { %>
+        <button class="disabled-button" disabled>
+          <span>Comprar</span>
         </button>
-
+      <% } else { %>
+        <button id="abrir" class="hover-button" onclick="abrirPopup()">
+          <span class="button-text">Comprar</span>
+          <i class="fa-solid fa-dollar-sign icon"></i>
+        </button>
+      <% } %>
     </div>
   </section>
 </section>

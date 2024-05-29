@@ -151,6 +151,13 @@ button {
   font-weight: 400;
   font-style: normal;
 }
+.container2 .comprar .disabled-button {
+  background-color: #ccc;
+  color: #777;
+  cursor: not-allowed;
+  padding: 10px;
+  border-radius: 5px;
+}
 .container2 .comprar .icon {
   position: absolute;
   top: 50%;

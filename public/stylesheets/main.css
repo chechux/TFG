@@ -33,18 +33,21 @@ body {
   margin-bottom: 20px;
   justify-content: center;
   background: white;
-  width: 16%;
+  width: 3%;
   padding: 10px;
   border-radius: 10px;
+  border-radius: 100px;
+  cursor: pointer;
+}
+.filtros h1:hover {
+  background: black;
+}
+.filtros h1:hover i {
+  color: white;
 }
 .filtros h1 i {
-  margin-left: 10px;
   font-size: 24px;
-  cursor: pointer;
   transition: transform 0.3s ease;
-}
-.filtros h1 i:hover {
-  transform: scale(1.2);
 }
 .filtros #filter-form {
   position: absolute;
@@ -65,10 +68,10 @@ body {
   pointer-events: auto;
 }
 .filtros #filter-form .reinicio {
-  background-color: #03111f;
+  background-color: red;
 }
 .filtros #filter-form .reinicio:hover {
-  background-color: #1abc9c;
+  background-color: #801313;
 }
 .filtros #filter-form .primero {
   width: 100%;
@@ -114,7 +117,7 @@ body {
   position: relative;
   overflow: hidden;
   border-radius: 17px;
-  box-shadow: 8px;
+  box-shadow: 10px 10px 5px 2px rgba(0, 0, 0, 0.5);
   height: 43vh;
   width: 27%;
 }
@@ -163,6 +166,8 @@ body {
   font-style: normal;
   margin-right: 9px;
   margin-left: 9px;
+  box-shadow: 6px 6px 0px -1px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
 }
 .productos .producto .div-botones button a {
   font-family: "Poetsen One", sans-serif;

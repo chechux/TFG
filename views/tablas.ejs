@@ -34,7 +34,7 @@
                 </div>
             </div>
             <h1>No tienes ninguna Weetab</h1>
-            <button id="abrir" class="hover-button" onclick="abrirPopup()">
+            <button id="abrir" class="hover-button">
                 <span class="button-text">Crea una</span>
                 <i class="fa-sharp fa-solid fa-plus icon"></i>
             </button>
@@ -48,7 +48,7 @@
         <section class="container3">
 
             <h1> Pulsa 
-                <button id="abrir" class="hover-button" onclick="abrirPopup()">
+                <button id="abrir" class="hover-button">
                 <span class="button-text">AQUI</span>
                 <i class="fa-sharp fa-solid fa-plus icon"></i>
                 </button> 
@@ -78,7 +78,7 @@
                                 <i class="fa-sharp fa-solid fa-trash icon-trash"></i>
                             </button>
 
-                              <form action="/listas/carrito/<%= item.id %>" method="POST" class="buy-button-form" style="display: inline;">
+                              <form action="/listas/carrito/<%= item.id %>" method="POST" class="buy-button-form">
                                 <button type="submit" class="buy-button">
                                   <a class="button-text-buy">Añadir al carrito</a>
                                   <i class="fa-sharp fa-solid fa-cart-plus icon-buy"></i>
@@ -103,7 +103,7 @@
     <div id="popup2">
         <div class="popup-container">
 
-            <button class="cerrar" onclick="cerrarPopup()"><i id="closer" class="fa-solid fa-xmark"></i></button>
+            <button class="cerrar"><i id="closer" class="fa-solid fa-xmark"></i></button>
             <h1 id="titulo">Crear Weetab</h1>
 
             <form action="/crearTabla" method="post">
@@ -183,7 +183,7 @@ document.querySelector('.fa-question').addEventListener('click', function() {
             document.querySelector('.tooltip-content').style.display = 'none';
         });
 
-        // Close tooltip when clicking outside
+        // Cerrar tooltip cuando se clicke fuera
         window.addEventListener('click', function(e) {
             if (!document.querySelector('.tooltip-container').contains(e.target)) {
                 document.querySelector('.tooltip-content').style.display = 'none';

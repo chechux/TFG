@@ -143,7 +143,7 @@ body {
   width: 100%;
   height: 100%;
   background: var(--bg-image) no-repeat center center;
-  background-size: cover;
+  background-size: 100% 100%;
   opacity: var(--bg-opacity, 0);
   transition: opacity 0.5s ease;
 }
@@ -252,7 +252,7 @@ body {
   .filtros h1 {
     cursor: pointer;
     font-size: 20px;
-    width: 35%;
+    width: 12%;
   }
   .filtros h1 i {
     font-size: 20px;

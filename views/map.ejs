@@ -14,7 +14,7 @@
         <div id="overlay"></div>
 
         <div id="container-map">
-            <button onclick="cerrarPopup()"><i id="close" class="fa-solid fa-xmark"></i></button>
+            <button><i id="close" class="fa-solid fa-xmark"></i></button>
             <div class="titulo">
                 <h1>Seleciona el destino del pedido</h1>
             </div>
@@ -22,7 +22,7 @@
         </div>
         
         <script>
-            // Initialize the map
+            // Inicializamos el mapa
             var map = tt.map({
                 key: "QHYP4gU0UnFpvvvQ9a7dGaqCnMjwVGpQ",
                 container: "map",
@@ -30,11 +30,11 @@
                 zoom: 2
             });
     
-            // Add click event listener
+
             map.on('click', async (e) => {
                 const lngLat = e.lngLat;
     
-                // Show SweetAlert confirmation dialog
+                // Mostrar mensaje SweetAlert 
                 const result = await Swal.fire({
                     title: '¿Seguro que quiere esta localización?',
                     text: `Lat: ${lngLat.lat}, Lng: ${lngLat.lng}`,
@@ -45,7 +45,7 @@
                 });
     
                 if (result.isConfirmed) {
-                    // User confirmed the location
+                    // SweetAlert de confirmación
                     new tt.Marker().setLngLat(lngLat).addTo(map);
                     Swal.fire({
                         title: 'Localización seleccionada',

@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const connection = require("../database/db")
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 
 
 
@@ -220,37 +222,39 @@ router.post('/carrito/remove/:id', isAuthenticated, async (req, res) => {
 })
   
 router.post('/login', async (req, res) => {
-    const { username, password } = req.body;
-    const [rows] = await connection.execute('SELECT * FROM usuarios WHERE username = ? AND password = ?', [username, password]);
-
-    if (rows.length > 0) {
-      const user = rows[0];
-      req.session.userId = user.id;
-      res.json({ success: true, message: 'Login successful', redirectUrl: '/main' });
-
-    } else {
-      res.json({ success: false, message: 'Invalid credentials' });
-    }
-
+  const { username, password } = req.body;
+  try {
+      const [rows] = await connection.query('SELECT * FROM usuarios WHERE username = ?', [username]);
+      if (rows.length > 0) {
+          const user = rows[0];
+          const match = await bcrypt.compare(password, user.password);
+          if (match) {
+              req.session.userId = user.id;
+              return res.json({ success: true, message: 'Login successful', redirectUrl: '/main' });
+          } else {
+              return res.json({ success: false, message: 'usuario o contraseña erroneo' });
+          }
+      } else {
+          return res.json({ success: false, message: 'usuario o contraseña erroneo' });
+      }
+  } catch (err) {
+      return res.status(500).json({ message: 'Error en el servidor' });
+  }
 });
 
 router.post('/register', async (req, res) => {
-    const { username, password, gmail, edad } = req.body;
+  const { username, password, gmail, edad } = req.body;
 
-    const [gmailRepe] = await connection.query('SELECT * FROM usuarios WHERE gmail = ?', [gmail]);
-    if (gmailRepe.length > 0) {
-        return res.status(400).json({ message: 'El correo electrónico ya está en uso', redirect: '/register' });
-    }
-    
-    if (edad < 18) {
-
+  const [gmailRepe] = await connection.query('SELECT * FROM usuarios WHERE gmail = ?', [gmail]);
+  if (gmailRepe.length > 0) {
+      return res.status(400).json({ message: 'El correo electrónico ya está en uso', redirect: '/register' });
+  } else if (edad < 18) {
       return res.status(400).json({ message: 'Debes ser mayor de 18 años para registrarte', redirect: '/login' });
-
-    } else {
-
-      await connection.query('INSERT INTO usuarios (username, password, gmail, edad) VALUES (?, ?, ?, ?)', [username, password, gmail, edad]);
-      return res.status(200).json({ message: 'Usuario registrado con éxito', redirect: '/' });
-    }
-});
+  } else {
+          const hashedPassword = await bcrypt.hash(password, saltRounds);
+          await connection.query('INSERT INTO usuarios (username, password, gmail, edad) VALUES (?, ?, ?, ?)', [username, hashedPassword, gmail, edad]);
+          return res.status(200).json({ message: 'Usuario registrado con éxito', redirect: '/' });
+      }
+  });
 
 module.exports = router;

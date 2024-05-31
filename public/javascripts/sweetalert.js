@@ -20,8 +20,8 @@ document.getElementById('registerForm').addEventListener('submit', function(even
   .then(result => {
     if (result.redirect === "/") {
       Swal.fire({
-        icon: 'warning',
-        title: 'Edad insuficiente',
+        icon: 'success',
+        title: 'Registrado correctamente',
         text: result.message,
         showConfirmButton: false,
         timer: 2000
@@ -38,8 +38,8 @@ document.getElementById('registerForm').addEventListener('submit', function(even
       });
     } else {
       Swal.fire({
-        icon: 'success',
-        title: 'Registrado correctamente',
+        icon: 'error',
+        title: 'Edad invalida',
         text: result.message,
         showConfirmButton: false,
         timer: 2000

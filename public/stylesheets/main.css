@@ -111,18 +111,26 @@ body {
   position: relative;
 }
 .productos .producto {
-  text-align: center;
-  margin-bottom: 160px;
-  background: #95E06C;
+  display: none;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  padding: 20px;
+  width: calc(33.333% - 40px);
+  box-sizing: border-box;
+  transition: transform 0.3s, box-shadow 0.3s;
   position: relative;
   overflow: hidden;
-  border-radius: 17px;
-  box-shadow: 10px 10px 5px 2px rgba(0, 0, 0, 0.5);
-  height: 43vh;
-  width: 27%;
+  margin-bottom: 5rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  animation: fadeInUp 0.5s ease-in-out;
 }
 .productos .producto:hover {
-  cursor: pointer;
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 .productos .producto .hover-image {
   overflow: hidden;
@@ -146,57 +154,87 @@ body {
   background-size: 100% 100%;
   opacity: var(--bg-opacity, 0);
   transition: opacity 0.5s ease;
+  transition: opacity 0.3s ease-in-out;
+}
+.productos .producto h1 {
+  font-size: 1.5em;
+  margin: 0;
+  color: #333;
+  font-family: "Merriweather", serif;
+  font-weight: 800;
+  font-style: normal;
+}
+.productos .producto h2 {
+  font-size: 1.2em;
+  color: #777;
+  margin: 10px 0;
+  font-family: "REM", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 176;
+  font-style: normal;
+}
+.productos .producto h3 {
+  font-size: 1.3em;
+  color: #e67e22;
+  margin: 15px 0;
 }
 .productos .producto .div-botones {
   display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-.productos .producto .div-botones button {
-  position: relative;
-  background-color: #333;
-  color: #fff;
-  border: none;
-  padding: 10px 10px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  margin-top: 50px;
+  justify-content: space-between;
   font-family: "Poetsen One", sans-serif;
   font-weight: 400;
   font-style: normal;
-  margin-right: 9px;
-  margin-left: 9px;
-  box-shadow: 6px 6px 0px -1px rgba(0, 0, 0, 0.5);
-  border-radius: 5px;
 }
-.productos .producto .div-botones button a {
+.productos .producto .div-botones button {
+  position: relative;
+  background: #3498db;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background 0.3s;
+  box-shadow: 6px 6px 0px -1px rgba(0, 0, 0, 0.5);
   font-family: "Poetsen One", sans-serif;
   font-weight: 400;
   font-style: normal;
 }
 .productos .producto .div-botones button:hover {
   animation: pulse 0.8s infinite;
-  cursor: pointer;
-  background: orange;
 }
-.productos .producto h1 {
-  font-family: "Merriweather", serif;
-  font-weight: 800;
-  font-style: normal;
-  margin-bottom: 40px;
-  font-size: 33px;
-}
-.productos .producto h2 {
-  font-size: 17px;
-  font-family: "REM", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 176;
-  font-style: normal;
-  margin-bottom: 1.5rem;
-}
-.productos .producto a {
+.productos .producto .div-botones a {
+  color: #fff;
   text-decoration: none;
-  color: inherit;
+  font-family: "Poetsen One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 6rem;
+  margin-left: 29px;
+}
+.pagination button {
+  background: #3498db;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-right: 1rem;
+  margin-left: 1rem;
+  transition: color 0.3s, transform 0.5s;
+}
+.pagination button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+.pagination button:hover:enabled {
+  background: #2980b9;
+  transform: scale(1.2);
 }
 
 @keyframes pulse {
@@ -208,6 +246,16 @@ body {
   }
   100% {
     transform: scale(1);
+  }
+}
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 @keyframes fadeIn {
@@ -235,6 +283,13 @@ body {
   .productos .producto h2 {
     font-size: 14px;
     margin-bottom: 17px;
+  }
+  .productos .producto .div-botones {
+    flex-direction: column;
+  }
+  .productos .producto .div-botones button {
+    margin-bottom: 1rem;
+    margin-top: 0.7rem;
   }
   .productos h1 {
     font-size: 20px;

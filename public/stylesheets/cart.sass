@@ -1,27 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap')
 
-// Variables
-$primary-color: #4CAF50
-$primary-color2: #db2f2f
-$secondary-color: #45a049
-$secondary-color2: #8a1919
-$accent-color: #3e8e41
-$light-color: #bfffb2
-$gray-color: #888
-$hover-color: rgba(76, 175, 80, 25%)
 
-
-// Base styles
 body
     font-family: 'Roboto', sans-serif
-    background-color: $light-color
+    background-color: #bfffb2
     color: #333
     margin: 0
     padding: 0
     background: url("https://img.freepik.com/vector-gratis/hojas-marihuana-estilo-linea-arte-sobre-fondo-negro-estructurado_1268-14249.jpg")
 
 h1
-    color: $primary-color
+    color: #4CAF50
     font-size: 2.5rem
     margin-top: 2rem
     margin-bottom: 30px
@@ -89,10 +78,10 @@ button
                 margin-bottom: 1rem
                 opacity: 0
                 animation: entrada2 1.3s ease-out 1.5s forwards
-                background-color: $hover-color
+                background-color: rgba(76, 175, 80, 25%)
                 border-radius: 10px
                 button
-                    background-color: $primary-color2
+                    background-color: #db2f2f
                     color: white
                     padding: 10px 15px
                     border-radius: 5px
@@ -102,12 +91,12 @@ button
                     font-style: normal
 
                     &:hover
-                        background-color: $secondary-color2
+                        background-color: #8a1919
                         transform: scale(1.05)
                         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2)
 
                     &:active
-                        background-color: $accent-color
+                        background-color: #3e8e41
                         transform: scale(0.95)
                 i
                     margin-left: 5px

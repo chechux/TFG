@@ -25,42 +25,45 @@
   <form id="filter-form" action="/main" method="GET">
       <button class="reinicio" type="submit" name="category" value="all">Reiniciar filtro</button>
       <hr class="primero">
+      <button type="submit" name="category" value="hierba">Hierbas</button>
+      <hr>
       <button type="submit" name="category" value="mecheros">Mecheros</button>
       <hr>
       <button type="submit" name="category" value="grinders">Grinders</button>
       <hr>
       <button type="submit" name="category" value="papel">Papeles</button>
       <hr>
+      <button type="submit" name="category" value="boquilla">Boquillas</button>
+      <hr>
       <button type="submit" name="category" value="producto">Productos</button>
       <hr>
-      <button type="submit" name="category" value="hierba">Hierbas</button>
-      <hr>
       <button type="submit" name="category" value="otro">Otros</button>
-      <hr>
-      <button type="submit" name="category" value="boquilla">Boquillas</button>
+      
   </form>
   <hr class="final">
 </div>
 
 
 
-    <section class="productos">
-    <% products.forEach(item => { %>
-            <div class="producto">
-
-                <div class="hover-image" data-bg="<%= item.imagen %>"></div>
-                <h1><%= item.nombre %></h1>
-                <h2><%= item.descrip %></h2>
-                <h3><%= item.precio  %>$</h3>
-
-                <div class="div-botones">
-                    <button><a href="/add/<%= item.id  %>">Añadir a una Weetab</a></button>
-                    <button class="add-to-cart" data-id="<%= item.id %>">Añadir al carrito</button>
-                </div>
+  <section class="productos">
+    <% products.forEach((item, index) => { %>
+        <div class="producto" data-index="<%= index %>">
+            <div class="hover-image" data-bg="<%= item.imagen %>"></div>
+            <h1><%= item.nombre %></h1>
+            <h2><%= item.descrip %></h2>
+            <h3><%= item.precio %>$</h3>
+            <div class="div-botones">
+                <button><a href="/add/<%= item.id %>">Añadir a una Weetab</a></button>
+                <button class="add-to-cart" data-id="<%= item.id %>">Añadir al carrito</button>
             </div>
-        <% }); %>
-     </section>
+        </div>
+    <% }); %>
+  </section>
+  <div class="pagination">
+    <button id="prev" disabled><i class="fa-solid fa-arrow-left"></i></button>
+    <button id="next"><i class="fa-solid fa-arrow-right"></i></button>
   </div>
+</div>
 
   <%- include('./footer.ejs')  %>
 
@@ -121,7 +124,48 @@ document.getElementById('filter-icon').addEventListener('click', function() {
         overlay.style.display = 'block'
         
     }
-});  
+});
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const products = document.querySelectorAll('.producto');
+    const prevButton = document.getElementById('prev');
+    const nextButton = document.getElementById('next');
+    const itemsPerPage = 10;
+    let currentPage = 0;
+
+    function showPage(page) {
+        products.forEach((product, index) => {
+            if (index >= page * itemsPerPage && index < (page + 1) * itemsPerPage) {
+                product.style.display = 'block';
+            } else {
+                product.style.display = 'none';
+            }
+        });
+
+        prevButton.disabled = page === 0;
+        nextButton.disabled = (page + 1) * itemsPerPage >= products.length;
+
+        window.scrollTo({ top: 0, behavior: 'smooth' }); // Redireccionar al principio de la página
+    }
+
+    prevButton.addEventListener('click', () => {
+        if (currentPage > 0) {
+            currentPage--;
+            showPage(currentPage);
+        }
+    });
+
+    nextButton.addEventListener('click', () => {
+        if ((currentPage + 1) * itemsPerPage < products.length) {
+            currentPage++;
+            showPage(currentPage);
+        }
+    });
+
+    showPage(currentPage);
+});
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

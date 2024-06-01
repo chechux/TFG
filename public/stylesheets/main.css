@@ -210,13 +210,13 @@ body {
   font-style: normal;
 }
 
-.pagination {
+.navegacion {
   display: flex;
   justify-content: center;
   margin-bottom: 6rem;
   margin-left: 29px;
 }
-.pagination button {
+.navegacion button {
   background: #3498db;
   border: none;
   border-radius: 5px;
@@ -228,11 +228,11 @@ body {
   margin-left: 1rem;
   transition: color 0.3s, transform 0.5s;
 }
-.pagination button:disabled {
+.navegacion button:disabled {
   background: #ccc;
   cursor: not-allowed;
 }
-.pagination button:hover:enabled {
+.navegacion button:hover:enabled {
   background: #2980b9;
   transform: scale(1.2);
 }

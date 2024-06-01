@@ -59,7 +59,7 @@
         </div>
     <% }); %>
   </section>
-  <div class="pagination">
+  <div class="navegacion">
     <button id="prev" disabled><i class="fa-solid fa-arrow-left"></i></button>
     <button id="next"><i class="fa-solid fa-arrow-right"></i></button>
   </div>
@@ -74,13 +74,13 @@
       button.addEventListener('click', async (e) => {
         e.preventDefault();
         const productId = e.target.getAttribute('data-id');
-        const response = await fetch(`/carrito/add/${productId}`, {
+        const respuesta = await fetch(`/carrito/add/${productId}`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
           }
         });
-        if (response.ok) {
+        if (respuesta.ok) {
           Swal.fire({
             title: 'Añadido!',
             text: 'Producto añadido al carrito.',
@@ -126,45 +126,45 @@ document.getElementById('filter-icon').addEventListener('click', function() {
     }
 });
 
-
+//----------------CONFIGURACION PARA EL CAMBIO DE SECCIONES----------------------
 
 document.addEventListener('DOMContentLoaded', function() {
-    const products = document.querySelectorAll('.producto');
+    const producto = document.querySelectorAll('.producto');
     const prevButton = document.getElementById('prev');
     const nextButton = document.getElementById('next');
-    const itemsPerPage = 10;
-    let currentPage = 0;
+    const items = 10;
+    let PaginActual = 0;
 
     function showPage(page) {
-        products.forEach((product, index) => {
-            if (index >= page * itemsPerPage && index < (page + 1) * itemsPerPage) {
-                product.style.display = 'block';
+        producto.forEach((producto, index) => {
+            if (index >= page * items && index < (page + 1) * items) {
+                producto.style.display = 'block';
             } else {
-                product.style.display = 'none';
+                producto.style.display = 'none';
             }
         });
 
         prevButton.disabled = page === 0;
-        nextButton.disabled = (page + 1) * itemsPerPage >= products.length;
+        nextButton.disabled = (page + 1) * items >= producto.length;
 
-        window.scrollTo({ top: 0, behavior: 'smooth' }); // Redireccionar al principio de la página
+        window.scrollTo({ top: 0, behavior: 'smooth' }); 
     }
 
     prevButton.addEventListener('click', () => {
-        if (currentPage > 0) {
-            currentPage--;
-            showPage(currentPage);
+        if (PaginActual > 0) {
+            PaginActual--;
+            showPage(PaginActual);
         }
     });
 
     nextButton.addEventListener('click', () => {
-        if ((currentPage + 1) * itemsPerPage < products.length) {
-            currentPage++;
-            showPage(currentPage);
+        if ((PaginActual + 1) * items < producto.length) {
+            PaginActual++;
+            showPage(PaginActual);
         }
     });
 
-    showPage(currentPage);
+    showPage(PaginActual);
 });
 </script>
 
@@ -172,3 +172,4 @@ document.addEventListener('DOMContentLoaded', function() {
 
 </body>
 </html>
+

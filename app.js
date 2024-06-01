@@ -20,12 +20,6 @@ app.use(session({
   saveUninitialized: false
 }));
 
-const db = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '1234',
-  database: 'database_tfg'
-});
 
 
 

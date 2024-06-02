@@ -5,6 +5,8 @@ const logger = require('morgan');
 const session = require("express-session")
 const mysql = require('mysql2')
 const bodyParser = require('body-parser')
+const mysqlStore = require('express-mysql-session')(session)
+const connection = require("./database/db")
 
 
 const indexRouter = require('./routes/index')
@@ -15,10 +17,11 @@ app.use(bodyParser.json())
 
 
 app.use(session({
-  secret: 'your_secret_key',
+  secret: 'tfgsession',
   resave: false,
-  saveUninitialized: false
-}));
+  saveUninitialized: false,
+  store: new mysqlStore({},connection)
+}))
 
 
 

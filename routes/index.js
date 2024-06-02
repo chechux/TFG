@@ -223,7 +223,6 @@ router.post('/carrito/remove/:id', isAuthenticated, async (req, res) => {
   
 router.post('/login', async (req, res) => {
   const { username, password } = req.body;
-  try {
       const [rows] = await connection.query('SELECT * FROM usuarios WHERE username = ?', [username]);
       if (rows.length > 0) {
           const user = rows[0];
@@ -232,14 +231,11 @@ router.post('/login', async (req, res) => {
               req.session.userId = user.id;
               return res.json({ success: true, message: 'Login successful', redirectUrl: '/main' });
           } else {
-              return res.json({ success: false, message: 'usuario o contraseña erroneo' });
+              return res.json({ success: false, message: ''});
           }
       } else {
-          return res.json({ success: false, message: 'usuario o contraseña erroneo' });
+          return res.json({ success: false, message: '' });
       }
-  } catch (err) {
-      return res.status(500).json({ message: 'Error en el servidor' });
-  }
 });
 
 router.post('/register', async (req, res) => {
@@ -249,7 +245,7 @@ router.post('/register', async (req, res) => {
   if (gmailRepe.length > 0) {
       return res.status(400).json({ message: 'El correo electrónico ya está en uso', redirect: '/register' });
   } else if (edad < 18) {
-      return res.status(400).json({ message: 'Debes ser mayor de 18 años para registrarte', redirect: '/login' });
+      return res.status(400).json({ message: 'Debes ser mayor de 18 años para registrarte', redirect: '/register' });
   } else {
           const hashedPassword = await bcrypt.hash(password, saltRounds);
           await connection.query('INSERT INTO usuarios (username, password, gmail, edad) VALUES (?, ?, ?, ?)', [username, hashedPassword, gmail, edad]);

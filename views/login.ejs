@@ -16,124 +16,124 @@
 
   <!----------------------- CONTENIDO PRINCIPAL ----------------------->
 
-<div class="contenedor2">
-  <div class="contenedor">
-    <div class="container">
-
-      <img src="/images/logo5.png" alt="logo">
-
-      <div class="container-titulo">
-        <h1>Bienvenido a</h1>
-        <h1 class="weedgo">WEEDGO</h1>
-      </div>
-      
-      <div class="buttons">
-        <button id="login">Loguearse <i class="fa-solid fa-right-to-bracket"></i> </button>
-        <button id="register">Registrarse <i class="fa-solid fa-user"></i></button>
-      </div>
-
-    </div>
-
-
-    <!----------------------- SECCIONES DE INFORMACIÓN ----------------------->
+  <div class="contenedor2" id="prueba">
+    <div class="contenedor">
+      <div class="container">
   
-    <div class="container2">
-      <div class="item1">
-        <button onclick="toggleSection()">¿Quiénes Somos? <i class="fa-solid fa-caret-right"></i></button>
-        <section id="mySection" class="hidden">
-          <p>Weedgo es una empresa de venta de productos relacionado con el thc,esto es un portal de ventas en que podras encontrar todo tipo de productos.</p>
-        </section>
+        <img src="/images/logo5.png" alt="logo">
+  
+        <div class="container-titulo">
+          <h1>Bienvenido a</h1>
+          <h1 class="weedgo">WEEDGO</h1>
+        </div>
+        
+        <div class="buttons">
+          <button id="login">Loguearse <i class="fa-solid fa-right-to-bracket"></i> </button>
+          <button id="register">Registrarse <i class="fa-solid fa-user"></i></button>
+        </div>
+  
       </div>
   
-      <div class="item2">
-        <button onclick="toggleSection2()">¿A que nos dedicamos? <i class="fa-solid fa-caret-right"></i></button>
-        <section id="mySection2" class="hidden2">
-          <p>Nod dedicamos a la venta de productos relacionados con el thc, pero tambien otros productos de uso normal como mecheros, papel, incluso ropa.  </p>
-        </section>
-      </div>
-      
-    </div>
-
-
-
-    <div class="container3">
-      
-      <div class="item1">
-        <button onclick="toggleSection3()">¿Cúal es nuestro objetivo?<i class="fa-solid fa-caret-right"></i></button>
-        <section id="mySection3" class="hidden3">
-          <p>Nuestro objetivo como empresa es hacer menos tabú la venta de estos productos y que puedas comprar con comodidad y facilidad estos productos en cualquier momento.</p>
-        </section>
-      </div>
   
-      <div class="item2">
-        <button onclick="toggleSection4()">¿Es legal?<i class="fa-solid fa-caret-right"></i></button>
-        <section id="mySection4" class="hidden4">
-          <p>Si el porcentaje de THC es inferior a 0,3% los productos serán legales, como la venta de la planta en si y productos relacionados con ello como cremas o colonias</p>
-        </section>
-      </div>
-    </div>
-  
-  
-    <div id="overlay"></div>
-
-  <!----------------------- POPUP LOGIN ----------------------->
-
-    <div id="popup">
-      <div class="popup-container">
-
-        <button><i id="close" class="fa-solid fa-xmark"></i></button>
-        <h1>LOGIN</h1>
-
-        <form id="loginForm" action="/login" method="POST">
-            <label for="username">Nombre de usuario:</label>
-            <input type="text" name="username" id="username" placeholder="Escribe tu nombre..." required>
-  
-            <label for="pass">Contraseña:</label>
-            <input type="password" name="password" id="pass" placeholder="Escribe tu contraseña..." required>
-            <div class="div-boton">
-              <input id="boton" class ="btn-login" type="submit" value="loguearse"></input>
-            </div>
-        </form>
-
-      </div>
-    </div>
-  
-  
-  
-  <!----------------------- POPUP REGISTER ----------------------->
-  
-    <div id="popup2">
-      <div class="popup-container">
-
-        <button><i id="closer" class="fa-solid fa-xmark"></i></button>
-        <h1 id ="titulo">REGISTRARSE</h1>
-
-        <form id="registerForm" action="/register" method="POST">
-            <label for="username">Nombre de usuario:</label>
-            <input type="text" name="username" id="username" placeholder="Escribe tu nombre..." required>
-  
-            <label for="pass">Contraseña:</label>
-            <div class="div-password"> 
-              <input type="password" name="password" class="pass" id="passs" placeholder="Escribe tu contraseña" required>
-              <i id="icon" class="fa-solid fa-eye-slash"></i>
-              <i id="icon2" class="fa-solid fa-eye"></i>
-            </div>
-  
-            <label for="">Gmail:</label>
-            <input type="email" name="gmail" id="email"  placeholder="Escribe tu gmail" required>
-  
-            <input placeholder="Edad" type="number" name="edad" class="edad" min="0" required>
-  
-            <div class="boton2">
-                <input id="boton2" type="submit" class="btn-save" value="Registrarse">
-            </div>
-        </form>
+      <!----------------------- SECCIONES DE INFORMACIÓN ----------------------->
+    
+      <div class="container2">
+        <div class="item1">
+          <button onclick="toggleSection()">¿Quiénes Somos? <i class="fa-solid fa-caret-right"></i></button>
+          <section id="mySection" class="hidden">
+            <p>Weedgo es una empresa de venta de productos relacionado con el thc,esto es un portal de ventas en que podras encontrar todo tipo de productos.</p>
+          </section>
+        </div>
+    
+        <div class="item2">
+          <button onclick="toggleSection2()">¿A que nos dedicamos? <i class="fa-solid fa-caret-right"></i></button>
+          <section id="mySection2" class="hidden2">
+            <p>Nos dedicamos a la venta de productos relacionados con el thc, pero tambien otros productos de uso normal como mecheros, papel, incluso ropa.  </p>
+          </section>
+        </div>
         
       </div>
-    </div>
   
-  </div>  
-</div>
+  
+  
+      <div class="container3">
+        
+        <div class="item1">
+          <button onclick="toggleSection3()">¿Cúal es nuestro objetivo?<i class="fa-solid fa-caret-right"></i></button>
+          <section id="mySection3" class="hidden3">
+            <p>Nuestro objetivo como empresa es hacer menos tabú la venta de estos productos y que puedas comprar con comodidad y facilidad estos productos en cualquier momento.</p>
+          </section>
+        </div>
+    
+        <div class="item2">
+          <button onclick="toggleSection4()">¿Es legal?<i class="fa-solid fa-caret-right"></i></button>
+          <section id="mySection4" class="hidden4">
+            <p>Si el porcentaje de THC es inferior a 0,3% los productos serán legales, como la venta de la planta en si y productos relacionados con ello como cremas o colonias. Y todos los productos vendidos en weedgo están por debajo de ese 0.3%</p>
+          </section>
+        </div>
+      </div>
+    
+    
+<div id="overlay"></div>
+  
+    <!----------------------- POPUP LOGIN ----------------------->
+  
+      <div id="popup">
+        <div class="popup-container">
+  
+          <button><i id="close" class="fa-solid fa-xmark"></i></button>
+          <h1>LOGIN</h1>
+  
+          <form id="loginForm" action="/login" method="POST">
+              <label for="username">Nombre de usuario:</label>
+              <input type="text" name="username" id="username" placeholder="Escribe tu nombre..." required>
+    
+              <label for="pass">Contraseña:</label>
+              <input type="password" name="password" id="pass" placeholder="Escribe tu contraseña..." required>
+              <div class="div-boton">
+                <input id="boton" class ="btn-login" type="submit" value="loguearse"></input>
+              </div>
+          </form>
+  
+        </div>
+      </div>
+    
+    
+    
+    <!----------------------- POPUP REGISTER ----------------------->
+    
+      <div id="popup2">
+        <div class="popup-container">
+  
+          <button><i id="closer" class="fa-solid fa-xmark"></i></button>
+          <h1 id ="titulo">REGISTRARSE</h1>
+  
+          <form id="registerForm" action="/register" method="POST">
+              <label for="username">Nombre de usuario:</label>
+              <input type="text" name="username" id="username" placeholder="Escribe tu nombre..." required>
+    
+              <label for="pass">Contraseña:</label>
+              <div class="div-password"> 
+                <input type="password" name="password" class="pass" id="passs" placeholder="Escribe tu contraseña" required>
+                <i id="icon" class="fa-solid fa-eye-slash"></i>
+                <i id="icon2" class="fa-solid fa-eye"></i>
+              </div>
+    
+              <label for="">Gmail:</label>
+              <input type="email" name="gmail" id="email"  placeholder="Escribe tu gmail" required>
+    
+              <input placeholder="Edad" type="number" name="edad" class="edad" min="0" required>
+    
+              <div class="boton2">
+                  <input id="boton2" type="submit" class="btn-save" value="Registrarse">
+              </div>
+          </form>
+          
+        </div>
+      </div>
+    
+    </div>  
+  </div>
 
 
 

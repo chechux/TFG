@@ -81,7 +81,7 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
         title: 'Usuario o Contraseña incorrecta',
         text: 'Por favor intentalo de nuevo',
       }).then(() => {
-        window.location.href = '/';
+        window.location.href = '/login';
       });
     }
 });
